@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Maximus - Delivering Business, Brand, Market & Revenue Growth. Professional marketing agency specializing in branding, strategy, and digital marketing.">
+    <title>MAXIMUS - Fighting Against All Odds For A Desired Outcome</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'bebas': ['Bebas Neue', 'cursive'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'maximus-red': '#C41E3A',
+                        'maximus-dark': '#0A0A0A',
+                        'maximus-gray': '#1A1A1A',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white font-montserrat overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0">
+                    <a href="#" class="logo-link">
+                        <img src="assets/maximus logo.png" alt="MAXIMUS"
+                            class="h-12 w-auto transition-transform duration-300 hover:scale-105">
+                    </a>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">HOME</a>
+                    <a href="about.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">ABOUT
+                        US</a>
+                    <a href="services.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">SERVICES</a>
+                    <a href="mirror.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">THE
+                        MIRROR</a>
+                    <a href="brands.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BIZ
+                        & BRANDS</a>
+                    <a href="portfolio.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">PORTFOLIO</a>
+                    <a href="blog.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BLOG</a>
+                    <a href="gallery.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">GALLERY</a>
+                    <a href="#contact"
+                        class="bg-maximus-red text-white px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(196,30,58,0.6)] hover:scale-105">CONTACT</a>
+                </div>
+
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-maximus-dark bg-opacity-95 backdrop-blur-lg">
+            <div class="px-6 pt-2 pb-6 space-y-4">
+                <a href="index.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">HOME</a>
+                <a href="about.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">ABOUT
+                    US</a>
+                <a href="services.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">SERVICES</a>
+                <a href="mirror.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">THE
+                    MIRROR</a>
+                <a href="brands.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">BIZ
+                    & BRANDS</a>
+                <a href="portfolio.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">PORTFOLIO</a>
+                <a href="blog.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">BLOG</a>
+                <a href="gallery.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">GALLERY</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section relative h-screen flex items-center justify-start overflow-hidden mt-20">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <div class="hero-image absolute inset-0 bg-cover bg-center"
+                style="background-image: url('assets/Hero-section.png');"></div>
+        </div>
+
+        <!-- Floating Particles -->
+        <div class="particles absolute inset-0 z-10"></div>
+
+        <!-- Hero Content -->
+        <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full h-full flex items-center">
+            <div class="hero-content opacity-0">
+                <h1 class="font-bebas text-3xl md:text-4xl lg:text-5xl leading-none mb-6 tracking-wide"
+                    style="color: #D4C5A9;">
+                    FIGHTING<br>
+                    AGAINST<br>
+                    ALL ODDS<br>
+                    FOR A<br>
+                    DESIRED<br>
+                    <span class="text-maximus-red">OUTCOME.</span>
+                </h1>
+                <button
+                    class="connect-btn group relative bg-maximus-red text-white px-8 py-3 font-bold text-xs tracking-widest uppercase overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(196,30,58,0.6)] hover:scale-105 border border-maximus-red">
+                    <span class="relative z-10">CONNECT</span>
+                    <div
+                        class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300">
+                    </div>
+                </button>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 scroll-indicator opacity-0">
+            <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+                <div class="w-1 h-3 bg-white rounded-full mt-2 animate-bounce"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center">
+            <div class="fade-up opacity-0">
+                <h2 class="font-bebas text-4xl md:text-5xl lg:text-6xl text-maximus-dark mb-8 tracking-wide">
+                    Delivering Business, Brand,<br>
+                    Market & Revenue Growth
+                </h2>
+                <div class="w-24 h-1 bg-maximus-red mx-auto mb-8"></div>
+                <p class="text-gray-700 text-base md:text-lg leading-relaxed max-w-3xl mx-auto font-light">
+                    In a competitive market, businesses and brands need to implement over-the-top strategies to move
+                    over competition both in the market space and in mind space. At Maximus, we create inspiring and
+                    compelling business, brand, product, sales & distribution, integrated marketing communication
+                    strategies to help businesses and brands achieve their own objectives.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 lg:py-32 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <!-- Section Title -->
+            <div class="text-center mb-16 fade-up opacity-0">
+                <h2 class="font-bebas text-4xl md:text-5xl lg:text-6xl text-maximus-dark tracking-wide">
+                    OUR SERVICES
+                </h2>
+                <div class="w-24 h-1 bg-maximus-red mx-auto mt-6"></div>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Service Card 1 -->
+                <div class="service-card group relative h-80 overflow-hidden cursor-pointer opacity-0">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('assets/Service1.png');"></div>
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/75 transition-all duration-500"></div>
+                    <div class="relative h-full flex items-center justify-center p-8">
+                        <h3
+                            class="font-bebas text-3xl text-white text-center tracking-wider leading-tight transform group-hover:-translate-y-2 transition-transform duration-500">
+                            BRANDING &<br>CREATIVE SERVICES
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="service-card group relative h-80 overflow-hidden cursor-pointer opacity-0">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('assets/Service2.png');"></div>
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/75 transition-all duration-500"></div>
+                    <div class="relative h-full flex items-center justify-center p-8">
+                        <h3
+                            class="font-bebas text-3xl text-white text-center tracking-wider leading-tight transform group-hover:-translate-y-2 transition-transform duration-500">
+                            BRAND STRATEGY<br>DEVELOPMENT
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="service-card group relative h-80 overflow-hidden cursor-pointer opacity-0">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('assets/Service3.png');"></div>
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/75 transition-all duration-500"></div>
+                    <div class="relative h-full flex items-center justify-center p-8">
+                        <h3
+                            class="font-bebas text-3xl text-white text-center tracking-wider leading-tight transform group-hover:-translate-y-2 transition-transform duration-500">
+                            CONTENT<br>CREATION
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Service Card 4 -->
+                <div class="service-card group relative h-80 overflow-hidden cursor-pointer opacity-0">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('assets/Service4.png');"></div>
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/75 transition-all duration-500"></div>
+                    <div class="relative h-full flex items-center justify-center p-8">
+                        <h3
+                            class="font-bebas text-3xl text-white text-center tracking-wider leading-tight transform group-hover:-translate-y-2 transition-transform duration-500">
+                            MARKET RESEARCH<br>& ANALYSIS
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Service Card 5 -->
+                <div class="service-card group relative h-80 overflow-hidden cursor-pointer opacity-0">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('assets/Service5.png');"></div>
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/75 transition-all duration-500"></div>
+                    <div class="relative h-full flex items-center justify-center p-8">
+                        <h3
+                            class="font-bebas text-3xl text-white text-center tracking-wider leading-tight transform group-hover:-translate-y-2 transition-transform duration-500">
+                            DIGITAL<br>MARKETING
+                        </h3>
+                    </div>
+                </div>
+
+                <!-- Service Card 6 -->
+                <div class="service-card group relative h-80 overflow-hidden cursor-pointer opacity-0">
+                    <div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                        style="background-image: url('assets/Service6.png');"></div>
+                    <div class="absolute inset-0 bg-black/60 group-hover:bg-black/75 transition-all duration-500"></div>
+                    <div class="relative h-full flex items-center justify-center p-8">
+                        <h3
+                            class="font-bebas text-3xl text-white text-center tracking-wider leading-tight transform group-hover:-translate-y-2 transition-transform duration-500">
+                            PERFORMANCE<br>MARKETING
+                        </h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-2xl overflow-hidden">
+                <!-- Left Side - Red Block -->
+                <div class="bg-maximus-red flex items-center justify-center p-12 lg:p-16 fade-left opacity-0">
+                    <h2
+                        class="font-bebas text-4xl md:text-5xl lg:text-6xl text-white text-center leading-tight tracking-wide">
+                        APPROACH US<br>
+                        FOR YOUR<br>
+                        TAILOR MADE<br>
+                        SOLUTION
+                    </h2>
+                </div>
+
+                <!-- Right Side - Contact Form -->
+                <div class="bg-maximus-dark p-12 lg:p-16 fade-right opacity-0">
+                    <div class="mb-8">
+                        <h3 class="font-bebas text-3xl text-white tracking-wider mb-2">MAXIMUS</h3>
+                        <h4 class="font-bebas text-2xl text-white tracking-wider">INTEGRATED.</h4>
+                    </div>
+
+                    <form id="contact-form" class="space-y-6">
+                        <div>
+                            <input type="text" id="name" name="name" placeholder="Name" required
+                                class="w-full bg-transparent border-b-2 border-gray-600 text-white placeholder-gray-500 py-3 px-0 focus:outline-none focus:border-maximus-red transition-colors duration-300">
+                        </div>
+
+                        <div>
+                            <input type="email" id="email" name="email" placeholder="Email ID" required
+                                class="w-full bg-transparent border-b-2 border-gray-600 text-white placeholder-gray-500 py-3 px-0 focus:outline-none focus:border-maximus-red transition-colors duration-300">
+                        </div>
+
+                        <div>
+                            <textarea id="message" name="message" rows="4" placeholder="Message" required
+                                class="w-full bg-transparent border-b-2 border-gray-600 text-white placeholder-gray-500 py-3 px-0 focus:outline-none focus:border-maximus-red transition-colors duration-300 resize-none"></textarea>
+                        </div>
+
+                        <div class="pt-4">
+                            <button type="submit"
+                                class="bg-maximus-red text-white px-10 py-3 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(196,30,58,0.6)] hover:scale-105">
+                                CONNECT
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-maximus-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Registered Address -->
+                <div>
+                    <h4 class="font-bebas text-xl tracking-wider mb-4">REGISTERED ADDRESS</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Maximus Integrated<br>
+                        123 Business Avenue<br>
+                        Corporate District<br>
+                        City, State 560001<br>
+                        India
+                    </p>
+                </div>
+
+                <!-- Customer Policies -->
+                <div>
+                    <h4 class="font-bebas text-xl tracking-wider mb-4">CUSTOMER POLICIES</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Privacy
+                                Policy</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Terms
+                                & Conditions</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Refund
+                                Policy</a></li>
+                        <li><a href="#"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">FAQ</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Social Media -->
+                <div>
+                    <h4 class="font-bebas text-xl tracking-wider mb-4">CONNECT WITH US</h4>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2026 Maximus Integrated. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>
