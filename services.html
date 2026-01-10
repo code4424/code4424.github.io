@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Maximus Integrated Services - Branding, Marketing Strategy, Digital Marketing, and Performance Marketing">
+    <title>Our Services - MAXIMUS Integrated</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'bebas': ['Bebas Neue', 'cursive'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'maximus-red': '#C41E3A',
+                        'maximus-dark': '#0A0A0A',
+                        'maximus-gray': '#1A1A1A',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body class="bg-white font-montserrat">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="logo-link">
+                        <img src="assets/maximus logo.png" alt="MAXIMUS"
+                            class="h-12 w-auto transition-transform duration-300 hover:scale-105">
+                    </a>
+                </div>
+
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">HOME</a>
+                    <a href="about.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">ABOUT
+                        US</a>
+                    <a href="services.html"
+                        class="nav-link text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">SERVICES</a>
+                    <a href="mirror.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">THE
+                        MIRROR</a>
+                    <a href="brands.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BIZ
+                        & BRANDS</a>
+                    <a href="portfolio.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">PORTFOLIO</a>
+                    <a href="blog.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BLOG</a>
+                    <a href="gallery.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">GALLERY</a>
+                    <a href="index.html#contact"
+                        class="bg-maximus-red text-white px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(196,30,58,0.6)] hover:scale-105">CONTACT</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-maximus-dark bg-opacity-95 backdrop-blur-lg">
+            <div class="px-6 pt-2 pb-6 space-y-4">
+                <a href="index.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">HOME</a>
+                <a href="about.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">ABOUT
+                    US</a>
+                <a href="services.html"
+                    class="block text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">SERVICES</a>
+                <a href="mirror.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">THE
+                    MIRROR</a>
+                <a href="brands.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">BIZ
+                    & BRANDS</a>
+                <a href="portfolio.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">PORTFOLIO</a>
+                <a href="blog.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">BLOG</a>
+                <a href="gallery.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">GALLERY</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-96 flex items-center justify-center overflow-hidden mt-20 bg-maximus-dark">
+        <div class="absolute inset-0 bg-gradient-to-r from-maximus-dark via-maximus-gray to-maximus-dark opacity-90">
+        </div>
+        <div class="relative z-10 text-center fade-up opacity-0">
+            <h1 class="font-bebas text-5xl md:text-6xl lg:text-7xl text-white mb-4 tracking-wider">OUR SERVICES</h1>
+            <div class="w-24 h-1 bg-maximus-red mx-auto mb-4"></div>
+            <p class="text-gray-300 text-lg max-w-2xl mx-auto px-6">Strategic solutions for brand growth and market
+                dominance</p>
+        </div>
+    </section>
+
+    <!-- Services Overview Grid -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <a href="#branding"
+                    class="service-card opacity-0 group bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <div
+                        class="w-16 h-16 bg-maximus-red rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-palette text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bebas text-2xl text-maximus-dark mb-3 tracking-wide">BRANDING & CREATIVE</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Strategic brand development and visual identity
+                        design</p>
+                </a>
+
+                <!-- Service 2 -->
+                <a href="#marketing"
+                    class="service-card opacity-0 group bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <div
+                        class="w-16 h-16 bg-maximus-red rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bebas text-2xl text-maximus-dark mb-3 tracking-wide">MARKETING STRATEGY</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">Market research, strategic planning, and campaign
+                        management</p>
+                </a>
+
+                <!-- Service 3 -->
+                <a href="#digital"
+                    class="service-card opacity-0 group bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <div
+                        class="w-16 h-16 bg-maximus-red rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+                        <i class="fas fa-laptop-code text-white text-2xl"></i>
+                    </div>
+                    <h3 class="font-bebas text-2xl text-maximus-dark mb-3 tracking-wide">DIGITAL MARKETING</h3>
+                    <p class="text-gray-600 text-sm leading-relaxed">SEO, SEM, social media, and content marketing</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Branding & Creative Services -->
+    <section id="branding" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="fade-up opacity-0 text-center mb-16">
+                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">BRANDING & CREATIVE
+                    SERVICES</h2>
+                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Brand Strategy -->
+                <div class="fade-up opacity-0">
+                    <h3 class="font-bebas text-2xl text-maximus-red mb-4 tracking-wide">BRAND STRATEGY DEVELOPMENT</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Brand Positioning:</strong> Defining your unique value proposition</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Audience Segmentation:</strong> Identifying and targeting specific
+                                demographics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Messaging Framework:</strong> Crafting consistent brand messages</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Competitive Analysis:</strong> Assessing market position relative to
+                                competitors</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Visual Identity -->
+                <div class="fade-up opacity-0">
+                    <h3 class="font-bebas text-2xl text-maximus-red mb-4 tracking-wide">VISUAL IDENTITY DESIGN</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Logo Creation:</strong> Designing a memorable brand symbol</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Color Palette Selection:</strong> Choosing colors that represent your
+                                brand</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Typography:</strong> Selecting fonts that align with brand personality</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Brand Guidelines:</strong> Documenting standards for consistent use</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Content Creation -->
+                <div class="fade-up opacity-0 md:col-span-2">
+                    <h3 class="font-bebas text-2xl text-maximus-red mb-4 tracking-wide">CONTENT CREATION</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Copywriting:</strong> Crafting compelling messages for various
+                                    platforms</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Graphic Design:</strong> Designing visuals for digital and print
+                                    media</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Video Production:</strong> Creating promotional and explainer
+                                    videos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Photography:</strong> Capturing images that reflect your brand
+                                    essence</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketing & Business Strategy -->
+    <section id="marketing" class="py-20 lg:py-32 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="fade-up opacity-0 text-center mb-16">
+                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">MARKETING & BUSINESS
+                    STRATEGY</h2>
+                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Market Research -->
+                <div class="fade-up opacity-0">
+                    <h3 class="font-bebas text-2xl text-maximus-red mb-4 tracking-wide">MARKET RESEARCH & ANALYSIS</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Surveys & Interviews:</strong> Gathering customer insights</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Data Analysis:</strong> Interpreting market trends and behaviors</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Competitor Benchmarking:</strong> Comparing performance metrics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Opportunity Identification:</strong> Spotting areas for growth</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Strategic Planning -->
+                <div class="fade-up opacity-0">
+                    <h3 class="font-bebas text-2xl text-maximus-red mb-4 tracking-wide">STRATEGIC PLANNING</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Goal Setting:</strong> Defining clear, measurable objectives</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Resource Allocation:</strong> Optimizing budget and manpower</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Timeline Development:</strong> Establishing project milestones</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Risk Assessment:</strong> Identifying potential challenges and
+                                solutions</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Campaign Management -->
+                <div class="fade-up opacity-0 md:col-span-2">
+                    <h3 class="font-bebas text-2xl text-maximus-red mb-4 tracking-wide">CAMPAIGN MANAGEMENT</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Integrated Campaigns:</strong> Coordinating across multiple
+                                    channels</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Performance Tracking:</strong> Monitoring KPIs and adjusting
+                                    strategies</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Budget Management:</strong> Ensuring cost-effective execution</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Post-Campaign Analysis:</strong> Evaluating success and areas for
+                                    improvement</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Digital Marketing -->
+    <section id="digital" class="py-20 lg:py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="fade-up opacity-0 text-center mb-16">
+                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">DIGITAL MARKETING</h2>
+                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            </div>
+
+            <div class="space-y-16">
+                <!-- Website Design -->
+                <div class="fade-up opacity-0">
+                    <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide">WEBSITE DESIGN & DEVELOPMENT
+                    </h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Responsive Design:</strong> Seamless adaptation across devices</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>UX Optimization:</strong> Intuitive navigation and engagement</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>CMS Implementation:</strong> WordPress, Drupal platforms</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>E-commerce Integration:</strong> Secure payment gateways</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Performance Optimization:</strong> Enhanced site speed</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- SEO & SEM -->
+                <div class="fade-up opacity-0">
+                    <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide">SEO & SEM</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <h4 class="font-bold text-maximus-dark mb-3">Search Engine Optimization</h4>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                    <span>Keyword Research & Strategy</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                    <span>On-Page & Technical SEO</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                    <span>Backlink Strategy</span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4 class="font-bold text-maximus-dark mb-3">Search Engine Marketing</h4>
+                            <ul class="space-y-3 text-gray-700">
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                    <span>Google Ads Campaigns</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                    <span>A/B Testing & Optimization</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                    <span>Conversion Tracking</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media Marketing -->
+                <div class="fade-up opacity-0">
+                    <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide">SOCIAL MEDIA MARKETING</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-bebas text-lg text-maximus-dark mb-3">META (FACEBOOK)</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li>• Page Management</li>
+                                <li>• Targeted Ad Campaigns</li>
+                                <li>• Event Promotion</li>
+                                <li>• Insights Analysis</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-bebas text-lg text-maximus-dark mb-3">INSTAGRAM</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li>• Content Creation</li>
+                                <li>• Hashtag Strategy</li>
+                                <li>• Influencer Collaborations</li>
+                                <li>• IGTV & Reels</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-bebas text-lg text-maximus-dark mb-3">LINKEDIN</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li>• Company Page Optimization</li>
+                                <li>• Thought Leadership</li>
+                                <li>• B2B Lead Generation</li>
+                                <li>• Professional Networking</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-bebas text-lg text-maximus-dark mb-3">X (TWITTER)</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li>• Tweet Scheduling</li>
+                                <li>• Trend Monitoring</li>
+                                <li>• Customer Service</li>
+                                <li>• Analytics Reporting</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-bebas text-lg text-maximus-dark mb-3">YOUTUBE</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li>• Channel Management</li>
+                                <li>• Video Production</li>
+                                <li>• SEO Optimization</li>
+                                <li>• Community Engagement</li>
+                            </ul>
+                        </div>
+                        <div class="bg-gray-50 p-6 rounded-lg">
+                            <h4 class="font-bebas text-lg text-maximus-dark mb-3">CONTENT MARKETING</h4>
+                            <ul class="space-y-2 text-sm text-gray-700">
+                                <li>• Blog Writing</li>
+                                <li>• Infographics</li>
+                                <li>• E-books & Whitepapers</li>
+                                <li>• Email Newsletters</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Marketing -->
+                <div class="fade-up opacity-0">
+                    <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide">PERFORMANCE MARKETING</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Affiliate Marketing:</strong> Strategic partnerships for brand
+                                    promotion</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Retargeting Campaigns:</strong> Re-engaging visitors who didn't
+                                    convert</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Funnel Optimization:</strong> Streamlining the customer journey</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Data Analysis:</strong> Assessing metrics to refine strategies</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-maximus-red">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center fade-up opacity-0">
+            <h2 class="font-bebas text-4xl md:text-5xl text-white mb-6 tracking-wide">READY TO ELEVATE YOUR BRAND?</h2>
+            <p class="text-white text-lg mb-8">Let's discuss how our services can drive your growth</p>
+            <a href="index.html#contact"
+                class="inline-block bg-white text-maximus-red px-10 py-4 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:scale-105">
+                GET IN TOUCH
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-maximus-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bebas text-xl tracking-wider mb-4">REGISTERED ADDRESS</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Maximus Integrated<br>
+                        123 Business Avenue<br>
+                        Corporate District<br>
+                        City, State 560001<br>
+                        India
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bebas text-xl tracking-wider mb-4">QUICK LINKS</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">About
+                                Us</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Services</a>
+                        </li>
+                        <li><a href="portfolio.html"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Portfolio</a>
+                        </li>
+                        <li><a href="index.html#contact"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bebas text-xl tracking-wider mb-4">CONNECT WITH US</h4>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2026 Maximus Integrated. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

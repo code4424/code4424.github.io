@@ -1,0 +1,374 @@
+/* ============================================
+   MAXIMUS - Custom Styles
+   ============================================ */
+
+/* Global Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+/* ============================================
+   Navigation Styles
+   ============================================ */
+
+#navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #C41E3A;
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* ============================================
+   Hero Section Styles
+   ============================================ */
+
+.hero-section {
+    position: relative;
+}
+
+.hero-image {
+    animation: slowZoom 20s ease-in-out infinite alternate;
+}
+
+@keyframes slowZoom {
+    0% {
+        transform: scale(1);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+/* Floating Particles Effect */
+.particles {
+    background-image:
+        radial-gradient(2px 2px at 20% 30%, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(2px 2px at 60% 70%, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 50% 50%, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 80% 10%, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(2px 2px at 90% 60%, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 33% 80%, rgba(255, 255, 255, 0.3), transparent);
+    background-size: 200% 200%;
+    animation: particleFloat 15s ease-in-out infinite;
+    opacity: 0.4;
+}
+
+@keyframes particleFloat {
+
+    0%,
+    100% {
+        background-position: 0% 0%, 100% 100%, 50% 50%, 80% 10%, 90% 60%, 33% 80%;
+    }
+
+    50% {
+        background-position: 100% 100%, 0% 0%, 60% 40%, 70% 20%, 80% 70%, 40% 90%;
+    }
+}
+
+/* Hero Content Animation */
+.hero-content {
+    animation: heroFadeIn 1.5s ease-out forwards;
+    animation-delay: 0.3s;
+}
+
+@keyframes heroFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Scroll Indicator Animation */
+.scroll-indicator {
+    animation: scrollFadeIn 1s ease-out forwards;
+    animation-delay: 1.5s;
+}
+
+@keyframes scrollFadeIn {
+    from {
+        opacity: 0;
+        transform: translateX(-50%) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(-50%) translateY(0);
+    }
+}
+
+/* Connect Button Glow Effect */
+.connect-btn {
+    position: relative;
+    box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
+}
+
+.connect-btn::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    background: linear-gradient(45deg, #C41E3A, #FF4458, #C41E3A);
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    z-index: -1;
+    filter: blur(10px);
+}
+
+.connect-btn:hover::before {
+    opacity: 0.7;
+    animation: glowPulse 1.5s ease-in-out infinite;
+}
+
+@keyframes glowPulse {
+
+    0%,
+    100% {
+        opacity: 0.7;
+    }
+
+    50% {
+        opacity: 1;
+    }
+}
+
+/* ============================================
+   Scroll Animations
+   ============================================ */
+
+.fade-up {
+    transition: all 0.8s ease-out;
+}
+
+.fade-up.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.fade-up:not(.visible) {
+    transform: translateY(50px);
+}
+
+.fade-left {
+    transition: all 0.8s ease-out;
+}
+
+.fade-left.visible {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.fade-left:not(.visible) {
+    transform: translateX(-50px);
+}
+
+.fade-right {
+    transition: all 0.8s ease-out;
+}
+
+.fade-right.visible {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+}
+
+.fade-right:not(.visible) {
+    transform: translateX(50px);
+}
+
+/* ============================================
+   Service Cards Animation
+   ============================================ */
+
+.service-card {
+    transition: all 0.5s ease-out;
+}
+
+.service-card.visible {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.service-card:not(.visible) {
+    transform: translateY(30px);
+}
+
+/* Stagger animation for service cards */
+.service-card:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.service-card:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.service-card:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.service-card:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.service-card:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+.service-card:nth-child(6) {
+    transition-delay: 0.6s;
+}
+
+/* Service Card Shine Effect */
+.service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.7s ease;
+    z-index: 1;
+}
+
+.service-card:hover::before {
+    left: 100%;
+}
+
+/* ============================================
+   Form Styles
+   ============================================ */
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus {
+    -webkit-text-fill-color: white;
+    -webkit-box-shadow: 0 0 0px 1000px #0A0A0A inset;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+/* Input Focus Glow */
+input:focus,
+textarea:focus {
+    box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+}
+
+/* ============================================
+   Responsive Adjustments
+   ============================================ */
+
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 3rem;
+    }
+
+    .service-card {
+        height: 300px;
+    }
+}
+
+@media (max-width: 640px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+}
+
+/* ============================================
+   Utility Classes
+   ============================================ */
+
+.text-shadow {
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+}
+
+.backdrop-blur-strong {
+    backdrop-filter: blur(20px);
+}
+
+/* ============================================
+   Loading Animation
+   ============================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+body {
+    animation: fadeIn 0.5s ease-in;
+}
+
+/* ============================================
+   Selection Styles
+   ============================================ */
+
+::selection {
+    background: #C41E3A;
+    color: white;
+}
+
+::-moz-selection {
+    background: #C41E3A;
+    color: white;
+}
+
+/* ============================================
+   Scrollbar Styles
+   ============================================ */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0A0A0A;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #C41E3A;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #A01830;
+}

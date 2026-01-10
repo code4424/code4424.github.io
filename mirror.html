@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Mirror - Maximus Integrated's proprietary brand evaluation tool">
+    <title>The Mirror - MAXIMUS Integrated</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'bebas': ['Bebas Neue', 'cursive'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'maximus-red': '#C41E3A',
+                        'maximus-dark': '#0A0A0A',
+                        'maximus-gray': '#1A1A1A',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Mobile-specific styles for Mirror page */
+        @media (max-width: 768px) {
+            .service-card {
+                margin-bottom: 1.5rem !important;
+                border-left: 4px solid #C41E3A;
+                padding: 1rem !important;
+            }
+
+            .service-card .flex.items-start {
+                margin-bottom: 1rem !important;
+            }
+
+            .service-card h3 {
+                font-size: 1rem !important;
+                line-height: 1.3;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .service-card ul {
+                margin-left: 0 !important;
+                padding-left: 0 !important;
+            }
+
+            .service-card ul li {
+                font-size: 0.813rem !important;
+                line-height: 1.5;
+                margin-bottom: 0.5rem !important;
+            }
+
+            .service-card ul li span,
+            .service-card p {
+                font-size: 0.813rem !important;
+                line-height: 1.5;
+            }
+
+            .service-card .w-16.h-16 {
+                width: 2.5rem !important;
+                height: 2.5rem !important;
+                margin-right: 0.75rem !important;
+            }
+
+            .service-card .w-20.h-20 {
+                width: 3rem !important;
+                height: 3rem !important;
+            }
+
+            .service-card i.text-2xl {
+                font-size: 1rem !important;
+            }
+
+            .service-card i.text-3xl {
+                font-size: 1.25rem !important;
+            }
+
+            .service-card i.fa-check-circle,
+            .service-card i.fa-arrow-right {
+                font-size: 0.875rem !important;
+                margin-right: 0.5rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white font-montserrat">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="logo-link">
+                        <img src="assets/maximus logo.png" alt="MAXIMUS"
+                            class="h-12 w-auto transition-transform duration-300 hover:scale-105">
+                    </a>
+                </div>
+
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">HOME</a>
+                    <a href="about.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">ABOUT
+                        US</a>
+                    <a href="services.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">SERVICES</a>
+                    <a href="mirror.html"
+                        class="nav-link text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">THE
+                        MIRROR</a>
+                    <a href="brands.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BIZ
+                        & BRANDS</a>
+                    <a href="portfolio.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">PORTFOLIO</a>
+                    <a href="blog.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BLOG</a>
+                    <a href="gallery.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">GALLERY</a>
+                    <a href="index.html#contact"
+                        class="bg-maximus-red text-white px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(196,30,58,0.6)] hover:scale-105">CONTACT</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-maximus-dark bg-opacity-95 backdrop-blur-lg">
+            <div class="px-6 pt-2 pb-6 space-y-4">
+                <a href="index.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">HOME</a>
+                <a href="about.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">ABOUT
+                    US</a>
+                <a href="services.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">SERVICES</a>
+                <a href="mirror.html"
+                    class="block text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">THE
+                    MIRROR</a>
+                <a href="brands.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">BIZ
+                    & BRANDS</a>
+                <a href="portfolio.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">PORTFOLIO</a>
+                <a href="blog.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">BLOG</a>
+                <a href="gallery.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">GALLERY</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-96 flex items-center justify-center overflow-hidden mt-20 bg-maximus-dark">
+        <div class="absolute inset-0 bg-gradient-to-r from-maximus-dark via-maximus-gray to-maximus-dark opacity-90">
+        </div>
+        <div class="relative z-10 text-center fade-up opacity-0">
+            <h1 class="font-bebas text-5xl md:text-6xl lg:text-7xl text-white mb-4 tracking-wider">THE MIRROR</h1>
+            <div class="w-24 h-1 bg-maximus-red mx-auto mb-4"></div>
+            <p class="text-gray-300 text-lg max-w-2xl mx-auto px-6">Our Proprietary Brand Evaluation Tool</p>
+        </div>
+    </section>
+
+    <!-- What is Mirror -->
+    <section class="py-20 lg:py-32 bg-white">
+        <div class="max-w-5xl mx-auto px-6 lg:px-8">
+            <div class="fade-up opacity-0 text-center mb-16">
+                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">WHAT IS MIRROR?</h2>
+                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            </div>
+            <div class="fade-up opacity-0">
+                <p class="text-gray-700 text-lg leading-relaxed text-center max-w-4xl mx-auto mb-8">
+                    Mirror is <span class="font-bold text-maximus-red">Maximus Integrated's</span> unique proprietary
+                    tool designed to assess and enhance your brand's performance across various critical parameters.
+                    Like a mirror reflects your true image, our tool reveals the authentic state of your brand in the
+                    marketplace.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Features -->
+    <section class="py-20 lg:py-32 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="fade-up opacity-0 text-center mb-16">
+                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">KEY FEATURES</h2>
+                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Feature 1 -->
+                <div
+                    class="service-card opacity-0 bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <div class="flex items-start mb-6">
+                        <div
+                            class="w-16 h-16 bg-maximus-red rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                            <i class="fas fa-heartbeat text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bebas text-xl md:text-2xl text-maximus-dark mb-3 tracking-wide">BRAND HEALTH
+                                ASSESSMENT
+                            </h3>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-sm md:text-base text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span>Evaluating brand awareness across target demographics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span>Measuring brand perception and sentiment</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span>Assessing customer loyalty and retention metrics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span>Identifying brand strength and weaknesses</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 2 -->
+                <div
+                    class="service-card opacity-0 bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <div class="flex items-start mb-6">
+                        <div
+                            class="w-16 h-16 bg-maximus-red rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                            <i class="fas fa-chart-bar text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bebas text-2xl text-maximus-dark mb-3 tracking-wide">COMPETITIVE ANALYSIS
+                            </h3>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span>Benchmarking against industry standards</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span>Comparing performance with key competitors</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span>Identifying market gaps and opportunities</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span>Understanding competitive positioning</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Feature 3 -->
+                <div
+                    class="service-card opacity-0 bg-white p-6 md:p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300 md:col-span-2">
+                    <div class="flex items-start mb-6">
+                        <div
+                            class="w-16 h-16 bg-maximus-red rounded-full flex items-center justify-center flex-shrink-0 mr-4">
+                            <i class="fas fa-lightbulb text-white text-2xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bebas text-2xl text-maximus-dark mb-3 tracking-wide">STRATEGIC INSIGHTS</h3>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span>Providing actionable recommendations for brand improvement</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span>Data-driven insights for strategic decision-making</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span>Identifying growth opportunities and market trends</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span>Optimizing marketing and communication strategies</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits -->
+    <section class="py-20 lg:py-32 bg-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="fade-up opacity-0 text-center mb-16">
+                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">BENEFITS</h2>
+                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Benefit 1 -->
+                <div class="service-card opacity-0 text-center px-4">
+                    <div class="w-20 h-20 bg-maximus-red rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-brain text-white text-3xl"></i>
+                    </div>
+                    <h3 class="font-bebas text-lg md:text-xl text-maximus-dark mb-3 tracking-wide">INFORMED
+                        DECISION-MAKING</h3>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed">
+                        Make strategic decisions based on comprehensive data and deep market insights
+                    </p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="service-card opacity-0 text-center">
+                    <div class="w-20 h-20 bg-maximus-red rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-bullseye text-white text-3xl"></i>
+                    </div>
+                    <h3 class="font-bebas text-xl text-maximus-dark mb-3 tracking-wide">ENHANCED POSITIONING</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Improve brand positioning and market relevance through targeted strategies
+                    </p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="service-card opacity-0 text-center">
+                    <div class="w-20 h-20 bg-maximus-red rounded-full mx-auto mb-6 flex items-center justify-center">
+                        <i class="fas fa-chart-line text-white text-3xl"></i>
+                    </div>
+                    <h3 class="font-bebas text-xl text-maximus-dark mb-3 tracking-wide">IMPROVED ROI</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Maximize return on marketing initiatives with data-backed optimization
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-20 lg:py-32 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="fade-up opacity-0 text-center mb-16">
+                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">HOW IT WORKS</h2>
+                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <!-- Step 1 -->
+                <div class="service-card opacity-0 text-center">
+                    <div class="w-16 h-16 bg-maximus-red rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white font-bebas text-2xl">1</span>
+                    </div>
+                    <h3 class="font-bebas text-lg text-maximus-dark mb-2 tracking-wide">DATA COLLECTION</h3>
+                    <p class="text-gray-600 text-sm">Gather comprehensive brand and market data</p>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="service-card opacity-0 text-center">
+                    <div class="w-16 h-16 bg-maximus-red rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white font-bebas text-2xl">2</span>
+                    </div>
+                    <h3 class="font-bebas text-lg text-maximus-dark mb-2 tracking-wide">ANALYSIS</h3>
+                    <p class="text-gray-600 text-sm">Deep dive into metrics and performance indicators</p>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="service-card opacity-0 text-center">
+                    <div class="w-16 h-16 bg-maximus-red rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white font-bebas text-2xl">3</span>
+                    </div>
+                    <h3 class="font-bebas text-lg text-maximus-dark mb-2 tracking-wide">INSIGHTS</h3>
+                    <p class="text-gray-600 text-sm">Generate actionable insights and recommendations</p>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="service-card opacity-0 text-center">
+                    <div class="w-16 h-16 bg-maximus-red rounded-full mx-auto mb-4 flex items-center justify-center">
+                        <span class="text-white font-bebas text-2xl">4</span>
+                    </div>
+                    <h3 class="font-bebas text-lg text-maximus-dark mb-2 tracking-wide">STRATEGY</h3>
+                    <p class="text-gray-600 text-sm">Implement data-driven strategic improvements</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-20 bg-maximus-red">
+        <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center fade-up opacity-0">
+            <h2 class="font-bebas text-4xl md:text-5xl text-white mb-6 tracking-wide">READY TO SEE YOUR BRAND'S TRUE
+                REFLECTION?</h2>
+            <p class="text-white text-lg mb-8">Discover insights that drive growth with The Mirror</p>
+            <a href="index.html#contact"
+                class="inline-block bg-white text-maximus-red px-10 py-4 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:scale-105">
+                REQUEST A DEMO
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-maximus-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bebas text-xl tracking-wider mb-4">REGISTERED ADDRESS</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Maximus Integrated<br>
+                        123 Business Avenue<br>
+                        Corporate District<br>
+                        City, State 560001<br>
+                        India
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bebas text-xl tracking-wider mb-4">QUICK LINKS</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">About
+                                Us</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Services</a>
+                        </li>
+                        <li><a href="portfolio.html"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Portfolio</a>
+                        </li>
+                        <li><a href="index.html#contact"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bebas text-xl tracking-wider mb-4">CONNECT WITH US</h4>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2026 Maximus Integrated. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>

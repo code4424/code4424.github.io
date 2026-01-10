@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Maximus Integrated Blog - Insights on marketing, branding, and business strategy">
+    <title>Blog - MAXIMUS Integrated</title>
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/custom.css">
+
+    <!-- Tailwind Config -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        'bebas': ['Bebas Neue', 'cursive'],
+                        'montserrat': ['Montserrat', 'sans-serif'],
+                    },
+                    colors: {
+                        'maximus-red': '#C41E3A',
+                        'maximus-dark': '#0A0A0A',
+                        'maximus-gray': '#1A1A1A',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .blog-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .blog-content.active {
+            max-height: 600px;
+            overflow-y: auto;
+            overflow-x: hidden;
+        }
+
+        /* Custom scrollbar styling */
+        .blog-content::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .blog-content::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 4px;
+        }
+
+        .blog-content::-webkit-scrollbar-thumb {
+            background: #C41E3A;
+            border-radius: 4px;
+        }
+
+        .blog-content::-webkit-scrollbar-thumb:hover {
+            background: #a01830;
+        }
+
+        .blog-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            background-color: #f9fafb;
+        }
+
+        .expand-icon {
+            transition: transform 0.3s ease;
+            flex-shrink: 0;
+        }
+
+        .expand-icon.rotated {
+            transform: rotate(180deg);
+        }
+
+        .blog-title {
+            line-height: 1.2;
+            word-wrap: break-word;
+        }
+
+        .blog-description {
+            line-height: 1.5;
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .blog-card {
+                border-left: 4px solid #C41E3A;
+                padding: 0.625rem 0.75rem !important;
+            }
+
+            .blog-title {
+                font-size: 1rem !important;
+                line-height: 1.2;
+                margin-bottom: 0.25rem !important;
+                font-weight: 700;
+            }
+
+            .blog-description {
+                font-size: 0.688rem;
+                line-height: 1.25;
+                margin-bottom: 0.25rem !important;
+                color: #6b7280;
+            }
+
+            .service-card {
+                margin-bottom: 0.625rem !important;
+            }
+
+            .expand-icon {
+                font-size: 1rem !important;
+            }
+
+            .blog-content.active {
+                max-height: 400px;
+            }
+
+            /* Reduce gap in flex container */
+            .blog-card .flex {
+                gap: 0.5rem !important;
+            }
+
+            /* Make category section more compact */
+            .blog-card .flex.items-center {
+                margin-top: 0;
+            }
+
+            .blog-card .flex.items-center i {
+                font-size: 0.688rem !important;
+            }
+
+            .blog-card .flex.items-center span {
+                font-size: 0.688rem !important;
+            }
+
+            /* Mobile Modal Popup */
+            .blog-modal {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(10, 10, 10, 0.95);
+                z-index: 9999;
+                overflow-y: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+
+            .blog-modal.active {
+                display: block;
+                animation: fadeIn 0.3s ease;
+            }
+
+            .blog-modal-content {
+                background: white;
+                margin: 1rem;
+                margin-top: 4rem;
+                margin-bottom: 2rem;
+                border-radius: 0.5rem;
+                border-left: 4px solid #C41E3A;
+                box-shadow: 0 10px 40px rgba(196, 30, 58, 0.3);
+                max-width: 600px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .blog-modal-header {
+                padding: 1rem;
+                border-bottom: 2px solid #C41E3A;
+                position: sticky;
+                top: 0;
+                background: white;
+                z-index: 10;
+                border-radius: 0.5rem 0.5rem 0 0;
+            }
+
+            .blog-modal-body {
+                padding: 1rem;
+                max-height: calc(100vh - 8rem);
+                overflow-y: auto;
+            }
+
+            /* Modal content text sizes */
+            .blog-modal-body p {
+                font-size: 0.875rem !important;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+                color: #374151;
+            }
+
+            .blog-modal-body h3,
+            .blog-modal-body h4 {
+                font-size: 1rem !important;
+                font-weight: 700;
+                margin-top: 1.5rem;
+                margin-bottom: 0.75rem;
+                color: #1f2937;
+            }
+
+            .blog-modal-body ul,
+            .blog-modal-body ol {
+                font-size: 0.875rem !important;
+                line-height: 1.6;
+                margin-bottom: 1rem;
+                padding-left: 1.5rem;
+            }
+
+            .blog-modal-body li {
+                margin-bottom: 0.5rem;
+            }
+
+            .blog-modal-body strong {
+                font-weight: 700;
+                color: #C41E3A;
+            }
+
+            .blog-modal-close {
+                position: fixed;
+                top: 1rem;
+                right: 1rem;
+                width: 2.5rem;
+                height: 2.5rem;
+                background: #C41E3A;
+                color: white;
+                border: none;
+                border-radius: 50%;
+                font-size: 1.25rem;
+                cursor: pointer;
+                z-index: 10000;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 12px rgba(196, 30, 58, 0.4);
+            }
+
+            @keyframes fadeIn {
+                from {
+                    opacity: 0;
+                }
+
+                to {
+                    opacity: 1;
+                }
+            }
+
+            /* Hide desktop expand on mobile */
+            .blog-content {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+
+<body class="bg-white font-montserrat">
+
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-white shadow-md">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="logo-link">
+                        <img src="assets/maximus logo.png" alt="MAXIMUS"
+                            class="h-12 w-auto transition-transform duration-300 hover:scale-105">
+                    </a>
+                </div>
+
+                <div class="hidden lg:flex items-center space-x-8">
+                    <a href="index.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">HOME</a>
+                    <a href="about.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">ABOUT
+                        US</a>
+                    <a href="services.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">SERVICES</a>
+                    <a href="mirror.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">THE
+                        MIRROR</a>
+                    <a href="brands.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BIZ
+                        & BRANDS</a>
+                    <a href="portfolio.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">PORTFOLIO</a>
+                    <a href="blog.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BLOG</a>
+                    <a href="gallery.html"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">GALLERY</a>
+                    <a href="index.html#contact"
+                        class="bg-maximus-red text-white px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(196,30,58,0.6)] hover:scale-105">CONTACT</a>
+                </div>
+
+                <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="lg:hidden hidden bg-maximus-dark bg-opacity-95 backdrop-blur-lg">
+            <div class="px-6 pt-2 pb-6 space-y-4">
+                <a href="index.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">HOME</a>
+                <a href="about.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">ABOUT
+                    US</a>
+                <a href="services.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">SERVICES</a>
+                <a href="mirror.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">THE
+                    MIRROR</a>
+                <a href="brands.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">BIZ
+                    & BRANDS</a>
+                <a href="portfolio.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">PORTFOLIO</a>
+                <a href="blog.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">BLOG</a>
+                <a href="gallery.html"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">GALLERY</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative h-96 flex items-center justify-center overflow-hidden mt-20 bg-maximus-dark">
+        <div class="absolute inset-0 bg-gradient-to-r from-maximus-dark via-maximus-gray to-maximus-dark opacity-90">
+        </div>
+        <div class="relative z-10 text-center fade-up opacity-0">
+            <h1 class="font-bebas text-5xl md:text-6xl lg:text-7xl text-white mb-4 tracking-wider">INSIGHTS &
+                PERSPECTIVES</h1>
+            <div class="w-24 h-1 bg-maximus-red mx-auto mb-4"></div>
+            <p class="text-gray-300 text-lg max-w-2xl mx-auto px-6">Thoughts on marketing, branding, and business growth
+            </p>
+        </div>
+    </section>
+
+    <!-- Blog Posts -->
+    <section class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+
+            <!-- Blog Post 1 -->
+            <div
+                class="service-card opacity-0 bg-white rounded-lg shadow-lg mb-8 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog1')">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">
+                                Digital Marketing Beyond the Buzz: What Really Works?</h2>
+                            <p class="text-gray-600 text-sm mb-4">Exploring what actually drives
+                                results in digital marketing for startups and established brands</p>
+                            <div class="flex items-center text-sm text-gray-500 whitespace-nowrap">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>Marketing Strategy</span>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <i id="icon-blog1" class="fas fa-chevron-down text-maximus-red text-2xl expand-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="blog1" class="blog-content px-4 md:px-8 pb-6 md:pb-8">
+                    <div class="border-t border-gray-200 pt-6">
+                        <div class="prose max-w-none text-gray-700">
+                            <p class="mb-4">Digital marketing isn't just hype—it's the backbone of growth for businesses
+                                today. Whether you're a startup finding your feet or an established company looking to
+                                stay ahead, your digital strategy makes all the difference. But what actually drives
+                                results?</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Startups vs. Big Brands:
+                                Different Playbooks, Same Game</h3>
+                            <p class="mb-4">Startups and established brands both rely on digital marketing, but their
+                                game plans differ. Startups work with tight budgets, focusing on organic social media,
+                                SEO, and influencer collaborations to build traction. On the other hand, established
+                                businesses can afford a blend of organic and paid strategies, integrating brand
+                                awareness campaigns with performance marketing for conversions.</p>
+                            <p class="mb-4">However, the core principles remain the same: understanding the audience,
+                                data-driven decision-making, and optimizing every campaign for maximum efficiency.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Budget vs. Results: Does More
+                                Money Mean More Success?</h3>
+                            <p class="mb-4">Spending more doesn't guarantee success; spending smart does. A
+                                well-executed campaign can deliver strong returns even on a modest budget. Startups
+                                maximize SEO, partnerships, and organic growth, while bigger brands invest in paid ads,
+                                automation, and omnichannel strategies.</p>
+                            <p class="mb-4">The key? Smart tracking, A/B testing, and audience insights to ensure every
+                                penny contributes to meaningful outcomes.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">The Future of Digital Marketing
+                            </h3>
+                            <p class="mb-4">Marketing is evolving fast. AI-driven campaigns, voice search, and AR/VR
+                                content are shaping the future. Short-form videos, hyper-personalization, and
+                                community-driven marketing will be essential. Staying agile and adapting to new trends
+                                is critical for brands that want to stay ahead.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Boosting Performance Marketing
+                            </h3>
+                            <p class="mb-4">To get the most from performance marketing, brands need to focus on
+                                AI-powered analytics, better audience segmentation, and retargeting strategies.
+                                First-party data will become even more valuable in delivering personalized experiences
+                                and driving long-term engagement.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Final Thoughts</h3>
+                            <p>Digital marketing success isn't about chasing trends—it's about strategy, data, and
+                                adaptability. Whether you're a startup or an established player, a well-crafted digital
+                                marketing approach can fuel sustainable growth and keep you ahead of the competition.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 2 -->
+            <div
+                class="service-card opacity-0 bg-white rounded-lg shadow-lg mb-8 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog2')">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">Clicks to Conversions:
+                                Integrating Performance Marketing to Sales</h2>
+                            <p class="text-gray-600 text-sm mb-4">How to maximize impact by aligning marketing and sales
+                                teams</p>
+                            <div class="flex items-center text-sm text-gray-500 whitespace-nowrap">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>Performance Marketing</span>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <i id="icon-blog2" class="fas fa-chevron-down text-maximus-red text-2xl expand-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="blog2" class="blog-content px-4 md:px-8 pb-6 md:pb-8">
+                    <div class="border-t border-gray-200 pt-6">
+                        <div class="prose max-w-none text-gray-700">
+                            <p class="mb-4">Performance marketing generates leads, but the real success lies in
+                                converting those leads into sales. To maximize impact, marketing and sales need to work
+                                in tandem and in a complete transparent environment.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Assess Lead Quality and Intent
+                            </h3>
+                            <p class="mb-4">Not every lead is created equal. Categorize leads based on intent: High,
+                                Medium, and Low. A lead that showcases a higher level of intent will scan multiple
+                                product pages, sign up for demos, subscribe to newsletters, and in some cases add a
+                                product to the cart while medium and low intent leads need more nurturing.</p>
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>Online Sales: Use heatmaps, session recordings, and analytics to track behaviour
+                                </li>
+                                <li>Offline Sales: Identify which campaigns/marketing programs drive store visits or
+                                    inbound calls</li>
+                            </ul>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Align Sales and Marketing Teams
+                            </h3>
+                            <p class="mb-4">A strong data exchange process prevents lead drop-offs:</p>
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>Share campaign insights with sales team so they understand what messaging leads have
+                                    consumed</li>
+                                <li>Develop structured follow-ups: email sequences, WhatsApp messages, or call scripts
+                                    tailored to lead intent</li>
+                                <li>B2B and offline sales should prioritize in-person meetings or demos</li>
+                                <li>For e-commerce, retargeting ads are an effective tool</li>
+                            </ul>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Automate and Personalize
+                                Follow-ups</h3>
+                            <p class="mb-4">Quick and relevant follow-ups can significantly enhance chances of
+                                conversion:</p>
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>Online: Automate emails, SMS, and retargeting ads. Use chatbots to answer FAQs</li>
+                                <li>Offline: Assign people for callbacks within 24-48 hours. Use CRM tools to
+                                    personalize messages</li>
+                            </ul>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Conclusion</h3>
+                            <p>Marketing brings people in; sales team close the deal. A well-integrated
+                                approach—leveraging automation, data, and personalized outreach—ensures that clicks turn
+                                into customers. Success isn't about leads. It's about sales.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 3 -->
+            <div
+                class="service-card opacity-0 bg-white rounded-lg shadow-lg mb-8 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog3')">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">Why Marketing Alone
+                                Can't Build A Great Campaign</h2>
+                            <p class="text-gray-600 text-sm mb-4">The importance of integrating insights from marketing,
+                                sales, product, and consumers</p>
+                            <div class="flex items-center text-sm text-gray-500 whitespace-nowrap">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>Campaign Management</span>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <i id="icon-blog3" class="fas fa-chevron-down text-maximus-red text-2xl expand-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="blog3" class="blog-content px-4 md:px-8 pb-6 md:pb-8">
+                    <div class="border-t border-gray-200 pt-6">
+                        <div class="prose max-w-none text-gray-700">
+                            <p class="mb-4">Over the years, we have seen too many marketing strategies fail—not because
+                                of lack of creativity, but because they were built in isolation. A killer ad campaign
+                                that didn't convert. A product push that never took off. Sound familiar?</p>
+
+                            <p class="mb-4">The truth is, you can't create meaningful marketing if your insights come
+                                from just one source. Real impact happens when you bring together data from marketing,
+                                sales, product, and consumers—and connect the dots.</p>
+
+                            <p class="mb-4">Marketing metrics—clicks, impressions, engagement—show what captures
+                                attention. But sales data tells you what leads to actual purchase. Product usage data
+                                reveals what features or SKUs consumers love (or ignore). And consumer feedback—whether
+                                through reviews, surveys, or social listening—tells you why people behave the way they
+                                do.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Real-World Example: FMCG Brand
+                            </h3>
+                            <p class="mb-4">One example that stuck with me is from an FMCG brand we worked
+                                with—launching a new health drink. The sampling test had great feedback. Marketing was
+                                celebrating. But sales data told a different story: repeat purchases were low. We dug
+                                deeper—consumer feedback pointed to taste fatigue. Product data confirmed it:
+                                consumption dropped after week four. That single insight pivoted the
+                                strategy—introducing variety packs, reworking flavour profiles, and re-working on the
+                                messaging. The turnaround was real.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Zara's Success Story</h3>
+                            <p class="mb-4">In the fashion world, Zara is a textbook example. Store-level sales data,
+                                coupled with feedback from frontline staff, is sent directly to the design team. If a
+                                product sells out quickly, or receives negative feedback, Zara adjusts production and
+                                launches updated designs in weeks—not months. Their marketing campaigns reflect these
+                                real-time preferences, driving relevance and urgency.</p>
+
+                            <p class="mb-4">If you're in marketing, don't just ask, "What's working?" Ask, "What are
+                                sales seeing? What's the product team hearing? What are customers really saying?"
+                                Insights aren't valuable in silos—they're powerful when they travel across teams and in
+                                alignment.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 4 -->
+            <div
+                class="service-card opacity-0 bg-white rounded-lg shadow-lg mb-8 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog4')">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">Thought Leadership: It
+                                Can Change Your Brand's Story</h2>
+                            <p class="text-gray-600 text-sm mb-4">How thought leadership builds trust and drives growth
+                                across industries</p>
+                            <div class="flex items-center text-sm text-gray-500 whitespace-nowrap">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>Brand Strategy</span>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <i id="icon-blog4" class="fas fa-chevron-down text-maximus-red text-2xl expand-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="blog4" class="blog-content px-4 md:px-8 pb-6 md:pb-8">
+                    <div class="border-t border-gray-200 pt-6">
+                        <div class="prose max-w-none text-gray-700">
+                            <p class="mb-4">Forget the idea that thought leadership is only for tech companies or
+                                keynote speakers. It's for any brand ready to stand out, connect deeply, and
+                                grow—whether you're in fashion, food, travel, or automobile. It's about having a voice
+                                that matters, and it can shake things up both inside and outside your company.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Real Brand Examples</h3>
+                            <p class="mb-4"><strong>Nike:</strong> Their "Just Do It" campaign and bold stance on social
+                                issues don't just sell sports shoes, they spark a movement. It also aligned their
+                                internal teams with a shared purpose.</p>
+
+                            <p class="mb-4"><strong>Taj Hotels:</strong> They don't just offer fancy rooms; they have
+                                taken a leadership stance through heritage hospitality. Their storytelling around
+                                sustainability, local partnerships, and timeless Indian service has influenced how
+                                global travellers view hospitality in India.</p>
+
+                            <p class="mb-4"><strong>Mahindra:</strong> They're not just making cars, they're driving
+                                India's electric future. By talking up sustainable mobility at car shows and beyond,
+                                they're shaping the conversation.</p>
+
+                            <p class="mb-4"><strong>Amul:</strong> In the world of FMCG, built cultural thought
+                                leadership through consistent, witty, and relevant topical ads. It goes beyond clever
+                                marketing, it's thought leadership rooted in mass appeal, with trust being the core
+                                essence.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">The Impact</h3>
+                            <p class="mb-4">When you lean into thought leadership:</p>
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>Marketing, product, and even HR begin working from the same core belief or value
+                                    system</li>
+                                <li>Sales teams stop pitching features and start telling stories</li>
+                                <li>When you take a stand, you push teams to keep evolving</li>
+                            </ul>
+
+                            <p>Thought leadership isn't about being the loudest. It's about consistency and conviction.
+                                A brand with such clarity is less likely to fail.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 5 -->
+            <div
+                class="service-card opacity-0 bg-white rounded-lg shadow-lg mb-8 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog5')">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">Influencer Marketing:
+                                The Way Brands Tell Their Stories</h2>
+                            <p class="text-gray-600 text-sm mb-4">Why authentic influencer partnerships drive real
+                                engagement and trust</p>
+                            <div class="flex items-center text-sm text-gray-500 whitespace-nowrap">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>Digital Marketing</span>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <i id="icon-blog5" class="fas fa-chevron-down text-maximus-red text-2xl expand-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="blog5" class="blog-content px-4 md:px-8 pb-6 md:pb-8">
+                    <div class="border-t border-gray-200 pt-6">
+                        <div class="prose max-w-none text-gray-700">
+                            <p class="mb-4">Imagine scrolling through social media and seeing a food influencer or local
+                                foodie share a casually shot reel or post about a café's signature dish—say, a
+                                mouth-watering croissant burger or an unforgettable fusion bowl. This kind of content
+                                feels like a tip from a friend who's discovered something genuinely tasty and relatable.
+                                That's the magic of influencer marketing.</p>
+
+                            <p class="mb-4">We're over glossy ads. We want real stories from people we relate to. Social
+                                media changed the game. It turned regular folk—moms, foodies, gym buffs—into voices we
+                                trust. They're not just selling, they're sharing their lives. Brands caught on fast,
+                                knowing we'd rather hear from someone we vibe with than a faceless ad.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Success Stories</h3>
+                            <p class="mb-4">In India, Nykaa gets it. They team up with beauty influencers like Malvika
+                                Sitlani. It's aspirational but real, and it works because she knows her audience. Zomato
+                                does it too, partnering with foodies like Rocky Singh, who share their love for street
+                                chaat or late-night biryani, not scripted lines.</p>
+
+                            <p class="mb-4">Globally, it's the same deal. Adidas crafts stories of culture and
+                                inclusivity with creators like Pharrell Williams.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Why It Works</h3>
+                            <p class="mb-4">We trust people, not ads. A 2023 survey showed 65% of Indian Gen Z trusts
+                                influencers over traditional ads. That's huge. When someone you follow loves a product,
+                                it's like a friend's recommendation.</p>
+
+                            <p class="mb-4">But it's gotta be authentic. A mismatch flops—you can smell fakes a mile
+                                away. That's why Amul nails it with micro-influencers sharing nostalgic tales of buttery
+                                toast or doodh-jalebi. It feels like home, just like Amul.</p>
+
+                            <p>At the end of the day, influencer marketing thrives when it becomes part of everyday
+                                conversation, not interruption. It's about telling stories that resonate, that feel
+                                personal. Brands that get this right don't just gain followers, they build communities.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Continue with remaining blog posts... Due to length, I'll add a few more key ones -->
+
+            <!-- Blog Post 6 -->
+            <div
+                class="service-card opacity-0 bg-white rounded-lg shadow-lg mb-8 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog6')">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">How Micro-Moments Are
+                                Changing the Marketing Game</h2>
+                            <p class="text-gray-600 text-sm mb-4">Capturing consumer attention in decisive seconds</p>
+                            <div class="flex items-center text-sm text-gray-500 whitespace-nowrap">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>Consumer Behavior</span>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <i id="icon-blog6" class="fas fa-chevron-down text-maximus-red text-2xl expand-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="blog6" class="blog-content px-4 md:px-8 pb-6 md:pb-8">
+                    <div class="border-t border-gray-200 pt-6">
+                        <div class="prose max-w-none text-gray-700">
+                            <p class="mb-4">In the digital era, attention is fleeting. Consumer decisions are
+                                increasingly shaped by "micro-moments"—those brief, intent-driven instances when
+                                consumers turn to devices to act, learn or buy. With over 800 million smartphone users
+                                in India, brands must seize these moments to stay relevant.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">The Three Principles</h3>
+                            <p class="mb-4">Success hinges on three principles: be present, be useful, and be quick.
+                                Brands need mobile-optimized platforms, personalized content, and instant responses.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Real Examples</h3>
+                            <p class="mb-4">When a commuter in Bengaluru searches "best biryani near me," Zomato or
+                                Swiggy has a chance to capture the moment with instant offers, quick delivery timelines,
+                                and relevant reviews. Similarly, Flipkart and Amazon invest heavily in ensuring that
+                                searches like "Raksha Bandhan gift under ₹1000" lead directly to curated options.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">How Brands Can Win</h3>
+                            <ul class="list-disc pl-6 mb-4">
+                                <li>Be discoverable</li>
+                                <li>Be quick: Ensure mobile-first, frictionless experiences</li>
+                                <li>Be relevant: Offer context-driven solutions, not generic ads</li>
+                                <li>Be consistent: Show up across platforms with a unified voice</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 7 -->
+            <div
+                class="service-card opacity-0 bg-white rounded-lg shadow-lg mb-8 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog7')">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">Customer Retention
+                                Strategies: Turning Buyers into Loyal Advocates</h2>
+                            <p class="text-gray-600 text-sm mb-4">Building emotional connections for long-term brand
+                                value</p>
+                            <div class="flex items-center text-sm text-gray-500 whitespace-nowrap">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>Customer Retention</span>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <i id="icon-blog7" class="fas fa-chevron-down text-maximus-red text-2xl expand-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="blog7" class="blog-content px-4 md:px-8 pb-6 md:pb-8">
+                    <div class="border-t border-gray-200 pt-6">
+                        <div class="prose max-w-none text-gray-700">
+                            <p class="mb-4">Winning customers is only half the battle; keeping them is where true brand
+                                value lies. Retention is about building emotional connections, not transactional
+                                relationships.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Industry Examples</h3>
+                            <p class="mb-4">In hospitality, the Taj Group goes beyond service delivery—remembering guest
+                                preferences, from favourite dishes to room choices. In travel, Airbnb builds belonging
+                                by connecting guests with local experiences rather than just stays.</p>
+
+                            <p class="mb-4">Fashion and consumer brands are equally strategic. Nykaa retains customers
+                                through personalized recommendations, rewards, and community-driven content. Nike has
+                                built a global ecosystem through its Nike Run Club app, turning users into a loyal
+                                tribe.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">The Strategy</h3>
+                            <p class="mb-4">Brands must map the customer journey, identify friction points, and
+                                personalize interventions at every stage. Using CRM systems, spend-based segmentation,
+                                and predictive analytics, they can track repeat purchase rates, churn probabilities, and
+                                lifetime value.</p>
+
+                            <p>Retention isn't a campaign, it's a culture. When brands listen, analyze behavior
+                                patterns, and act with authenticity, customers transform from buyers into believers—and
+                                those believers become the most powerful marketing asset any brand can ever have.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Post 8 -->
+            <div
+                class="service-card opacity-0 bg-white rounded-lg shadow-lg mb-8 overflow-hidden hover:shadow-xl transition-shadow duration-300">
+                <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog8')">
+                    <div class="flex justify-between items-start">
+                        <div class="flex-1">
+                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">How Behavioral
+                                Economics Shapes Consumer Buying</h2>
+                            <p class="text-gray-600 text-sm mb-4">Understanding the psychology behind purchase decisions
+                            </p>
+                            <div class="flex items-center text-sm text-gray-500 whitespace-nowrap">
+                                <i class="far fa-calendar mr-2"></i>
+                                <span>Consumer Psychology</span>
+                            </div>
+                        </div>
+                        <div class="ml-4">
+                            <i id="icon-blog8" class="fas fa-chevron-down text-maximus-red text-2xl expand-icon"></i>
+                        </div>
+                    </div>
+                </div>
+                <div id="blog8" class="blog-content px-4 md:px-8 pb-6 md:pb-8">
+                    <div class="border-t border-gray-200 pt-6">
+                        <div class="prose max-w-none text-gray-700">
+                            <p class="mb-4">Consumers don't always make decisions by comparing features or calculating
+                                value. Many choices come from instinct, emotion, habit, or simple mental shortcuts. This
+                                is where behavioral economics plays a big role—it helps marketers understand why people
+                                really choose what they choose.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Real-World Applications in India
+                            </h3>
+                            <p class="mb-4">In India, you can see this everywhere. Swiggy and Zomato use limited-time
+                                deals to tap into urgency. Nykaa and Flipkart use messages like "Only 3 left" or "10,000
+                                bought this last month" to create social proof and scarcity.</p>
+
+                            <p class="mb-4">BigBasket places premium items on top so mid-range items feel more
+                                affordable—this is anchoring. Real estate brands highlight "early-bird offers" to
+                                trigger loss aversion. Even Ola uses default ride options to make selection quicker.</p>
+
+                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">How It's Measured</h3>
+                            <p class="mb-4">Marketers track behaviour through A/B testing, funnel analysis, click-path
+                                data, scroll depth, heatmaps, and controlled experiments. Eye-tracking and sentiment
+                                checks also show how people react to a design or message.</p>
+
+                            <p>In a crowded and noisy market, brands that understand human behaviour don't just sell
+                                products—they guide choices. And when done right, these small nudges build trust,
+                                loyalty, and long-term relationships.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add "Read More" indicator for remaining blogs -->
+            <div class="text-center mt-12 fade-up opacity-0">
+                <p class="text-gray-600 mb-4">More insights coming soon...</p>
+                <a href="index.html#contact"
+                    class="inline-block bg-maximus-red text-white px-8 py-3 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(196,30,58,0.6)] hover:scale-105">
+                    SUBSCRIBE FOR UPDATES
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-maximus-dark text-white py-12">
+        <div class="max-w-7xl mx-auto px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <div>
+                    <h4 class="font-bebas text-xl tracking-wider mb-4">REGISTERED ADDRESS</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Maximus Integrated<br>
+                        123 Business Avenue<br>
+                        Corporate District<br>
+                        City, State 560001<br>
+                        India
+                    </p>
+                </div>
+
+                <div>
+                    <h4 class="font-bebas text-xl tracking-wider mb-4">QUICK LINKS</h4>
+                    <ul class="space-y-2">
+                        <li><a href="about.html"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">About
+                                Us</a></li>
+                        <li><a href="services.html"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Services</a>
+                        </li>
+                        <li><a href="portfolio.html"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Portfolio</a>
+                        </li>
+                        <li><a href="index.html#contact"
+                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Contact</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h4 class="font-bebas text-xl tracking-wider mb-4">CONNECT WITH US</h4>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2026 Maximus Integrated. All rights reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Mobile Blog Modal -->
+    <div id="blogModal" class="blog-modal">
+        <button class="blog-modal-close" onclick="closeBlogModal()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="blog-modal-content">
+            <div class="blog-modal-header">
+                <h2 id="modalTitle" class="font-bebas text-2xl text-maximus-dark tracking-wide"></h2>
+                <p id="modalCategory" class="text-xs text-gray-500 mt-2"></p>
+            </div>
+            <div class="blog-modal-body" id="modalBody">
+                <!-- Content will be inserted here -->
+            </div>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script>
+        function toggleBlog(blogId) {
+            // Check if mobile view
+            if (window.innerWidth <= 768) {
+                openBlogModal(blogId);
+            } else {
+                // Desktop behavior
+                const content = document.getElementById(blogId);
+                const icon = document.getElementById('icon-' + blogId);
+                const iconMobile = document.getElementById('icon-' + blogId + '-mobile');
+
+                content.classList.toggle('active');
+                if (icon) icon.classList.toggle('rotated');
+                if (iconMobile) iconMobile.classList.toggle('rotated');
+            }
+        }
+
+        function openBlogModal(blogId) {
+            const modal = document.getElementById('blogModal');
+            const content = document.getElementById(blogId);
+
+            if (!content) return;
+
+            const card = content.closest('.service-card');
+            if (!card) return;
+
+            // Find title - try multiple selectors
+            const titleElement = card.querySelector('.blog-title') || card.querySelector('h2');
+
+            // Find category - try multiple selectors
+            let categoryElement = card.querySelector('.flex.items-center span');
+            if (!categoryElement) {
+                categoryElement = card.querySelector('[class*="text-gray-500"] span');
+            }
+
+            // Find content
+            const proseContent = content.querySelector('.prose');
+
+            if (!titleElement || !proseContent) {
+                console.error('Could not find required elements for blog:', blogId);
+                return;
+            }
+
+            // Set modal content
+            document.getElementById('modalTitle').textContent = titleElement.textContent.trim();
+
+            if (categoryElement) {
+                document.getElementById('modalCategory').innerHTML = '<i class="far fa-calendar mr-2"></i>' + categoryElement.textContent;
+            } else {
+                document.getElementById('modalCategory').innerHTML = '';
+            }
+
+            document.getElementById('modalBody').innerHTML = proseContent.innerHTML;
+
+            // Show modal
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeBlogModal() {
+            const modal = document.getElementById('blogModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // Close modal on background click
+        document.getElementById('blogModal')?.addEventListener('click', function (e) {
+            if (e.target === this) {
+                closeBlogModal();
+            }
+        });
+    </script>
+</body>
+
+</html>
