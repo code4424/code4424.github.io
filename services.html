@@ -14,8 +14,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -30,13 +29,15 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'bebas': ['Bebas Neue', 'cursive'],
                         'montserrat': ['Montserrat', 'sans-serif'],
                     },
                     colors: {
-                        'maximus-red': '#C41E3A',
+                        'maximus-red': '#a70000',
+                        'maximus-yellow': '#ffbe42',
                         'maximus-dark': '#0A0A0A',
                         'maximus-gray': '#1A1A1A',
+                        'off-white': '#FAFAFA',
+                        'warm-white': '#F5F5F5',
                     }
                 }
             }
@@ -44,10 +45,11 @@
     </script>
 </head>
 
-<body class="bg-white font-montserrat">
+<body class="bg-off-white font-montserrat">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-white shadow-md">
+    <nav id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-off-white shadow-md">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
@@ -78,7 +80,7 @@
                     <a href="gallery.html"
                         class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">GALLERY</a>
                     <a href="index.html#contact"
-                        class="bg-maximus-red text-white px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(196,30,58,0.6)] hover:scale-105">CONTACT</a>
+                        class="bg-maximus-red text-maximus-yellow px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">CONTACT</a>
                 </div>
 
                 <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
@@ -118,8 +120,10 @@
         <div class="absolute inset-0 bg-gradient-to-r from-maximus-dark via-maximus-gray to-maximus-dark opacity-90">
         </div>
         <div class="relative z-10 text-center fade-up opacity-0">
-            <h1 class="font-bebas text-5xl md:text-6xl lg:text-7xl text-white mb-4 tracking-wider">OUR SERVICES</h1>
-            <div class="w-24 h-1 bg-maximus-red mx-auto mb-4"></div>
+            <h1
+                class="font-montserrat text-5xl md:text-6xl lg:text-7xl text-warm-white mb-4 tracking-wider leading-none">
+                OUR SERVICES</h1>
+            <div class="w-24 h-px bg-gray-200 mx-auto mb-2"></div>
             <p class="text-gray-300 text-lg max-w-2xl mx-auto px-6">Strategic solutions for brand growth and market
                 dominance</p>
         </div>
@@ -131,55 +135,57 @@
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Service 1 -->
                 <a href="#branding"
-                    class="service-card opacity-0 group bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    class="service-card opacity-0 group bg-warm-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
                     <div
                         class="w-16 h-16 bg-maximus-red rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-palette text-white text-2xl"></i>
+                        <i class="fas fa-palette text-warm-white text-2xl"></i>
                     </div>
-                    <h3 class="font-bebas text-2xl text-maximus-dark mb-3 tracking-wide">BRANDING & CREATIVE</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Strategic brand development and visual identity
+                    <h3 class="font-montserrat text-2xl text-maximus-dark mb-3 tracking-wide">BRANDING & CREATIVE</h3>
+                    <p class="text-gray-600 text-sm leading-tight">Strategic brand development and visual identity
                         design</p>
                 </a>
 
                 <!-- Service 2 -->
                 <a href="#marketing"
-                    class="service-card opacity-0 group bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    class="service-card opacity-0 group bg-warm-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
                     <div
                         class="w-16 h-16 bg-maximus-red rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                        <i class="fas fa-chart-line text-warm-white text-2xl"></i>
                     </div>
-                    <h3 class="font-bebas text-2xl text-maximus-dark mb-3 tracking-wide">MARKETING STRATEGY</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">Market research, strategic planning, and campaign
+                    <h3 class="font-montserrat text-2xl text-maximus-dark mb-3 tracking-wide">MARKETING STRATEGY</h3>
+                    <p class="text-gray-600 text-sm leading-tight">Market research, strategic planning, and campaign
                         management</p>
                 </a>
 
                 <!-- Service 3 -->
                 <a href="#digital"
-                    class="service-card opacity-0 group bg-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    class="service-card opacity-0 group bg-warm-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
                     <div
                         class="w-16 h-16 bg-maximus-red rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-                        <i class="fas fa-laptop-code text-white text-2xl"></i>
+                        <i class="fas fa-laptop-code text-warm-white text-2xl"></i>
                     </div>
-                    <h3 class="font-bebas text-2xl text-maximus-dark mb-3 tracking-wide">DIGITAL MARKETING</h3>
-                    <p class="text-gray-600 text-sm leading-relaxed">SEO, SEM, social media, and content marketing</p>
+                    <h3 class="font-montserrat text-2xl text-maximus-dark mb-3 tracking-wide">DIGITAL MARKETING</h3>
+                    <p class="text-gray-600 text-sm leading-tight">SEO, SEM, social media, and content marketing</p>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Branding & Creative Services -->
-    <section id="branding" class="py-20 lg:py-32 bg-white">
+    <section id="branding" class="py-20 lg:py-32 bg-off-white">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
-            <div class="fade-up opacity-0 text-center mb-16">
-                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">BRANDING & CREATIVE
+            <div class="fade-up opacity-0 text-center mb-12">
+                <h2 class="font-montserrat text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide leading-none">
+                    BRANDING & CREATIVE
                     SERVICES</h2>
-                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+                <div class="w-24 h-px bg-gray-200 mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Brand Strategy -->
                 <div class="fade-up opacity-0">
-                    <h3 class="font-bebas text-2xl text-maximus-red mb-4 tracking-wide">BRAND STRATEGY DEVELOPMENT</h3>
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-4 tracking-wide">BRAND STRATEGY DEVELOPMENT
+                    </h3>
                     <ul class="space-y-3 text-gray-700">
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
@@ -204,7 +210,7 @@
 
                 <!-- Visual Identity -->
                 <div class="fade-up opacity-0">
-                    <h3 class="font-bebas text-2xl text-maximus-red mb-4 tracking-wide">VISUAL IDENTITY DESIGN</h3>
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-4 tracking-wide">VISUAL IDENTITY DESIGN</h3>
                     <ul class="space-y-3 text-gray-700">
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
@@ -228,7 +234,7 @@
 
                 <!-- Content Creation -->
                 <div class="fade-up opacity-0 md:col-span-2">
-                    <h3 class="font-bebas text-2xl text-maximus-red mb-4 tracking-wide">CONTENT CREATION</h3>
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-4 tracking-wide">CONTENT CREATION</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ul class="space-y-3 text-gray-700">
                             <li class="flex items-start">
@@ -263,16 +269,18 @@
     <!-- Marketing & Business Strategy -->
     <section id="marketing" class="py-20 lg:py-32 bg-gray-50">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
-            <div class="fade-up opacity-0 text-center mb-16">
-                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">MARKETING & BUSINESS
+            <div class="fade-up opacity-0 text-center mb-12">
+                <h2 class="font-montserrat text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide leading-none">
+                    MARKETING & BUSINESS
                     STRATEGY</h2>
-                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+                <div class="w-24 h-px bg-gray-200 mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
                 <!-- Market Research -->
                 <div class="fade-up opacity-0">
-                    <h3 class="font-bebas text-2xl text-maximus-red mb-4 tracking-wide">MARKET RESEARCH & ANALYSIS</h3>
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-4 tracking-wide">MARKET RESEARCH & ANALYSIS
+                    </h3>
                     <ul class="space-y-3 text-gray-700">
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
@@ -295,7 +303,7 @@
 
                 <!-- Strategic Planning -->
                 <div class="fade-up opacity-0">
-                    <h3 class="font-bebas text-2xl text-maximus-red mb-4 tracking-wide">STRATEGIC PLANNING</h3>
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-4 tracking-wide">STRATEGIC PLANNING</h3>
                     <ul class="space-y-3 text-gray-700">
                         <li class="flex items-start">
                             <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
@@ -319,7 +327,7 @@
 
                 <!-- Campaign Management -->
                 <div class="fade-up opacity-0 md:col-span-2">
-                    <h3 class="font-bebas text-2xl text-maximus-red mb-4 tracking-wide">CAMPAIGN MANAGEMENT</h3>
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-4 tracking-wide">CAMPAIGN MANAGEMENT</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ul class="space-y-3 text-gray-700">
                             <li class="flex items-start">
@@ -351,17 +359,19 @@
     </section>
 
     <!-- Digital Marketing -->
-    <section id="digital" class="py-20 lg:py-32 bg-white">
+    <section id="digital" class="py-20 lg:py-32 bg-off-white">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
-            <div class="fade-up opacity-0 text-center mb-16">
-                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">DIGITAL MARKETING</h2>
-                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            <div class="fade-up opacity-0 text-center mb-12">
+                <h2 class="font-montserrat text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide leading-none">
+                    DIGITAL MARKETING</h2>
+                <div class="w-24 h-px bg-gray-200 mx-auto"></div>
             </div>
 
             <div class="space-y-16">
                 <!-- Website Design -->
                 <div class="fade-up opacity-0">
-                    <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide">WEBSITE DESIGN & DEVELOPMENT
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-6 tracking-wide">WEBSITE DESIGN &
+                        DEVELOPMENT
                     </h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ul class="space-y-3 text-gray-700">
@@ -393,7 +403,7 @@
 
                 <!-- SEO & SEM -->
                 <div class="fade-up opacity-0">
-                    <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide">SEO & SEM</h3>
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-6 tracking-wide">SEO & SEM</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <h4 class="font-bold text-maximus-dark mb-3">Search Engine Optimization</h4>
@@ -434,10 +444,10 @@
 
                 <!-- Social Media Marketing -->
                 <div class="fade-up opacity-0">
-                    <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide">SOCIAL MEDIA MARKETING</h3>
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-6 tracking-wide">SOCIAL MEDIA MARKETING</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <div class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="font-bebas text-lg text-maximus-dark mb-3">META (FACEBOOK)</h4>
+                            <h4 class="font-montserrat text-lg text-maximus-dark mb-3">META (FACEBOOK)</h4>
                             <ul class="space-y-2 text-sm text-gray-700">
                                 <li>• Page Management</li>
                                 <li>• Targeted Ad Campaigns</li>
@@ -446,7 +456,7 @@
                             </ul>
                         </div>
                         <div class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="font-bebas text-lg text-maximus-dark mb-3">INSTAGRAM</h4>
+                            <h4 class="font-montserrat text-lg text-maximus-dark mb-3">INSTAGRAM</h4>
                             <ul class="space-y-2 text-sm text-gray-700">
                                 <li>• Content Creation</li>
                                 <li>• Hashtag Strategy</li>
@@ -455,7 +465,7 @@
                             </ul>
                         </div>
                         <div class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="font-bebas text-lg text-maximus-dark mb-3">LINKEDIN</h4>
+                            <h4 class="font-montserrat text-lg text-maximus-dark mb-3">LINKEDIN</h4>
                             <ul class="space-y-2 text-sm text-gray-700">
                                 <li>• Company Page Optimization</li>
                                 <li>• Thought Leadership</li>
@@ -464,7 +474,7 @@
                             </ul>
                         </div>
                         <div class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="font-bebas text-lg text-maximus-dark mb-3">X (TWITTER)</h4>
+                            <h4 class="font-montserrat text-lg text-maximus-dark mb-3">X (TWITTER)</h4>
                             <ul class="space-y-2 text-sm text-gray-700">
                                 <li>• Tweet Scheduling</li>
                                 <li>• Trend Monitoring</li>
@@ -473,7 +483,7 @@
                             </ul>
                         </div>
                         <div class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="font-bebas text-lg text-maximus-dark mb-3">YOUTUBE</h4>
+                            <h4 class="font-montserrat text-lg text-maximus-dark mb-3">YOUTUBE</h4>
                             <ul class="space-y-2 text-sm text-gray-700">
                                 <li>• Channel Management</li>
                                 <li>• Video Production</li>
@@ -482,7 +492,7 @@
                             </ul>
                         </div>
                         <div class="bg-gray-50 p-6 rounded-lg">
-                            <h4 class="font-bebas text-lg text-maximus-dark mb-3">CONTENT MARKETING</h4>
+                            <h4 class="font-montserrat text-lg text-maximus-dark mb-3">CONTENT MARKETING</h4>
                             <ul class="space-y-2 text-sm text-gray-700">
                                 <li>• Blog Writing</li>
                                 <li>• Infographics</li>
@@ -495,7 +505,7 @@
 
                 <!-- Performance Marketing -->
                 <div class="fade-up opacity-0">
-                    <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide">PERFORMANCE MARKETING</h3>
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-6 tracking-wide">PERFORMANCE MARKETING</h3>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ul class="space-y-3 text-gray-700">
                             <li class="flex items-start">
@@ -528,8 +538,9 @@
     <!-- CTA Section -->
     <section class="py-20 bg-maximus-red">
         <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center fade-up opacity-0">
-            <h2 class="font-bebas text-4xl md:text-5xl text-white mb-6 tracking-wide">READY TO ELEVATE YOUR BRAND?</h2>
-            <p class="text-white text-lg mb-8">Let's discuss how our services can drive your growth</p>
+            <h2 class="font-montserrat text-4xl md:text-5xl text-warm-white mb-6 tracking-wide leading-none">READY TO
+                ELEVATE YOUR BRAND?</h2>
+            <p class="text-warm-white text-lg mb-8">Let's discuss how our services can drive your growth</p>
             <a href="index.html#contact"
                 class="inline-block bg-white text-maximus-red px-10 py-4 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:scale-105">
                 GET IN TOUCH
@@ -542,36 +553,40 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">REGISTERED ADDRESS</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Maximus Integrated<br>
-                        123 Business Avenue<br>
-                        Corporate District<br>
-                        City, State 560001<br>
-                        India
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">REGISTERED OFFICE</h4>
+                    <p class="text-gray-400 text-sm leading-tight">
+                        Snn Raj Serenity,<br>
+                        Begur Main Road,<br>
+                        Bangalore-560068
                     </p>
                 </div>
 
-                <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">QUICK LINKS</h4>
-                    <ul class="space-y-2">
-                        <li><a href="about.html"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">About
-                                Us</a></li>
-                        <li><a href="services.html"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Services</a>
-                        </li>
-                        <li><a href="portfolio.html"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Portfolio</a>
-                        </li>
-                        <li><a href="index.html#contact"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Contact</a>
-                        </li>
-                    </ul>
+                                <div>
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">BANGALORE OFFICES</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore North</p>
+                            <p class="text-gray-400 text-xs leading-tight mb-2">
+                                Bhagyadakshi Enclave # J-100,<br>
+                                1st Main Road, J.C. Nagar,<br>
+                                Mahalakshmipuram,<br>
+                                Bangalore North - 560086
+                            </p>
+                            <a href="tel:7795228071" class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                <i class="fas fa-phone mr-1"></i>Chandan: 7795228071
+                            </a>
+                        </div>
+                        <div>
+                            <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore South</p>
+                            <a href="tel:9845452680" class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                <i class="fas fa-phone mr-1"></i>Sandeep Das: 9845452680
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">CONNECT WITH US</h4>
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">CONNECT WITH US</h4>
                     <div class="flex space-x-4">
                         <a href="#"
                             class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
@@ -588,6 +603,13 @@
                         <a href="#"
                             class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
                             <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <a href="mailto:connect@brandmaximus.com"
+                            class="text-gray-400 text-sm hover:text-maximus-yellow transition-colors duration-300 flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            connect@brandmaximus.com
                         </a>
                     </div>
                 </div>

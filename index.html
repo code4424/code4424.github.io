@@ -14,8 +14,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome for Icons -->
@@ -30,13 +29,15 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'bebas': ['Bebas Neue', 'cursive'],
                         'montserrat': ['Montserrat', 'sans-serif'],
                     },
                     colors: {
-                        'maximus-red': '#C41E3A',
+                        'maximus-red': '#a70000',
+                        'maximus-yellow': '#ffbe42',
                         'maximus-dark': '#0A0A0A',
                         'maximus-gray': '#1A1A1A',
+                        'off-white': '#FAFAFA',
+                        'warm-white': '#F5F5F5',
                     }
                 }
             }
@@ -44,10 +45,11 @@
     </script>
 </head>
 
-<body class="bg-white font-montserrat overflow-x-hidden">
+<body class="bg-off-white font-montserrat overflow-x-hidden">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-white shadow-md">
+    <nav id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-off-white shadow-md">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <!-- Logo -->
@@ -80,7 +82,7 @@
                     <a href="gallery.html"
                         class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">GALLERY</a>
                     <a href="#contact"
-                        class="bg-maximus-red text-white px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(196,30,58,0.6)] hover:scale-105">CONTACT</a>
+                        class="bg-maximus-red text-maximus-yellow px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">CONTACT</a>
                 </div>
 
 
@@ -131,7 +133,7 @@
         <!-- Hero Content -->
         <div class="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full h-full flex items-center">
             <div class="hero-content opacity-0">
-                <h1 class="font-bebas text-3xl md:text-4xl lg:text-5xl leading-none mb-6 tracking-wide"
+                <h1 class="font-montserrat text-3xl md:text-4xl lg:text-5xl leading-none mb-6 tracking-wide"
                     style="color: #D4C5A9;">
                     FIGHTING<br>
                     AGAINST<br>
@@ -141,7 +143,7 @@
                     <span class="text-maximus-red">OUTCOME.</span>
                 </h1>
                 <a href="#contact"
-                    class="connect-btn group relative bg-maximus-red text-white px-8 py-3 font-bold text-xs tracking-widest uppercase overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(196,30,58,0.6)] hover:scale-105 border border-maximus-red inline-block">
+                    class="connect-btn group relative bg-maximus-red text-maximus-yellow px-8 py-3 font-bold text-xs tracking-widest uppercase overflow-hidden transition-all duration-300 hover:shadow-[0_0_30px_rgba(167,0,0,0.6)] hover:scale-105 border border-maximus-red inline-block">
                     <span class="relative z-10">CONNECT</span>
                     <div
                         class="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300">
@@ -159,15 +161,16 @@
     </section>
 
     <!-- About Section -->
-    <section id="about" class="py-20 lg:py-32 bg-white">
+    <section id="about" class="py-20 lg:py-32 bg-off-white">
         <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center">
             <div class="fade-up opacity-0">
-                <h2 class="font-bebas text-4xl md:text-5xl lg:text-6xl text-maximus-dark mb-8 tracking-wide">
+                <h2
+                    class="font-montserrat text-4xl md:text-5xl lg:text-6xl text-maximus-dark mb-4 tracking-wide leading-none">
                     Delivering Business, Brand,<br>
                     Market & Revenue Growth
                 </h2>
-                <div class="w-24 h-1 bg-maximus-red mx-auto mb-8"></div>
-                <p class="text-gray-700 text-base md:text-lg leading-relaxed max-w-3xl mx-auto font-light">
+                <div class="w-24 h-px bg-gray-200 mx-auto mb-3"></div>
+                <p class="text-gray-700 text-base md:text-lg leading-tight max-w-3xl mx-auto font-light">
                     In a competitive market, businesses and brands need to implement over-the-top strategies to move
                     over competition both in the market space and in mind space. At Maximus, we create inspiring and
                     compelling business, brand, product, sales & distribution, integrated marketing communication
@@ -181,11 +184,12 @@
     <section id="services" class="py-20 lg:py-32 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <!-- Section Title -->
-            <div class="text-center mb-16 fade-up opacity-0">
-                <h2 class="font-bebas text-4xl md:text-5xl lg:text-6xl text-maximus-dark tracking-wide">
+            <div class="text-center mb-12 fade-up opacity-0">
+                <h2
+                    class="font-montserrat text-4xl md:text-5xl lg:text-6xl text-maximus-dark tracking-wide leading-none">
                     OUR SERVICES
                 </h2>
-                <div class="w-24 h-1 bg-maximus-red mx-auto mt-6"></div>
+                <div class="w-24 h-px bg-gray-200 mx-auto mt-3"></div>
             </div>
 
             <!-- Services Grid -->
@@ -198,7 +202,7 @@
                     <div class="absolute inset-0 bg-black/60 group-hover:bg-black/75 transition-all duration-500"></div>
                     <div class="relative h-full flex items-center justify-center p-8">
                         <h3
-                            class="font-bebas text-3xl text-white text-center tracking-wider leading-tight transform group-hover:-translate-y-2 transition-transform duration-500">
+                            class="font-montserrat text-3xl text-white text-center tracking-wider leading-none transform group-hover:-translate-y-2 transition-transform duration-500">
                             BRANDING &<br>CREATIVE SERVICES
                         </h3>
                     </div>
@@ -212,7 +216,7 @@
                     <div class="absolute inset-0 bg-black/60 group-hover:bg-black/75 transition-all duration-500"></div>
                     <div class="relative h-full flex items-center justify-center p-8">
                         <h3
-                            class="font-bebas text-3xl text-white text-center tracking-wider leading-tight transform group-hover:-translate-y-2 transition-transform duration-500">
+                            class="font-montserrat text-3xl text-white text-center tracking-wider leading-none transform group-hover:-translate-y-2 transition-transform duration-500">
                             BRAND STRATEGY<br>DEVELOPMENT
                         </h3>
                     </div>
@@ -226,7 +230,7 @@
                     <div class="absolute inset-0 bg-black/60 group-hover:bg-black/75 transition-all duration-500"></div>
                     <div class="relative h-full flex items-center justify-center p-8">
                         <h3
-                            class="font-bebas text-3xl text-white text-center tracking-wider leading-tight transform group-hover:-translate-y-2 transition-transform duration-500">
+                            class="font-montserrat text-3xl text-white text-center tracking-wider leading-none transform group-hover:-translate-y-2 transition-transform duration-500">
                             CONTENT<br>CREATION
                         </h3>
                     </div>
@@ -240,7 +244,7 @@
                     <div class="absolute inset-0 bg-black/60 group-hover:bg-black/75 transition-all duration-500"></div>
                     <div class="relative h-full flex items-center justify-center p-8">
                         <h3
-                            class="font-bebas text-3xl text-white text-center tracking-wider leading-tight transform group-hover:-translate-y-2 transition-transform duration-500">
+                            class="font-montserrat text-3xl text-white text-center tracking-wider leading-none transform group-hover:-translate-y-2 transition-transform duration-500">
                             MARKET RESEARCH<br>& ANALYSIS
                         </h3>
                     </div>
@@ -254,7 +258,7 @@
                     <div class="absolute inset-0 bg-black/60 group-hover:bg-black/75 transition-all duration-500"></div>
                     <div class="relative h-full flex items-center justify-center p-8">
                         <h3
-                            class="font-bebas text-3xl text-white text-center tracking-wider leading-tight transform group-hover:-translate-y-2 transition-transform duration-500">
+                            class="font-montserrat text-3xl text-white text-center tracking-wider leading-none transform group-hover:-translate-y-2 transition-transform duration-500">
                             DIGITAL<br>MARKETING
                         </h3>
                     </div>
@@ -268,7 +272,7 @@
                     <div class="absolute inset-0 bg-black/60 group-hover:bg-black/75 transition-all duration-500"></div>
                     <div class="relative h-full flex items-center justify-center p-8">
                         <h3
-                            class="font-bebas text-3xl text-white text-center tracking-wider leading-tight transform group-hover:-translate-y-2 transition-transform duration-500">
+                            class="font-montserrat text-3xl text-white text-center tracking-wider leading-none transform group-hover:-translate-y-2 transition-transform duration-500">
                             PERFORMANCE<br>MARKETING
                         </h3>
                     </div>
@@ -278,13 +282,13 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 lg:py-32 bg-white">
+    <section id="contact" class="py-20 lg:py-32 bg-off-white">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-0 shadow-2xl overflow-hidden">
                 <!-- Left Side - Red Block -->
                 <div class="bg-maximus-red flex items-center justify-center p-12 lg:p-16 fade-left opacity-0">
                     <h2
-                        class="font-bebas text-4xl md:text-5xl lg:text-6xl text-white text-center leading-tight tracking-wide">
+                        class="font-montserrat text-4xl md:text-5xl lg:text-6xl text-white text-center leading-tight tracking-wide">
                         APPROACH US<br>
                         FOR YOUR<br>
                         TAILOR MADE<br>
@@ -295,8 +299,8 @@
                 <!-- Right Side - Contact Form -->
                 <div class="bg-maximus-dark p-12 lg:p-16 fade-right opacity-0">
                     <div class="mb-8">
-                        <h3 class="font-bebas text-3xl text-white tracking-wider mb-2">MAXIMUS</h3>
-                        <h4 class="font-bebas text-2xl text-white tracking-wider">INTEGRATED.</h4>
+                        <h3 class="font-montserrat text-3xl text-white tracking-wider mb-2">MAXIMUS</h3>
+                        <h4 class="font-montserrat text-2xl text-white tracking-wider">INTEGRATED.</h4>
                     </div>
 
                     <form id="contact-form" class="space-y-6">
@@ -317,7 +321,7 @@
 
                         <div class="pt-4">
                             <button type="submit"
-                                class="bg-maximus-red text-white px-10 py-3 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(196,30,58,0.6)] hover:scale-105">
+                                class="bg-maximus-red text-maximus-yellow px-10 py-3 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(167,0,0,0.6)] hover:scale-105">
                                 CONNECT
                             </button>
                         </div>
@@ -331,40 +335,46 @@
     <footer class="bg-maximus-dark text-white py-12">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <!-- Registered Address -->
+                <!-- Registered Office -->
                 <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">REGISTERED ADDRESS</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Maximus Integrated<br>
-                        123 Business Avenue<br>
-                        Corporate District<br>
-                        City, State 560001<br>
-                        India
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">REGISTERED OFFICE</h4>
+                    <p class="text-gray-400 text-sm leading-tight">
+                        Snn Raj Serenity,<br>
+                        Begur Main Road,<br>
+                        Bangalore-560068
                     </p>
                 </div>
 
-                <!-- Customer Policies -->
+                <!-- Bangalore Offices -->
                 <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">CUSTOMER POLICIES</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Privacy
-                                Policy</a></li>
-                        <li><a href="#"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Terms
-                                & Conditions</a></li>
-                        <li><a href="#"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Refund
-                                Policy</a></li>
-                        <li><a href="#"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">FAQ</a>
-                        </li>
-                    </ul>
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">BANGALORE OFFICES</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore North</p>
+                            <p class="text-gray-400 text-xs leading-tight mb-2">
+                                Bhagyadakshi Enclave # J-100,<br>
+                                1st Main Road, J.C. Nagar,<br>
+                                Mahalakshmipuram,<br>
+                                Bangalore North - 560086
+                            </p>
+                            <a href="tel:7795228071"
+                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                <i class="fas fa-phone mr-1"></i>Chandan: 7795228071
+                            </a>
+                        </div>
+                        <div>
+                            <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore South</p>
+                            <a href="tel:9845452680"
+                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                <i class="fas fa-phone mr-1"></i>Sandeep Das: 9845452680
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <!-- Social Media -->
                 <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">CONNECT WITH US</h4>
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">CONNECT WITH US</h4>
                     <div class="flex space-x-4">
                         <a href="#"
                             class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
@@ -381,6 +391,13 @@
                         <a href="#"
                             class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
                             <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <a href="mailto:connect@brandmaximus.com"
+                            class="text-gray-400 text-sm hover:text-maximus-yellow transition-colors duration-300 flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            connect@brandmaximus.com
                         </a>
                     </div>
                 </div>

@@ -38,7 +38,7 @@ body {
     left: 0;
     width: 0;
     height: 2px;
-    background: #C41E3A;
+    background: #a70000;
     transition: width 0.3s ease;
 }
 
@@ -133,14 +133,14 @@ body {
 /* Connect Button Glow Effect */
 .connect-btn {
     position: relative;
-    box-shadow: 0 0 20px rgba(196, 30, 58, 0.3);
+    box-shadow: 0 0 20px rgba(167, 0, 0, 0.3);
 }
 
 .connect-btn::before {
     content: '';
     position: absolute;
     inset: -2px;
-    background: linear-gradient(45deg, #C41E3A, #FF4458, #C41E3A);
+    background: linear-gradient(45deg, #a70000, #ffbe42, #a70000);
     border-radius: inherit;
     opacity: 0;
     transition: opacity 0.3s ease;
@@ -285,7 +285,7 @@ textarea:-webkit-autofill:focus {
 /* Input Focus Glow */
 input:focus,
 textarea:focus {
-    box-shadow: 0 4px 12px rgba(196, 30, 58, 0.3);
+    box-shadow: 0 4px 12px rgba(167, 0, 0, 0.3);
 }
 
 /* ============================================
@@ -343,12 +343,12 @@ body {
    ============================================ */
 
 ::selection {
-    background: #C41E3A;
+    background: #a70000;
     color: white;
 }
 
 ::-moz-selection {
-    background: #C41E3A;
+    background: #a70000;
     color: white;
 }
 
@@ -365,7 +365,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: #C41E3A;
+    background: #a70000;
     border-radius: 5px;
 }
 

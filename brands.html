@@ -13,8 +13,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -29,13 +28,15 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'bebas': ['Bebas Neue', 'cursive'],
                         'montserrat': ['Montserrat', 'sans-serif'],
                     },
                     colors: {
-                        'maximus-red': '#C41E3A',
+                        'maximus-red': '#a70000',
+                        'maximus-yellow': '#ffbe42',
                         'maximus-dark': '#0A0A0A',
                         'maximus-gray': '#1A1A1A',
+                        'off-white': '#FAFAFA',
+                        'warm-white': '#F5F5F5',
                     }
                 }
             }
@@ -49,7 +50,7 @@
                 padding: 0.5rem 0.375rem !important;
                 min-height: 60px !important;
                 height: 60px !important;
-                border-left: 3px solid #C41E3A;
+                border-left: 3px solid #a70000;
                 display: flex !important;
                 align-items: center !important;
                 justify-content: center !important;
@@ -91,10 +92,11 @@
     </style>
 </head>
 
-<body class="bg-white font-montserrat">
+<body class="bg-off-white font-montserrat">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-white shadow-md">
+    <nav id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-off-white shadow-md">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
@@ -125,7 +127,7 @@
                     <a href="gallery.html"
                         class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">GALLERY</a>
                     <a href="index.html#contact"
-                        class="bg-maximus-red text-white px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(196,30,58,0.6)] hover:scale-105">CONTACT</a>
+                        class="bg-maximus-red text-maximus-yellow px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">CONTACT</a>
                 </div>
 
                 <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
@@ -165,18 +167,20 @@
         <div class="absolute inset-0 bg-gradient-to-r from-maximus-dark via-maximus-gray to-maximus-dark opacity-90">
         </div>
         <div class="relative z-10 text-center fade-up opacity-0">
-            <h1 class="font-bebas text-5xl md:text-6xl lg:text-7xl text-white mb-4 tracking-wider">BIZ & BRANDS</h1>
-            <div class="w-24 h-1 bg-maximus-red mx-auto mb-4"></div>
+            <h1
+                class="font-montserrat text-5xl md:text-6xl lg:text-7xl text-warm-white mb-4 tracking-wider leading-none">
+                BIZ & BRANDS</h1>
+            <div class="w-24 h-px bg-gray-200 mx-auto mb-2"></div>
             <p class="text-gray-300 text-lg max-w-2xl mx-auto px-6">Brands that have shaped our competencies over the
                 years</p>
         </div>
     </section>
 
     <!-- Intro Section -->
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-off-white">
         <div class="max-w-5xl mx-auto px-6 lg:px-8 text-center">
             <div class="fade-up opacity-0">
-                <p class="text-gray-700 text-lg leading-relaxed">
+                <p class="text-gray-700 text-lg leading-tight">
                     Over the years, we've had the privilege of partnering with visionary brands across diverse
                     industries. Each collaboration has enriched our expertise, sharpened our strategies, and
                     strengthened our commitment to delivering exceptional results.
@@ -188,219 +192,224 @@
     <!-- Client Logos Grid -->
     <section class="py-20 lg:py-32 bg-gray-50">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="fade-up opacity-0 text-center mb-16">
-                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">OUR CLIENTS</h2>
-                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            <div class="fade-up opacity-0 text-center mb-12">
+                <h2 class="font-montserrat text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide leading-none">OUR
+                    CLIENTS</h2>
+                <div class="w-24 h-px bg-gray-200 mx-auto"></div>
             </div>
 
             <!-- Industry Categories -->
 
             <!-- FMCG & Food -->
             <div class="mb-16 fade-up opacity-0">
-                <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide text-center">FMCG & FOOD</h3>
+                <h3 class="font-montserrat text-2xl text-maximus-red mb-6 tracking-wide text-center">FMCG & FOOD</h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">MAIYAS BEVERAGES & FOODS</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">MAIYAS BEVERAGES & FOODS</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">PRAGATI MILK</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">PRAGATI MILK</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">NILGIRIS</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">NILGIRIS</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">EMMAMI</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">EMMAMI</span>
                     </div>
                 </div>
             </div>
 
             <!-- Construction & Infrastructure -->
             <div class="mb-16 fade-up opacity-0">
-                <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide text-center">CONSTRUCTION &
+                <h3 class="font-montserrat text-2xl text-maximus-red mb-6 tracking-wide text-center">CONSTRUCTION &
                     INFRASTRUCTURE</h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">NAGARJUNA CEMENT</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">NAGARJUNA CEMENT</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">BISON PANEL</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">BISON PANEL</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">NCC</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">NCC</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">NCL HOMES</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">NCL HOMES</span>
                     </div>
                 </div>
             </div>
 
             <!-- Real Estate -->
             <div class="mb-16 fade-up opacity-0">
-                <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide text-center">REAL ESTATE</h3>
+                <h3 class="font-montserrat text-2xl text-maximus-red mb-6 tracking-wide text-center">REAL ESTATE</h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">EMBASSY BUILDERS</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">EMBASSY BUILDERS</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">PROVIDENT</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">PROVIDENT</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">PURVANKARA</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">PURVANKARA</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">ALLURE INFRA</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">ALLURE INFRA</span>
                     </div>
                 </div>
             </div>
 
             <!-- Hospitality & Tourism -->
             <div class="mb-16 fade-up opacity-0">
-                <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide text-center">HOSPITALITY & TOURISM
+                <h3 class="font-montserrat text-2xl text-maximus-red mb-6 tracking-wide text-center">HOSPITALITY &
+                    TOURISM
                 </h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">SWOSTI GROUP OF HOTELS</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">SWOSTI GROUP OF HOTELS</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">MAYFAIR HOTELS</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">MAYFAIR HOTELS</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">SWOSTI TRAVELS</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">SWOSTI TRAVELS</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">ODISHA TOURISM</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">ODISHA TOURISM</span>
                     </div>
                 </div>
             </div>
 
             <!-- Fashion & Retail -->
             <div class="mb-16 fade-up opacity-0">
-                <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide text-center">FASHION & RETAIL</h3>
+                <h3 class="font-montserrat text-2xl text-maximus-red mb-6 tracking-wide text-center">FASHION & RETAIL
+                </h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">CLASSIC POLO</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">CLASSIC POLO</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">LIVERPOOL</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">LIVERPOOL</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">ESPRIT</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">ESPRIT</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">MYNTRA</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">MYNTRA</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">METRO CASH & CARRY</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">METRO CASH & CARRY</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">MANCHESTER UNITED RETAIL</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">MANCHESTER UNITED RETAIL</span>
                     </div>
                 </div>
             </div>
 
             <!-- Automotive -->
             <div class="mb-16 fade-up opacity-0">
-                <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide text-center">AUTOMOTIVE</h3>
+                <h3 class="font-montserrat text-2xl text-maximus-red mb-6 tracking-wide text-center">AUTOMOTIVE</h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">TATA MOTORS</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">TATA MOTORS</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">VOLVO</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">VOLVO</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">MRF</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">MRF</span>
                     </div>
                 </div>
             </div>
 
             <!-- Healthcare & Education -->
             <div class="mb-16 fade-up opacity-0">
-                <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide text-center">HEALTHCARE & EDUCATION
+                <h3 class="font-montserrat text-2xl text-maximus-red mb-6 tracking-wide text-center">HEALTHCARE &
+                    EDUCATION
                 </h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">MANIPAL EDUCATION</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">MANIPAL EDUCATION</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">KANUNGO DIABETES HOSPITAL</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">KANUNGO DIABETES HOSPITAL</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">ODISHA ORTHOPEDICS</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">ODISHA ORTHOPEDICS</span>
                     </div>
                 </div>
             </div>
 
             <!-- Lifestyle & Others -->
             <div class="mb-16 fade-up opacity-0">
-                <h3 class="font-bebas text-2xl text-maximus-red mb-6 tracking-wide text-center">LIFESTYLE & OTHERS</h3>
+                <h3 class="font-montserrat text-2xl text-maximus-red mb-6 tracking-wide text-center">LIFESTYLE & OTHERS
+                </h3>
                 <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">TANISHQ</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">TANISHQ</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">CITIZEN WATCHES</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">CITIZEN WATCHES</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">TRANSITIONS</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">TRANSITIONS</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">PARAMOUNT COSMETICS</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">PARAMOUNT COSMETICS</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">SIESTA</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">SIESTA</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">G-CORP</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">G-CORP</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">ARTISANSCREST</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">ARTISANSCREST</span>
                     </div>
                     <div
-                        class="service-card opacity-0 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
-                        <span class="font-bebas text-lg text-gray-700">STRIKEDART</span>
+                        class="service-card opacity-0 bg-warm-white p-6 rounded-lg shadow-md hover:shadow-xl transition-all duration-300 flex items-center justify-center">
+                        <span class="font-montserrat text-lg text-gray-700">STRIKEDART</span>
                     </div>
                 </div>
             </div>
 
             <!-- And Many More -->
             <div class="text-center fade-up opacity-0">
-                <p class="font-bebas text-3xl text-maximus-red tracking-wider">AND MANY MORE...</p>
+                <p class="font-montserrat text-3xl text-maximus-red tracking-wider">AND MANY MORE...</p>
             </div>
         </div>
     </section>
@@ -408,8 +417,9 @@
     <!-- CTA Section -->
     <section class="py-20 bg-maximus-red">
         <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center fade-up opacity-0">
-            <h2 class="font-bebas text-4xl md:text-5xl text-white mb-6 tracking-wide">JOIN OUR PORTFOLIO OF SUCCESS</h2>
-            <p class="text-white text-lg mb-8">Let's create your brand's success story together</p>
+            <h2 class="font-montserrat text-4xl md:text-5xl text-warm-white mb-6 tracking-wide leading-none">JOIN OUR
+                PORTFOLIO OF SUCCESS</h2>
+            <p class="text-warm-white text-lg mb-8">Let's create your brand's success story together</p>
             <a href="index.html#contact"
                 class="inline-block bg-white text-maximus-red px-10 py-4 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:scale-105">
                 START YOUR JOURNEY
@@ -422,36 +432,40 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">REGISTERED ADDRESS</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Maximus Integrated<br>
-                        123 Business Avenue<br>
-                        Corporate District<br>
-                        City, State 560001<br>
-                        India
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">REGISTERED OFFICE</h4>
+                    <p class="text-gray-400 text-sm leading-tight">
+                        Snn Raj Serenity,<br>
+                        Begur Main Road,<br>
+                        Bangalore-560068
                     </p>
                 </div>
 
-                <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">QUICK LINKS</h4>
-                    <ul class="space-y-2">
-                        <li><a href="about.html"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">About
-                                Us</a></li>
-                        <li><a href="services.html"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Services</a>
-                        </li>
-                        <li><a href="portfolio.html"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Portfolio</a>
-                        </li>
-                        <li><a href="index.html#contact"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Contact</a>
-                        </li>
-                    </ul>
+                                <div>
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">BANGALORE OFFICES</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore North</p>
+                            <p class="text-gray-400 text-xs leading-tight mb-2">
+                                Bhagyadakshi Enclave # J-100,<br>
+                                1st Main Road, J.C. Nagar,<br>
+                                Mahalakshmipuram,<br>
+                                Bangalore North - 560086
+                            </p>
+                            <a href="tel:7795228071" class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                <i class="fas fa-phone mr-1"></i>Chandan: 7795228071
+                            </a>
+                        </div>
+                        <div>
+                            <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore South</p>
+                            <a href="tel:9845452680" class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                <i class="fas fa-phone mr-1"></i>Sandeep Das: 9845452680
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">CONNECT WITH US</h4>
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">CONNECT WITH US</h4>
                     <div class="flex space-x-4">
                         <a href="#"
                             class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
@@ -468,6 +482,13 @@
                         <a href="#"
                             class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
                             <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <a href="mailto:connect@brandmaximus.com"
+                            class="text-gray-400 text-sm hover:text-maximus-yellow transition-colors duration-300 flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            connect@brandmaximus.com
                         </a>
                     </div>
                 </div>

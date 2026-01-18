@@ -13,8 +13,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -29,13 +28,15 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'bebas': ['Bebas Neue', 'cursive'],
                         'montserrat': ['Montserrat', 'sans-serif'],
                     },
                     colors: {
-                        'maximus-red': '#C41E3A',
+                        'maximus-red': '#a70000',
+                        'maximus-yellow': '#ffbe42',
                         'maximus-dark': '#0A0A0A',
                         'maximus-gray': '#1A1A1A',
+                        'off-white': '#FAFAFA',
+                        'warm-white': '#F5F5F5',
                     }
                 }
             }
@@ -66,7 +67,7 @@
         }
 
         .blog-content::-webkit-scrollbar-thumb {
-            background: #C41E3A;
+            background: #a70000;
             border-radius: 4px;
         }
 
@@ -104,7 +105,7 @@
         /* Mobile-specific styles */
         @media (max-width: 768px) {
             .blog-card {
-                border-left: 4px solid #C41E3A;
+                border-left: 4px solid #a70000;
                 padding: 0.625rem 0.75rem !important;
             }
 
@@ -177,8 +178,8 @@
                 margin-top: 4rem;
                 margin-bottom: 2rem;
                 border-radius: 0.5rem;
-                border-left: 4px solid #C41E3A;
-                box-shadow: 0 10px 40px rgba(196, 30, 58, 0.3);
+                border-left: 4px solid #a70000;
+                box-shadow: 0 10px 40px rgba(167, 0, 0, 0.3);
                 max-width: 600px;
                 margin-left: auto;
                 margin-right: auto;
@@ -186,7 +187,7 @@
 
             .blog-modal-header {
                 padding: 1rem;
-                border-bottom: 2px solid #C41E3A;
+                border-bottom: 2px solid #a70000;
                 position: sticky;
                 top: 0;
                 background: white;
@@ -231,7 +232,7 @@
 
             .blog-modal-body strong {
                 font-weight: 700;
-                color: #C41E3A;
+                color: #a70000;
             }
 
             .blog-modal-close {
@@ -240,7 +241,7 @@
                 right: 1rem;
                 width: 2.5rem;
                 height: 2.5rem;
-                background: #C41E3A;
+                background: #a70000;
                 color: white;
                 border: none;
                 border-radius: 50%;
@@ -250,7 +251,7 @@
                 display: flex;
                 align-items: center;
                 justify-content: center;
-                box-shadow: 0 4px 12px rgba(196, 30, 58, 0.4);
+                box-shadow: 0 4px 12px rgba(167, 0, 0, 0.4);
             }
 
             @keyframes fadeIn {
@@ -271,10 +272,11 @@
     </style>
 </head>
 
-<body class="bg-white font-montserrat">
+<body class="bg-off-white font-montserrat">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-white shadow-md">
+    <nav id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-off-white shadow-md">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
@@ -305,7 +307,7 @@
                     <a href="gallery.html"
                         class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">GALLERY</a>
                     <a href="index.html#contact"
-                        class="bg-maximus-red text-white px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(196,30,58,0.6)] hover:scale-105">CONTACT</a>
+                        class="bg-maximus-red text-maximus-yellow px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">CONTACT</a>
                 </div>
 
                 <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
@@ -345,9 +347,11 @@
         <div class="absolute inset-0 bg-gradient-to-r from-maximus-dark via-maximus-gray to-maximus-dark opacity-90">
         </div>
         <div class="relative z-10 text-center fade-up opacity-0">
-            <h1 class="font-bebas text-5xl md:text-6xl lg:text-7xl text-white mb-4 tracking-wider">INSIGHTS &
+            <h1
+                class="font-montserrat text-5xl md:text-6xl lg:text-7xl text-warm-white mb-4 tracking-wider leading-none">
+                INSIGHTS &
                 PERSPECTIVES</h1>
-            <div class="w-24 h-1 bg-maximus-red mx-auto mb-4"></div>
+            <div class="w-24 h-px bg-gray-200 mx-auto mb-2"></div>
             <p class="text-gray-300 text-lg max-w-2xl mx-auto px-6">Thoughts on marketing, branding, and business growth
             </p>
         </div>
@@ -363,7 +367,7 @@
                 <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog1')">
                     <div class="flex justify-between items-start">
                         <div class="flex-1">
-                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">
+                            <h2 class="font-montserrat text-3xl text-maximus-dark mb-2 tracking-wide">
                                 Digital Marketing Beyond the Buzz: What Really Works?</h2>
                             <p class="text-gray-600 text-sm mb-4">Exploring what actually drives
                                 results in digital marketing for startups and established brands</p>
@@ -385,7 +389,7 @@
                                 stay ahead, your digital strategy makes all the difference. But what actually drives
                                 results?</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Startups vs. Big Brands:
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Startups vs. Big Brands:
                                 Different Playbooks, Same Game</h3>
                             <p class="mb-4">Startups and established brands both rely on digital marketing, but their
                                 game plans differ. Startups work with tight budgets, focusing on organic social media,
@@ -395,7 +399,8 @@
                             <p class="mb-4">However, the core principles remain the same: understanding the audience,
                                 data-driven decision-making, and optimizing every campaign for maximum efficiency.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Budget vs. Results: Does More
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Budget vs. Results: Does
+                                More
                                 Money Mean More Success?</h3>
                             <p class="mb-4">Spending more doesn't guarantee success; spending smart does. A
                                 well-executed campaign can deliver strong returns even on a modest budget. Startups
@@ -404,21 +409,23 @@
                             <p class="mb-4">The key? Smart tracking, A/B testing, and audience insights to ensure every
                                 penny contributes to meaningful outcomes.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">The Future of Digital Marketing
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">The Future of Digital
+                                Marketing
                             </h3>
                             <p class="mb-4">Marketing is evolving fast. AI-driven campaigns, voice search, and AR/VR
                                 content are shaping the future. Short-form videos, hyper-personalization, and
                                 community-driven marketing will be essential. Staying agile and adapting to new trends
                                 is critical for brands that want to stay ahead.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Boosting Performance Marketing
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Boosting Performance
+                                Marketing
                             </h3>
                             <p class="mb-4">To get the most from performance marketing, brands need to focus on
                                 AI-powered analytics, better audience segmentation, and retargeting strategies.
                                 First-party data will become even more valuable in delivering personalized experiences
                                 and driving long-term engagement.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Final Thoughts</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Final Thoughts</h3>
                             <p>Digital marketing success isn't about chasing trends—it's about strategy, data, and
                                 adaptability. Whether you're a startup or an established player, a well-crafted digital
                                 marketing approach can fuel sustainable growth and keep you ahead of the competition.
@@ -434,7 +441,8 @@
                 <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog2')">
                     <div class="flex justify-between items-start">
                         <div class="flex-1">
-                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">Clicks to Conversions:
+                            <h2 class="font-montserrat text-3xl text-maximus-dark mb-2 tracking-wide">Clicks to
+                                Conversions:
                                 Integrating Performance Marketing to Sales</h2>
                             <p class="text-gray-600 text-sm mb-4">How to maximize impact by aligning marketing and sales
                                 teams</p>
@@ -455,7 +463,8 @@
                                 converting those leads into sales. To maximize impact, marketing and sales need to work
                                 in tandem and in a complete transparent environment.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Assess Lead Quality and Intent
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Assess Lead Quality and
+                                Intent
                             </h3>
                             <p class="mb-4">Not every lead is created equal. Categorize leads based on intent: High,
                                 Medium, and Low. A lead that showcases a higher level of intent will scan multiple
@@ -468,7 +477,8 @@
                                     inbound calls</li>
                             </ul>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Align Sales and Marketing Teams
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Align Sales and Marketing
+                                Teams
                             </h3>
                             <p class="mb-4">A strong data exchange process prevents lead drop-offs:</p>
                             <ul class="list-disc pl-6 mb-4">
@@ -480,7 +490,7 @@
                                 <li>For e-commerce, retargeting ads are an effective tool</li>
                             </ul>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Automate and Personalize
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Automate and Personalize
                                 Follow-ups</h3>
                             <p class="mb-4">Quick and relevant follow-ups can significantly enhance chances of
                                 conversion:</p>
@@ -490,7 +500,7 @@
                                     personalize messages</li>
                             </ul>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Conclusion</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Conclusion</h3>
                             <p>Marketing brings people in; sales team close the deal. A well-integrated
                                 approach—leveraging automation, data, and personalized outreach—ensures that clicks turn
                                 into customers. Success isn't about leads. It's about sales.</p>
@@ -505,7 +515,8 @@
                 <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog3')">
                     <div class="flex justify-between items-start">
                         <div class="flex-1">
-                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">Why Marketing Alone
+                            <h2 class="font-montserrat text-3xl text-maximus-dark mb-2 tracking-wide">Why Marketing
+                                Alone
                                 Can't Build A Great Campaign</h2>
                             <p class="text-gray-600 text-sm mb-4">The importance of integrating insights from marketing,
                                 sales, product, and consumers</p>
@@ -536,7 +547,8 @@
                                 through reviews, surveys, or social listening—tells you why people behave the way they
                                 do.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Real-World Example: FMCG Brand
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Real-World Example: FMCG
+                                Brand
                             </h3>
                             <p class="mb-4">One example that stuck with me is from an FMCG brand we worked
                                 with—launching a new health drink. The sampling test had great feedback. Marketing was
@@ -546,7 +558,7 @@
                                 strategy—introducing variety packs, reworking flavour profiles, and re-working on the
                                 messaging. The turnaround was real.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Zara's Success Story</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Zara's Success Story</h3>
                             <p class="mb-4">In the fashion world, Zara is a textbook example. Store-level sales data,
                                 coupled with feedback from frontline staff, is sent directly to the design team. If a
                                 product sells out quickly, or receives negative feedback, Zara adjusts production and
@@ -568,7 +580,8 @@
                 <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog4')">
                     <div class="flex justify-between items-start">
                         <div class="flex-1">
-                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">Thought Leadership: It
+                            <h2 class="font-montserrat text-3xl text-maximus-dark mb-2 tracking-wide">Thought
+                                Leadership: It
                                 Can Change Your Brand's Story</h2>
                             <p class="text-gray-600 text-sm mb-4">How thought leadership builds trust and drives growth
                                 across industries</p>
@@ -590,7 +603,7 @@
                                 grow—whether you're in fashion, food, travel, or automobile. It's about having a voice
                                 that matters, and it can shake things up both inside and outside your company.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Real Brand Examples</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Real Brand Examples</h3>
                             <p class="mb-4"><strong>Nike:</strong> Their "Just Do It" campaign and bold stance on social
                                 issues don't just sell sports shoes, they spark a movement. It also aligned their
                                 internal teams with a shared purpose.</p>
@@ -609,7 +622,7 @@
                                 marketing, it's thought leadership rooted in mass appeal, with trust being the core
                                 essence.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">The Impact</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">The Impact</h3>
                             <p class="mb-4">When you lean into thought leadership:</p>
                             <ul class="list-disc pl-6 mb-4">
                                 <li>Marketing, product, and even HR begin working from the same core belief or value
@@ -631,7 +644,8 @@
                 <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog5')">
                     <div class="flex justify-between items-start">
                         <div class="flex-1">
-                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">Influencer Marketing:
+                            <h2 class="font-montserrat text-3xl text-maximus-dark mb-2 tracking-wide">Influencer
+                                Marketing:
                                 The Way Brands Tell Their Stories</h2>
                             <p class="text-gray-600 text-sm mb-4">Why authentic influencer partnerships drive real
                                 engagement and trust</p>
@@ -659,7 +673,7 @@
                                 trust. They're not just selling, they're sharing their lives. Brands caught on fast,
                                 knowing we'd rather hear from someone we vibe with than a faceless ad.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Success Stories</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Success Stories</h3>
                             <p class="mb-4">In India, Nykaa gets it. They team up with beauty influencers like Malvika
                                 Sitlani. It's aspirational but real, and it works because she knows her audience. Zomato
                                 does it too, partnering with foodies like Rocky Singh, who share their love for street
@@ -668,7 +682,7 @@
                             <p class="mb-4">Globally, it's the same deal. Adidas crafts stories of culture and
                                 inclusivity with creators like Pharrell Williams.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Why It Works</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Why It Works</h3>
                             <p class="mb-4">We trust people, not ads. A 2023 survey showed 65% of Indian Gen Z trusts
                                 influencers over traditional ads. That's huge. When someone you follow loves a product,
                                 it's like a friend's recommendation.</p>
@@ -694,7 +708,8 @@
                 <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog6')">
                     <div class="flex justify-between items-start">
                         <div class="flex-1">
-                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">How Micro-Moments Are
+                            <h2 class="font-montserrat text-3xl text-maximus-dark mb-2 tracking-wide">How Micro-Moments
+                                Are
                                 Changing the Marketing Game</h2>
                             <p class="text-gray-600 text-sm mb-4">Capturing consumer attention in decisive seconds</p>
                             <div class="flex items-center text-sm text-gray-500 whitespace-nowrap">
@@ -715,17 +730,17 @@
                                 consumers turn to devices to act, learn or buy. With over 800 million smartphone users
                                 in India, brands must seize these moments to stay relevant.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">The Three Principles</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">The Three Principles</h3>
                             <p class="mb-4">Success hinges on three principles: be present, be useful, and be quick.
                                 Brands need mobile-optimized platforms, personalized content, and instant responses.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Real Examples</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Real Examples</h3>
                             <p class="mb-4">When a commuter in Bengaluru searches "best biryani near me," Zomato or
                                 Swiggy has a chance to capture the moment with instant offers, quick delivery timelines,
                                 and relevant reviews. Similarly, Flipkart and Amazon invest heavily in ensuring that
                                 searches like "Raksha Bandhan gift under ₹1000" lead directly to curated options.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">How Brands Can Win</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">How Brands Can Win</h3>
                             <ul class="list-disc pl-6 mb-4">
                                 <li>Be discoverable</li>
                                 <li>Be quick: Ensure mobile-first, frictionless experiences</li>
@@ -743,7 +758,7 @@
                 <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog7')">
                     <div class="flex justify-between items-start">
                         <div class="flex-1">
-                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">Customer Retention
+                            <h2 class="font-montserrat text-3xl text-maximus-dark mb-2 tracking-wide">Customer Retention
                                 Strategies: Turning Buyers into Loyal Advocates</h2>
                             <p class="text-gray-600 text-sm mb-4">Building emotional connections for long-term brand
                                 value</p>
@@ -764,7 +779,7 @@
                                 value lies. Retention is about building emotional connections, not transactional
                                 relationships.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Industry Examples</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Industry Examples</h3>
                             <p class="mb-4">In hospitality, the Taj Group goes beyond service delivery—remembering guest
                                 preferences, from favourite dishes to room choices. In travel, Airbnb builds belonging
                                 by connecting guests with local experiences rather than just stays.</p>
@@ -774,7 +789,7 @@
                                 built a global ecosystem through its Nike Run Club app, turning users into a loyal
                                 tribe.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">The Strategy</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">The Strategy</h3>
                             <p class="mb-4">Brands must map the customer journey, identify friction points, and
                                 personalize interventions at every stage. Using CRM systems, spend-based segmentation,
                                 and predictive analytics, they can track repeat purchase rates, churn probabilities, and
@@ -794,7 +809,7 @@
                 <div class="blog-card p-6 md:p-8" onclick="toggleBlog('blog8')">
                     <div class="flex justify-between items-start">
                         <div class="flex-1">
-                            <h2 class="font-bebas text-3xl text-maximus-dark mb-2 tracking-wide">How Behavioral
+                            <h2 class="font-montserrat text-3xl text-maximus-dark mb-2 tracking-wide">How Behavioral
                                 Economics Shapes Consumer Buying</h2>
                             <p class="text-gray-600 text-sm mb-4">Understanding the psychology behind purchase decisions
                             </p>
@@ -816,7 +831,8 @@
                                 is where behavioral economics plays a big role—it helps marketers understand why people
                                 really choose what they choose.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">Real-World Applications in India
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">Real-World Applications in
+                                India
                             </h3>
                             <p class="mb-4">In India, you can see this everywhere. Swiggy and Zomato use limited-time
                                 deals to tap into urgency. Nykaa and Flipkart use messages like "Only 3 left" or "10,000
@@ -826,7 +842,7 @@
                                 affordable—this is anchoring. Real estate brands highlight "early-bird offers" to
                                 trigger loss aversion. Even Ola uses default ride options to make selection quicker.</p>
 
-                            <h3 class="font-bebas text-2xl text-maximus-red mt-6 mb-3">How It's Measured</h3>
+                            <h3 class="font-montserrat text-2xl text-maximus-red mt-6 mb-3">How It's Measured</h3>
                             <p class="mb-4">Marketers track behaviour through A/B testing, funnel analysis, click-path
                                 data, scroll depth, heatmaps, and controlled experiments. Eye-tracking and sentiment
                                 checks also show how people react to a design or message.</p>
@@ -843,7 +859,7 @@
             <div class="text-center mt-12 fade-up opacity-0">
                 <p class="text-gray-600 mb-4">More insights coming soon...</p>
                 <a href="index.html#contact"
-                    class="inline-block bg-maximus-red text-white px-8 py-3 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(196,30,58,0.6)] hover:scale-105">
+                    class="inline-block bg-maximus-red text-maximus-yellow px-8 py-3 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">
                     SUBSCRIBE FOR UPDATES
                 </a>
             </div>
@@ -856,36 +872,40 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">REGISTERED ADDRESS</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Maximus Integrated<br>
-                        123 Business Avenue<br>
-                        Corporate District<br>
-                        City, State 560001<br>
-                        India
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">REGISTERED OFFICE</h4>
+                    <p class="text-gray-400 text-sm leading-tight">
+                        Snn Raj Serenity,<br>
+                        Begur Main Road,<br>
+                        Bangalore-560068
                     </p>
                 </div>
 
-                <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">QUICK LINKS</h4>
-                    <ul class="space-y-2">
-                        <li><a href="about.html"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">About
-                                Us</a></li>
-                        <li><a href="services.html"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Services</a>
-                        </li>
-                        <li><a href="portfolio.html"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Portfolio</a>
-                        </li>
-                        <li><a href="index.html#contact"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Contact</a>
-                        </li>
-                    </ul>
+                                <div>
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">BANGALORE OFFICES</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore North</p>
+                            <p class="text-gray-400 text-xs leading-tight mb-2">
+                                Bhagyadakshi Enclave # J-100,<br>
+                                1st Main Road, J.C. Nagar,<br>
+                                Mahalakshmipuram,<br>
+                                Bangalore North - 560086
+                            </p>
+                            <a href="tel:7795228071" class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                <i class="fas fa-phone mr-1"></i>Chandan: 7795228071
+                            </a>
+                        </div>
+                        <div>
+                            <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore South</p>
+                            <a href="tel:9845452680" class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                <i class="fas fa-phone mr-1"></i>Sandeep Das: 9845452680
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">CONNECT WITH US</h4>
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">CONNECT WITH US</h4>
                     <div class="flex space-x-4">
                         <a href="#"
                             class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
@@ -902,6 +922,13 @@
                         <a href="#"
                             class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
                             <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <a href="mailto:connect@brandmaximus.com"
+                            class="text-gray-400 text-sm hover:text-maximus-yellow transition-colors duration-300 flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            connect@brandmaximus.com
                         </a>
                     </div>
                 </div>
@@ -922,7 +949,7 @@
         </button>
         <div class="blog-modal-content">
             <div class="blog-modal-header">
-                <h2 id="modalTitle" class="font-bebas text-2xl text-maximus-dark tracking-wide"></h2>
+                <h2 id="modalTitle" class="font-montserrat text-2xl text-maximus-dark tracking-wide"></h2>
                 <p id="modalCategory" class="text-xs text-gray-500 mt-2"></p>
             </div>
             <div class="blog-modal-body" id="modalBody">
