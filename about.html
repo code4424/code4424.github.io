@@ -14,8 +14,7 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -30,13 +29,15 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        'bebas': ['Bebas Neue', 'cursive'],
                         'montserrat': ['Montserrat', 'sans-serif'],
                     },
                     colors: {
-                        'maximus-red': '#C41E3A',
+                        'maximus-red': '#a70000',
+                        'maximus-yellow': '#ffbe42',
                         'maximus-dark': '#0A0A0A',
                         'maximus-gray': '#1A1A1A',
+                        'off-white': '#FAFAFA',
+                        'warm-white': '#F5F5F5',
                     }
                 }
             }
@@ -44,10 +45,11 @@
     </script>
 </head>
 
-<body class="bg-white font-montserrat">
+<body class="bg-off-white font-montserrat">
 
     <!-- Navigation -->
-    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-white shadow-md">
+    <nav id="navbar"
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-off-white shadow-md">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 <div class="flex-shrink-0">
@@ -78,7 +80,7 @@
                     <a href="gallery.html"
                         class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">GALLERY</a>
                     <a href="index.html#contact"
-                        class="bg-maximus-red text-white px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(196,30,58,0.6)] hover:scale-105">CONTACT</a>
+                        class="bg-maximus-red text-maximus-yellow px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">CONTACT</a>
                 </div>
 
                 <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
@@ -118,28 +120,30 @@
         <div class="absolute inset-0 bg-gradient-to-r from-maximus-dark via-maximus-gray to-maximus-dark opacity-90">
         </div>
         <div class="relative z-10 text-center fade-up opacity-0">
-            <h1 class="font-bebas text-5xl md:text-6xl lg:text-7xl text-white mb-4 tracking-wider">ABOUT US</h1>
-            <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            <h1
+                class="font-montserrat text-5xl md:text-6xl lg:text-7xl text-warm-white mb-4 tracking-wider leading-none">
+                ABOUT US</h1>
+            <div class="w-24 h-px bg-gray-200 mx-auto"></div>
         </div>
     </section>
 
     <!-- Intro Section -->
-    <section class="py-20 lg:py-32 bg-white">
+    <section class="py-20 lg:py-32 bg-off-white">
         <div class="max-w-5xl mx-auto px-6 lg:px-8">
             <div class="fade-up opacity-0">
-                <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                <p class="text-gray-700 text-lg leading-tight mb-8">
                     At <span class="font-bold text-maximus-red">Maximus Integrated</span>, we see ourselves as <span
                         class="font-bold">Growth Warriors</span>—strategic, relentless, and focused on winning the
                     battles that matter. In today's competitive landscape, brands don't just compete; they fight for
                     attention, loyalty, and market dominance. Winning requires more than just presence—it demands
                     strategy, precision, and impact.
                 </p>
-                <p class="text-gray-700 text-lg leading-relaxed mb-8">
+                <p class="text-gray-700 text-lg leading-tight mb-8">
                     That's where we come in. We craft bold, data-driven brand, marketing, and IMC strategies that don't
                     just make noise—they make an impact. We position your brand where it belongs: ahead of the
                     competition, both in the market and in the minds of your audience.
                 </p>
-                <p class="text-gray-700 text-lg leading-relaxed">
+                <p class="text-gray-700 text-lg leading-tight">
                     Every dollar you invest should work as hard as you do. At Maximus Integrated, we ensure it
                     does—delivering maximum value, maximum results, and maximum growth.
                 </p>
@@ -150,12 +154,13 @@
     <!-- Philosophy Section -->
     <section class="py-20 lg:py-32 bg-gray-50">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
-            <div class="fade-up opacity-0 text-center mb-16">
-                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">OUR PHILOSOPHY</h2>
-                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            <div class="fade-up opacity-0 text-center mb-12">
+                <h2 class="font-montserrat text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide leading-none">OUR
+                    PHILOSOPHY</h2>
+                <div class="w-24 h-px bg-gray-200 mx-auto"></div>
             </div>
             <div class="fade-up opacity-0">
-                <p class="text-gray-700 text-lg leading-relaxed text-center max-w-4xl mx-auto">
+                <p class="text-gray-700 text-lg leading-tight text-center max-w-4xl mx-auto">
                     At Maximus Integrated, we believe brand building is a strategic battle for attention, trust, and
                     market share. Our approach is holistic, aligning brand strategy with core business objectives. We
                     blend creativity with precision, guided by data, to craft campaigns that don't just look good—they
@@ -167,14 +172,15 @@
     </section>
 
     <!-- Journey Section -->
-    <section class="py-20 lg:py-32 bg-white">
+    <section class="py-20 lg:py-32 bg-off-white">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
-            <div class="fade-up opacity-0 text-center mb-16">
-                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">OUR JOURNEY</h2>
-                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            <div class="fade-up opacity-0 text-center mb-12">
+                <h2 class="font-montserrat text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide leading-none">OUR
+                    JOURNEY</h2>
+                <div class="w-24 h-px bg-gray-200 mx-auto"></div>
             </div>
             <div class="fade-up opacity-0">
-                <p class="text-gray-700 text-lg leading-relaxed text-center max-w-4xl mx-auto">
+                <p class="text-gray-700 text-lg leading-tight text-center max-w-4xl mx-auto">
                     Over the years, we've fought alongside visionary clients across industries, helping them break
                     barriers and outmaneuver competition. Backed by decades of experience, our team thrives on
                     challenges—turning pain points into launchpads and crafting stories that resonate deeply. With every
@@ -188,49 +194,50 @@
     <!-- Team Section -->
     <section class="py-20 lg:py-32 bg-gray-50">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
-            <div class="fade-up opacity-0 text-center mb-16">
-                <h2 class="font-bebas text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide">OUR TEAM</h2>
-                <div class="w-24 h-1 bg-maximus-red mx-auto"></div>
+            <div class="fade-up opacity-0 text-center mb-12">
+                <h2 class="font-montserrat text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide leading-none">OUR
+                    TEAM</h2>
+                <div class="w-24 h-px bg-gray-200 mx-auto"></div>
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Team Member 1 -->
                 <div
-                    class="service-card opacity-0 text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    class="service-card opacity-0 text-center bg-warm-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
                     <div class="w-24 h-24 bg-maximus-red rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-user text-white text-3xl"></i>
+                        <i class="fas fa-user text-warm-white text-3xl"></i>
                     </div>
-                    <h3 class="font-bebas text-xl text-maximus-dark mb-2">BOJAPPA PS</h3>
+                    <h3 class="font-montserrat text-xl text-maximus-dark mb-2">BOJAPPA PS</h3>
                     <p class="text-gray-600 text-sm">Head of Creative & Communications</p>
                 </div>
 
                 <!-- Team Member 2 -->
                 <div
-                    class="service-card opacity-0 text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    class="service-card opacity-0 text-center bg-warm-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
                     <div class="w-24 h-24 bg-maximus-red rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-user text-white text-3xl"></i>
+                        <i class="fas fa-user text-warm-white text-3xl"></i>
                     </div>
-                    <h3 class="font-bebas text-xl text-maximus-dark mb-2">CHANDAN</h3>
+                    <h3 class="font-montserrat text-xl text-maximus-dark mb-2">CHANDAN</h3>
                     <p class="text-gray-600 text-sm">Digital Marketing & Social Media Marketing</p>
                 </div>
 
                 <!-- Team Member 3 -->
                 <div
-                    class="service-card opacity-0 text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    class="service-card opacity-0 text-center bg-warm-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
                     <div class="w-24 h-24 bg-maximus-red rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-user text-white text-3xl"></i>
+                        <i class="fas fa-user text-warm-white text-3xl"></i>
                     </div>
-                    <h3 class="font-bebas text-xl text-maximus-dark mb-2">SANDEEP DAS</h3>
+                    <h3 class="font-montserrat text-xl text-maximus-dark mb-2">SANDEEP DAS</h3>
                     <p class="text-gray-600 text-sm">Brand Planning & Marketing Strategy</p>
                 </div>
 
                 <!-- Team Member 4 -->
                 <div
-                    class="service-card opacity-0 text-center bg-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    class="service-card opacity-0 text-center bg-warm-white p-6 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
                     <div class="w-24 h-24 bg-maximus-red rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <i class="fas fa-user text-white text-3xl"></i>
+                        <i class="fas fa-user text-warm-white text-3xl"></i>
                     </div>
-                    <h3 class="font-bebas text-xl text-maximus-dark mb-2">MADHURA R</h3>
+                    <h3 class="font-montserrat text-xl text-maximus-dark mb-2">MADHURA R</h3>
                     <p class="text-gray-600 text-sm">Client Relationship Management</p>
                 </div>
             </div>
@@ -240,8 +247,9 @@
     <!-- CTA Section -->
     <section class="py-20 bg-maximus-red">
         <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center fade-up opacity-0">
-            <h2 class="font-bebas text-4xl md:text-5xl text-white mb-6 tracking-wide">READY TO WIN?</h2>
-            <p class="text-white text-lg mb-8">Let's build your brand's next strategic advantage.</p>
+            <h2 class="font-montserrat text-4xl md:text-5xl text-warm-white mb-6 tracking-wide leading-none">READY TO
+                WIN?</h2>
+            <p class="text-warm-white text-lg mb-8">Let's build your brand's next strategic advantage.</p>
             <a href="index.html#contact"
                 class="inline-block bg-white text-maximus-red px-10 py-4 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:scale-105">
                 GET STARTED
@@ -254,36 +262,42 @@
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">REGISTERED ADDRESS</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Maximus Integrated<br>
-                        123 Business Avenue<br>
-                        Corporate District<br>
-                        City, State 560001<br>
-                        India
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">REGISTERED OFFICE</h4>
+                    <p class="text-gray-400 text-sm leading-tight">
+                        Snn Raj Serenity,<br>
+                        Begur Main Road,<br>
+                        Bangalore-560068
                     </p>
                 </div>
 
                 <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">QUICK LINKS</h4>
-                    <ul class="space-y-2">
-                        <li><a href="about.html"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">About
-                                Us</a></li>
-                        <li><a href="services.html"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Services</a>
-                        </li>
-                        <li><a href="portfolio.html"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Portfolio</a>
-                        </li>
-                        <li><a href="index.html#contact"
-                                class="text-gray-400 text-sm hover:text-maximus-red transition-colors duration-300">Contact</a>
-                        </li>
-                    </ul>
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">BANGALORE OFFICES</h4>
+                    <div class="space-y-4">
+                        <div>
+                            <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore North</p>
+                            <p class="text-gray-400 text-xs leading-tight mb-2">
+                                Bhagyadakshi Enclave # J-100,<br>
+                                1st Main Road, J.C. Nagar,<br>
+                                Mahalakshmipuram,<br>
+                                Bangalore North - 560086
+                            </p>
+                            <a href="tel:7795228071"
+                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                <i class="fas fa-phone mr-1"></i>Chandan: 7795228071
+                            </a>
+                        </div>
+                        <div>
+                            <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore South</p>
+                            <a href="tel:9845452680"
+                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                <i class="fas fa-phone mr-1"></i>Sandeep Das: 9845452680
+                            </a>
+                        </div>
+                    </div>
                 </div>
 
                 <div>
-                    <h4 class="font-bebas text-xl tracking-wider mb-4">CONNECT WITH US</h4>
+                    <h4 class="font-montserrat text-xl tracking-wider mb-4">CONNECT WITH US</h4>
                     <div class="flex space-x-4">
                         <a href="#"
                             class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
@@ -300,6 +314,13 @@
                         <a href="#"
                             class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
                             <i class="fab fa-instagram"></i>
+                        </a>
+                    </div>
+                    <div class="mt-6">
+                        <a href="mailto:connect@brandmaximus.com"
+                            class="text-gray-400 text-sm hover:text-maximus-yellow transition-colors duration-300 flex items-center">
+                            <i class="fas fa-envelope mr-2"></i>
+                            connect@brandmaximus.com
                         </a>
                     </div>
                 </div>
