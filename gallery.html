@@ -65,20 +65,39 @@
             overflow: hidden;
             border-radius: 0.5rem;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
             aspect-ratio: 1;
             will-change: transform;
             content-visibility: auto;
             contain: layout style paint;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+        }
+
+        .gallery-item.loaded {
+            background: none;
+            animation: none;
         }
 
         .gallery-item img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
             transform: translateZ(0);
             backface-visibility: hidden;
+            opacity: 0;
+        }
+
+        .gallery-item img.loaded {
+            opacity: 1;
+            animation: fadeInScale 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
         }
 
         .gallery-item:hover img {
@@ -93,12 +112,27 @@
             transition: opacity 0.3s ease;
             display: flex;
             align-items: flex-end;
+            justify-content: center;
             padding: 1rem;
             will-change: opacity;
         }
 
         .gallery-item:hover .gallery-item-overlay {
             opacity: 1;
+        }
+
+        /* Skeleton Loader */
+        .skeleton-loader {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+            background-size: 200% 100%;
+            animation: shimmer 1.5s infinite;
+            border-radius: 0.5rem;
+        }
+
+        .skeleton-loader.hidden {
+            display: none;
         }
 
         /* Lightbox */
@@ -113,6 +147,7 @@
             z-index: 9999;
             align-items: center;
             justify-content: center;
+            backdrop-filter: blur(10px);
         }
 
         .lightbox.active {
@@ -124,6 +159,7 @@
             max-width: 90%;
             max-height: 90%;
             position: relative;
+            animation: zoomIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .lightbox-content img {
@@ -132,6 +168,7 @@
             object-fit: contain;
             border: 4px solid #a70000;
             border-radius: 0.5rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
         .lightbox-close {
@@ -151,11 +188,11 @@
             align-items: center;
             justify-content: center;
             box-shadow: 0 4px 12px rgba(167, 0, 0, 0.5);
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .lightbox-close:hover {
-            transform: rotate(90deg);
+            transform: rotate(90deg) scale(1.1);
             box-shadow: 0 6px 20px rgba(167, 0, 0, 0.7);
         }
 
@@ -175,12 +212,13 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .lightbox-nav:hover {
             background: #a70000;
             box-shadow: 0 4px 12px rgba(167, 0, 0, 0.5);
+            transform: translateY(-50%) scale(1.1);
         }
 
         .lightbox-prev {
@@ -193,7 +231,7 @@
 
         /* Filter Buttons */
         .filter-btn {
-            transition: all 0.3s ease;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .filter-btn.active {
@@ -201,6 +239,18 @@
             color: white;
         }
 
+        /* Loading Spinner */
+        .loading-spinner {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            border: 4px solid rgba(167, 0, 0, 0.1);
+            border-top-color: #a70000;
+            border-radius: 50%;
+            animation: spin 0.8s linear infinite;
+        }
+
+        /* Animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -208,6 +258,68 @@
 
             to {
                 opacity: 1;
+            }
+        }
+
+        @keyframes fadeInScale {
+            from {
+                opacity: 0;
+                transform: scale(0.95);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes shimmer {
+            0% {
+                background-position: 200% 0;
+            }
+
+            100% {
+                background-position: -200% 0;
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Performance optimizations */
+        .gallery-item,
+        .gallery-item img,
+        .gallery-item-overlay {
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+        }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation-duration: 0.01ms !important;
+                animation-iteration-count: 1 !important;
+                transition-duration: 0.01ms !important;
             }
         }
     </style>
@@ -412,8 +524,8 @@
 
             <!-- Loading Indicator -->
             <div id="loadingIndicator" class="text-center py-8">
-                <div class="inline-block animate-spin rounded-full h-12 w-12 border-b-2 border-maximus-red"></div>
-                <p class="text-gray-600 mt-4">Loading more images...</p>
+                <div class="loading-spinner mx-auto"></div>
+                <p class="text-gray-600 mt-4 font-medium">Loading more images...</p>
             </div>
         </div>
     </section>
@@ -1074,12 +1186,140 @@
                 src: 'assets/Gallery/pinaki-paradise-4.jpg',
                 alt: 'Pinaki Paradise 4'
             },
+            {
+                src: 'assets/Gallery/approved-logo-07.jpg',
+                alt: 'Approved Logo 07'
+            },
+            {
+                src: 'assets/Gallery/approved-logo-09.jpg',
+                alt: 'Approved Logo 09'
+            },
+            {
+                src: 'assets/Gallery/approved-logo-11.jpg',
+                alt: 'Approved Logo 11'
+            },
+            {
+                src: 'assets/Gallery/Dalimbra/pakc-08.jpg',
+                alt: 'Dalimbra Pakc 08'
+            },
+            {
+                src: 'assets/Gallery/Dalimbra/pakc-13.jpg',
+                alt: 'Dalimbra Pakc 13'
+            },
+            {
+                src: 'assets/Gallery/ED Hardy/Ed Hardy women.jpg',
+                alt: 'Ed Hardy Women'
+            },
+            {
+                src: 'assets/Gallery/ED Hardy/Ed Hardy.jpg',
+                alt: 'Ed Hardy'
+            },
+            {
+                src: 'assets/Gallery/SB/PBCGVU1-2copy.JPG',
+                alt: 'SB PBCGVU1 2copy'
+            },
+            {
+                src: 'assets/Gallery/SB/PBCGVU1.JPG',
+                alt: 'SB PBCGVU1'
+            },
+            {
+                src: 'assets/Gallery/maiya/A.jpg',
+                alt: 'Maiya A'
+            },
+            {
+                src: 'assets/Gallery/maiya/B.jpg',
+                alt: 'Maiya B'
+            },
+            {
+                src: 'assets/Gallery/maiya/C.jpg',
+                alt: 'Maiya C'
+            },
+            {
+                src: 'assets/Gallery/maiya/D.jpg',
+                alt: 'Maiya D'
+            },
+            {
+                src: 'assets/Gallery/maiya/OPT1.jpg',
+                alt: 'Maiya OPT1'
+            },
+            {
+                src: 'assets/Gallery/maiya/aaa.jpg',
+                alt: 'Maiya AAA'
+            },
+            {
+                src: 'assets/Gallery/maiya/palak copy2.jpg',
+                alt: 'Maiya Palak Copy2'
+            },
+            {
+                src: 'assets/Gallery/maiya/samba copy.jpg',
+                alt: 'Maiya Samba Copy'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0001.jpg',
+                alt: 'Nutri Pac2 Page 0001'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0002.jpg',
+                alt: 'Nutri Pac2 Page 0002'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0003.jpg',
+                alt: 'Nutri Pac2 Page 0003'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0004.jpg',
+                alt: 'Nutri Pac2 Page 0004'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0005.jpg',
+                alt: 'Nutri Pac2 Page 0005'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0006.jpg',
+                alt: 'Nutri Pac2 Page 0006'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0007.jpg',
+                alt: 'Nutri Pac2 Page 0007'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0008.jpg',
+                alt: 'Nutri Pac2 Page 0008'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0009.jpg',
+                alt: 'Nutri Pac2 Page 0009'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0010.jpg',
+                alt: 'Nutri Pac2 Page 0010'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0011.jpg',
+                alt: 'Nutri Pac2 Page 0011'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0012.jpg',
+                alt: 'Nutri Pac2 Page 0012'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0013.jpg',
+                alt: 'Nutri Pac2 Page 0013'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0014.jpg',
+                alt: 'Nutri Pac2 Page 0014'
+            },
+            {
+                src: 'assets/Gallery/nutri_pac2_page-0015.jpg',
+                alt: 'Nutri Pac2 Page 0015'
+            },
 
         ];
 
         let currentImageIndex = 0;
         let loadedImages = 0;
-        const imagesPerLoad = 30; // Increased from 20 to 30 for faster initial load
+        const imagesPerLoad = 40; // Optimized for 176 total images - loads ~4.5 batches
 
         // Render gallery with pagination and optimizations
         function renderGallery(append = false) {
@@ -1103,15 +1343,24 @@
                 imgElement.loading = 'lazy';
                 imgElement.className = 'lazy-image';
 
-                // Low quality placeholder
-                imgElement.style.backgroundColor = '#f0f0f0';
-
                 const overlay = document.createElement('div');
                 overlay.className = 'gallery-item-overlay';
                 overlay.innerHTML = '<i class="fas fa-search-plus text-warm-white text-2xl"></i>';
 
                 div.appendChild(imgElement);
                 div.appendChild(overlay);
+
+                // Add staggered animation delay for smooth entrance
+                const delay = (i - start) * 30; // 30ms delay between each item
+                div.style.opacity = '0';
+                div.style.transform = 'translateY(20px)';
+                div.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+
+                setTimeout(() => {
+                    div.style.opacity = '1';
+                    div.style.transform = 'translateY(0)';
+                }, delay);
+
                 fragment.appendChild(div);
             }
 
@@ -1130,7 +1379,13 @@
             // Hide loading indicator if all images loaded
             if (loadedImages >= galleryImages.length) {
                 const loadingIndicator = document.getElementById('loadingIndicator');
-                if (loadingIndicator) loadingIndicator.style.display = 'none';
+                if (loadingIndicator) {
+                    loadingIndicator.style.transition = 'opacity 0.3s ease';
+                    loadingIndicator.style.opacity = '0';
+                    setTimeout(() => {
+                        loadingIndicator.style.display = 'none';
+                    }, 300);
+                }
             }
         }
 
@@ -1144,20 +1399,37 @@
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
                             const img = entry.target;
+                            const parentItem = img.closest('.gallery-item');
+
                             img.src = img.dataset.src;
                             img.classList.add('loaded');
-                            img.style.opacity = '0';
 
                             img.onload = () => {
-                                img.style.transition = 'opacity 0.3s ease-in-out';
-                                img.style.opacity = '1';
+                                // Add loaded class to parent for shimmer removal
+                                if (parentItem) {
+                                    parentItem.classList.add('loaded');
+                                }
+
+                                // Trigger smooth fade-in animation
+                                requestAnimationFrame(() => {
+                                    img.classList.add('loaded');
+                                });
+                            };
+
+                            img.onerror = () => {
+                                // Handle image load errors gracefully
+                                if (parentItem) {
+                                    parentItem.classList.add('loaded');
+                                    parentItem.style.background = '#f0f0f0';
+                                }
+                                console.warn(`Failed to load image: ${img.dataset.src}`);
                             };
 
                             observer.unobserve(img);
                         }
                     });
                 }, {
-                    rootMargin: '50px' // Start loading 50px before image enters viewport
+                    rootMargin: '100px' // Start loading 100px before image enters viewport
                 });
             }
 
@@ -1199,6 +1471,16 @@
             img.src = galleryImages[index].src;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
+
+            // Preload adjacent images for smoother navigation
+            const nextIndex = (index + 1) % galleryImages.length;
+            const prevIndex = (index - 1 + galleryImages.length) % galleryImages.length;
+
+            const preloadNext = new Image();
+            preloadNext.src = galleryImages[nextIndex].src;
+
+            const preloadPrev = new Image();
+            preloadPrev.src = galleryImages[prevIndex].src;
         }
 
         function closeLightbox() {
@@ -1211,7 +1493,21 @@
             currentImageIndex += direction;
             if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
             if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
-            document.getElementById('lightboxImage').src = galleryImages[currentImageIndex].src;
+
+            const lightboxImg = document.getElementById('lightboxImage');
+            lightboxImg.src = galleryImages[currentImageIndex].src;
+
+            // Preload adjacent images for smoother navigation
+            const nextIndex = (currentImageIndex + 1) % galleryImages.length;
+            const prevIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
+
+            // Preload next image
+            const preloadNext = new Image();
+            preloadNext.src = galleryImages[nextIndex].src;
+
+            // Preload previous image
+            const preloadPrev = new Image();
+            preloadPrev.src = galleryImages[prevIndex].src;
         }
 
         // Keyboard navigation
