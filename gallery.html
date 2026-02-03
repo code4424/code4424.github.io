@@ -1301,7 +1301,7 @@
 
                 // Create image with optimizations
                 const imgElement = document.createElement('img');
-                imgElement.dataset.src = img.src; // Use data-src for lazy loading
+                imgElement.dataset.src = img.src + '?v=restore'; // Use data-src for lazy loading
                 imgElement.alt = img.alt;
                 imgElement.loading = 'lazy';
                 imgElement.className = 'lazy-image';
@@ -1385,6 +1385,7 @@
                                     parentItem.classList.add('loaded');
                                     parentItem.style.background = '#f0f0f0';
                                 }
+                                img.style.opacity = '1';
                                 console.warn(`Failed to load image: ${img.dataset.src}`);
                             };
 
