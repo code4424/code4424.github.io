@@ -104,6 +104,23 @@
                 margin-right: 0.5rem !important;
             }
         }
+
+        /* Improved text alignment for all devices */
+        .service-card h3 {
+            line-height: 1.3;
+        }
+
+        .service-card p,
+        .service-card li span {
+            line-height: 1.6;
+        }
+
+        /* Ensure proper spacing in grid layouts */
+        @media (min-width: 768px) {
+            .grid.gap-8 {
+                gap: 2rem;
+            }
+        }
     </style>
 </head>
 
@@ -121,27 +138,33 @@
                     </a>
                 </div>
 
-                <div class="hidden lg:flex items-center space-x-8">
+                <!-- Desktop Menu -->
+                <div class="hidden lg:flex items-center lg:space-x-4 xl:space-x-8 whitespace-nowrap">
                     <a href="index.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">HOME</a>
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">HOME</a>
                     <a href="about.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">ABOUT US</a>
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">ABOUT
+                        US</a>
                     <a href="services.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">SERVICES</a>
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">SERVICES</a>
                     <a href="mirror.html"
-                        class="nav-link text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">THE MIRROR</a>
+                        class="nav-link text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">THE
+                        MIRROR</a>
                     <a href="brands.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">BIZ & BRANDS</a>
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BIZ
+                        & BRANDS</a>
                     <a href="portfolio.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">CASE
+                        STUDIES</a>
                     <a href="blog.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">BLOG</a>
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BLOG</a>
                     <a href="gallery.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap"
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">PORTFOLIO</a>
                     <a href="index.html#contact"
                         class="bg-maximus-red text-maximus-yellow px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">CONTACT</a>
                 </div>
 
+                <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
@@ -152,24 +175,27 @@
         <div id="mobile-menu" class="lg:hidden hidden bg-maximus-dark bg-opacity-95 backdrop-blur-lg">
             <div class="px-6 pt-2 pb-6 space-y-4">
                 <a href="index.html"
-                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2 whitespace-nowrap">HOME</a>
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">HOME</a>
                 <a href="about.html"
-                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2 whitespace-nowrap">ABOUT
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">ABOUT
                     US</a>
                 <a href="services.html"
-                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2 whitespace-nowrap">SERVICES</a>
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">SERVICES</a>
                 <a href="mirror.html"
-                    class="block text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2 whitespace-nowrap">THE
+                    class="block text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">THE
                     MIRROR</a>
                 <a href="brands.html"
-                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2 whitespace-nowrap">BIZ
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">BIZ
                     & BRANDS</a>
                 <a href="portfolio.html"
-                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2 whitespace-nowrap"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">CASE
+                    STUDIES</a>
                 <a href="blog.html"
-                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2 whitespace-nowrap">BLOG</a>
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">BLOG</a>
                 <a href="gallery.html"
-                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2 whitespace-nowrap"
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">PORTFOLIO</a>
+                <a href="index.html#contact"
+                    class="block bg-maximus-red text-maximus-yellow px-6 py-3 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] text-center mt-2">CONTACT</a>
             </div>
         </div>
     </nav>
@@ -196,7 +222,7 @@
                 <div class="w-24 h-px bg-gray-200 mx-auto"></div>
             </div>
             <div class="fade-up opacity-0">
-                <p class="text-gray-700 text-lg leading-tight text-center max-w-4xl mx-auto mb-8">
+                <p class="text-gray-700 text-base md:text-lg leading-relaxed text-center max-w-4xl mx-auto mb-8">
                     Mirror is <span class="font-bold text-maximus-red">Maximus Integrated's</span> unique proprietary
                     tool designed to assess and enhance your brand's performance across various critical parameters.
                     Like a mirror reflects your true image, our tool reveals the authentic state of your brand in the
@@ -225,9 +251,9 @@
                             <i class="fas fa-heartbeat text-warm-white text-2xl"></i>
                         </div>
                         <div>
-                            <h3 class="font-montserrat text-xl md:text-2xl text-maximus-dark mb-3 tracking-wide">BRAND
-                                HEALTH
-                                ASSESSMENT
+                            <h3
+                                class="font-montserrat text-xl md:text-2xl text-maximus-dark mb-3 tracking-wide leading-tight">
+                                BRAND HEALTH ASSESSMENT
                             </h3>
                         </div>
                     </div>
@@ -260,8 +286,9 @@
                             <i class="fas fa-chart-bar text-warm-white text-2xl"></i>
                         </div>
                         <div>
-                            <h3 class="font-montserrat text-2xl text-maximus-dark mb-3 tracking-wide">COMPETITIVE
-                                ANALYSIS
+                            <h3
+                                class="font-montserrat text-xl md:text-2xl text-maximus-dark mb-3 tracking-wide leading-tight">
+                                COMPETITIVE ANALYSIS
                             </h3>
                         </div>
                     </div>
@@ -294,7 +321,9 @@
                             <i class="fas fa-lightbulb text-warm-white text-2xl"></i>
                         </div>
                         <div>
-                            <h3 class="font-montserrat text-2xl text-maximus-dark mb-3 tracking-wide">STRATEGIC INSIGHTS
+                            <h3
+                                class="font-montserrat text-xl md:text-2xl text-maximus-dark mb-3 tracking-wide leading-tight">
+                                STRATEGIC INSIGHTS
                             </h3>
                         </div>
                     </div>
@@ -340,8 +369,9 @@
                     <div class="w-20 h-20 bg-maximus-red rounded-full mx-auto mb-6 flex items-center justify-center">
                         <i class="fas fa-brain text-warm-white text-3xl"></i>
                     </div>
-                    <h3 class="font-montserrat text-lg md:text-xl text-maximus-dark mb-3 tracking-wide">INFORMED
-                        DECISION-MAKING</h3>
+                    <h3 class="font-montserrat text-lg md:text-xl text-maximus-dark mb-3 tracking-wide leading-tight">
+                        INFORMED DECISION-MAKING
+                    </h3>
                     <p class="text-sm md:text-base text-gray-600 leading-tight">
                         Make strategic decisions based on comprehensive data and deep market insights
                     </p>
@@ -352,8 +382,10 @@
                     <div class="w-20 h-20 bg-maximus-red rounded-full mx-auto mb-6 flex items-center justify-center">
                         <i class="fas fa-bullseye text-warm-white text-3xl"></i>
                     </div>
-                    <h3 class="font-montserrat text-xl text-maximus-dark mb-3 tracking-wide">ENHANCED POSITIONING</h3>
-                    <p class="text-gray-600 leading-tight">
+                    <h3 class="font-montserrat text-lg md:text-xl text-maximus-dark mb-3 tracking-wide leading-tight">
+                        ENHANCED POSITIONING
+                    </h3>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed">
                         Improve brand positioning and market relevance through targeted strategies
                     </p>
                 </div>
@@ -363,8 +395,10 @@
                     <div class="w-20 h-20 bg-maximus-red rounded-full mx-auto mb-6 flex items-center justify-center">
                         <i class="fas fa-chart-line text-warm-white text-3xl"></i>
                     </div>
-                    <h3 class="font-montserrat text-xl text-maximus-dark mb-3 tracking-wide">IMPROVED ROI</h3>
-                    <p class="text-gray-600 leading-tight">
+                    <h3 class="font-montserrat text-lg md:text-xl text-maximus-dark mb-3 tracking-wide leading-tight">
+                        IMPROVED ROI
+                    </h3>
+                    <p class="text-sm md:text-base text-gray-600 leading-relaxed">
                         Maximize return on marketing initiatives with data-backed optimization
                     </p>
                 </div>
@@ -387,8 +421,10 @@
                     <div class="w-16 h-16 bg-maximus-red rounded-full mx-auto mb-4 flex items-center justify-center">
                         <span class="text-warm-white font-montserrat text-2xl">1</span>
                     </div>
-                    <h3 class="font-montserrat text-lg text-maximus-dark mb-2 tracking-wide">DATA COLLECTION</h3>
-                    <p class="text-gray-600 text-sm">Gather comprehensive brand and market data</p>
+                    <h3 class="font-montserrat text-base md:text-lg text-maximus-dark mb-2 tracking-wide leading-tight">
+                        DATA COLLECTION</h3>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">Gather comprehensive brand and market
+                        data</p>
                 </div>
 
                 <!-- Step 2 -->
@@ -396,8 +432,10 @@
                     <div class="w-16 h-16 bg-maximus-red rounded-full mx-auto mb-4 flex items-center justify-center">
                         <span class="text-warm-white font-montserrat text-2xl">2</span>
                     </div>
-                    <h3 class="font-montserrat text-lg text-maximus-dark mb-2 tracking-wide">ANALYSIS</h3>
-                    <p class="text-gray-600 text-sm">Deep dive into metrics and performance indicators</p>
+                    <h3 class="font-montserrat text-base md:text-lg text-maximus-dark mb-2 tracking-wide leading-tight">
+                        ANALYSIS</h3>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">Deep dive into metrics and performance
+                        indicators</p>
                 </div>
 
                 <!-- Step 3 -->
@@ -405,8 +443,10 @@
                     <div class="w-16 h-16 bg-maximus-red rounded-full mx-auto mb-4 flex items-center justify-center">
                         <span class="text-warm-white font-montserrat text-2xl">3</span>
                     </div>
-                    <h3 class="font-montserrat text-lg text-maximus-dark mb-2 tracking-wide">INSIGHTS</h3>
-                    <p class="text-gray-600 text-sm">Generate actionable insights and recommendations</p>
+                    <h3 class="font-montserrat text-base md:text-lg text-maximus-dark mb-2 tracking-wide leading-tight">
+                        INSIGHTS</h3>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">Generate actionable insights and
+                        recommendations</p>
                 </div>
 
                 <!-- Step 4 -->
@@ -414,8 +454,10 @@
                     <div class="w-16 h-16 bg-maximus-red rounded-full mx-auto mb-4 flex items-center justify-center">
                         <span class="text-warm-white font-montserrat text-2xl">4</span>
                     </div>
-                    <h3 class="font-montserrat text-lg text-maximus-dark mb-2 tracking-wide">STRATEGY</h3>
-                    <p class="text-gray-600 text-sm">Implement data-driven strategic improvements</p>
+                    <h3 class="font-montserrat text-base md:text-lg text-maximus-dark mb-2 tracking-wide leading-tight">
+                        STRATEGY</h3>
+                    <p class="text-gray-600 text-xs md:text-sm leading-relaxed">Implement data-driven strategic
+                        improvements</p>
                 </div>
             </div>
         </div>
@@ -424,9 +466,10 @@
     <!-- CTA Section -->
     <section class="py-20 bg-maximus-red">
         <div class="max-w-4xl mx-auto px-6 lg:px-8 text-center fade-up opacity-0">
-            <h2 class="font-montserrat text-4xl md:text-5xl text-warm-white mb-6 tracking-wide leading-none">READY TO
-                SEE YOUR BRAND'S TRUE
-                REFLECTION?</h2>
+            <h2
+                class="font-montserrat text-3xl md:text-4xl lg:text-5xl text-warm-white mb-6 tracking-wide leading-tight">
+                READY TO SEE YOUR BRAND'S TRUE REFLECTION?
+            </h2>
             <p class="text-warm-white text-lg mb-8">Discover insights that drive growth with The Mirror</p>
             <a href="index.html#contact"
                 class="inline-block bg-white text-maximus-red px-10 py-4 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_30px_rgba(255,255,255,0.6)] hover:scale-105">
@@ -441,6 +484,13 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
                 <div>
                     <h4 class="font-montserrat text-xl tracking-wider mb-4">REGISTERED OFFICE</h4>
+                    <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore South</p>
+                    <p class="text-gray-400 text-xs leading-tight mb-2">
+                        <a href="tel:9845452680" class="hover:text-maximus-yellow transition-colors">Sandeep Das:
+                            9845452680</a><br>
+                        <a href="mailto:Sandeepdas@brandmaximus.com"
+                            class="hover:text-maximus-yellow transition-colors">Sandeepdas@brandmaximus.com</a>
+                    </p>
                     <p class="text-gray-400 text-sm leading-tight">
                         Snn Raj Serenity,<br>
                         Begur Main Road,<br>
@@ -460,15 +510,28 @@
                                 Bangalore North - 560086
                             </p>
                             <a href="tel:7795228071"
-                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors block mb-1">
                                 <i class="fas fa-phone mr-1"></i>Chandan: 7795228071
+                            </a>
+                            <a href="mailto:Chandan.maximus24@gmail.com"
+                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors block">
+                                <i class="fas fa-envelope mr-1"></i>Chandan.maximus24@gmail.com
                             </a>
                         </div>
                         <div>
                             <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore South</p>
+                            <p class="text-gray-400 text-xs leading-tight mb-2">
+                                Snn Raj Serenity,<br>
+                                Begur Main Road,<br>
+                                Bangalore-560068
+                            </p>
                             <a href="tel:9845452680"
-                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors block mb-1">
                                 <i class="fas fa-phone mr-1"></i>Sandeep Das: 9845452680
+                            </a>
+                            <a href="mailto:Sandeepdas@brandmaximus.com"
+                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors block">
+                                <i class="fas fa-envelope mr-1"></i>Sandeepdas@brandmaximus.com
                             </a>
                         </div>
                     </div>
@@ -516,4 +579,3 @@
 </body>
 
 </html>
-
