@@ -47,6 +47,66 @@
 
 <body class="bg-off-white font-montserrat overflow-x-hidden">
 
+    <!-- Strategic Questions Popup -->
+    <div id="strategicPopup" class="fixed inset-0 bg-black bg-opacity-80 z-[9999] flex items-center justify-center p-4"
+        style="display: none;">
+        <div class="bg-white max-w-2xl w-full rounded-lg shadow-2xl relative animate-fadeIn">
+            <!-- Skip Button -->
+            <button id="skipPopup"
+                class="absolute top-3 right-3 w-8 h-8 bg-maximus-red text-white rounded-full hover:bg-red-700 transition-all duration-300 flex items-center justify-center group hover:rotate-90">
+                <i class="fas fa-times text-lg"></i>
+            </button>
+
+            <!-- Popup Content -->
+            <div class="p-6 md:p-8">
+                <div class="text-center mb-6">
+                    <h2 class="text-2xl md:text-3xl font-bold text-maximus-dark mb-2">Before We Begin...</h2>
+                    <div class="w-20 h-1 bg-maximus-red mx-auto"></div>
+                </div>
+
+                <div class="space-y-4">
+                    <p class="text-gray-700 text-base leading-relaxed">
+                        <span class="text-maximus-red font-bold">•</span> Why would your target audience find your brand
+                        worthy enough for a trial?
+                    </p>
+
+                    <p class="text-gray-700 text-base leading-relaxed">
+                        <span class="text-maximus-red font-bold">•</span> What makes your business strategy complement
+                        your brand strategy and vice-versa?
+                    </p>
+
+                    <p class="text-gray-700 text-base leading-relaxed">
+                        <span class="text-maximus-red font-bold">•</span> Is your marketing strategy well rounded and
+                        effective or does it need a reboot?
+                    </p>
+
+                    <p class="text-gray-700 text-base leading-relaxed">
+                        <span class="text-maximus-red font-bold">•</span> What premium do you place on your reputation
+                        management?
+                    </p>
+
+                    <p class="text-gray-700 text-base leading-relaxed">
+                        <span class="text-maximus-red font-bold">•</span> How do your sales data driving your marketing
+                        plans?
+                    </p>
+
+                    <p class="text-gray-700 text-base leading-relaxed">
+                        <span class="text-maximus-red font-bold">•</span> When business or brand expansion happens, how
+                        does the overall brand and marketing strategies change or business and brand architectures
+                        behave?
+                    </p>
+                </div>
+
+                <div class="mt-8 text-center">
+                    <button id="closePopup"
+                        class="bg-maximus-red text-white px-8 py-3 rounded-lg font-bold text-sm tracking-widest uppercase hover:bg-red-700 transition-all duration-300 hover:shadow-lg transform hover:scale-105">
+                        LET'S DISCUSS
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Navigation -->
     <nav id="navbar"
         class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-off-white shadow-md">
@@ -63,24 +123,25 @@
                 <!-- Desktop Menu -->
                 <div class="hidden lg:flex items-center space-x-8">
                     <a href="index.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">HOME</a>
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">HOME</a>
                     <a href="about.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">ABOUT
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">ABOUT
                         US</a>
                     <a href="services.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">SERVICES</a>
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">SERVICES</a>
                     <a href="mirror.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">THE
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">THE
                         MIRROR</a>
                     <a href="brands.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BIZ
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">BIZ
                         & BRANDS</a>
                     <a href="portfolio.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">PORTFOLIO</a>
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">PORTFOLIO</a>
                     <a href="blog.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BLOG</a>
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">BLOG</a>
                     <a href="gallery.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">GALLERY</a>
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide whitespace-nowrap">OUR
+                        PORTFOLIO</a>
                     <a href="#contact"
                         class="bg-maximus-red text-maximus-yellow px-6 py-2 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">CONTACT</a>
                 </div>
@@ -114,7 +175,7 @@
                 <a href="blog.html"
                     class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">BLOG</a>
                 <a href="gallery.html"
-                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">GALLERY</a>
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">PORTFOLIO</a>
             </div>
         </div>
     </nav>
@@ -368,8 +429,12 @@
                         <div>
                             <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore South</p>
                             <a href="tel:9845452680"
-                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors block mb-1">
                                 <i class="fas fa-phone mr-1"></i>Sandeep Das: 9845452680
+                            </a>
+                            <a href="mailto:Sandeepdas@brandmaximus.com"
+                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors block">
+                                <i class="fas fa-envelope mr-1"></i>Sandeepdas@brandmaximus.com
                             </a>
                         </div>
                     </div>
