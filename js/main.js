@@ -145,10 +145,11 @@ document.addEventListener('DOMContentLoaded', function () {
             // Get form values
             const name = document.getElementById('name').value;
             const email = document.getElementById('email').value;
+            const phone = document.getElementById('phone') ? document.getElementById('phone').value : '';
             const message = document.getElementById('message').value;
 
             // Basic validation
-            if (!name || !email || !message) {
+            if (!name || !email || !phone || !message) {
                 showNotification('Please fill in all fields', 'error');
                 return;
             }
@@ -160,25 +161,42 @@ document.addEventListener('DOMContentLoaded', function () {
                 return;
             }
 
-            // Simulate form submission
+            // Change button state
             const submitBtn = contactForm.querySelector('button[type="submit"]');
             const originalText = submitBtn.textContent;
             submitBtn.textContent = 'SENDING...';
             submitBtn.disabled = true;
 
-            // Simulate API call
-            setTimeout(function () {
-                // Reset form
-                contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
+            // Prepare form data
+            const formData = new FormData();
+            formData.append('name', name);
+            formData.append('email', email);
+            formData.append('phone', phone);
+            formData.append('message', message);
 
-                // Show success message
-                showNotification('Thank you! We will get back to you soon.', 'success');
-
-                // Log form data (in production, this would be sent to a server)
-                console.log('Form submitted:', { name, email, message });
-            }, 1500);
+            // Send actual API call
+            fetch('backend/send-email.php', {
+                method: 'POST',
+                body: formData
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        // Reset form
+                        contactForm.reset();
+                        showNotification(data.message || 'Thank you! We will get back to you soon.', 'success');
+                    } else {
+                        showNotification(data.message || 'Something went wrong. Please try again.', 'error');
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    showNotification('An error occurred. Please try again later.', 'error');
+                })
+                .finally(() => {
+                    submitBtn.textContent = originalText;
+                    submitBtn.disabled = false;
+                });
         });
     }
 
