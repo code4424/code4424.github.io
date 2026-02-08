@@ -428,10 +428,23 @@
                     class="gallery-filter-btn bg-maximus-red text-maximus-yellow px-6 py-3 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">
                     ALL PORTFOLIO
                 </button>
-                <button id="btnCampaigns" onclick="showGallerySection('campaigns')"
-                    class="gallery-filter-btn bg-gray-800 text-white px-6 py-3 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:bg-maximus-red hover:text-maximus-yellow hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">
-                    OUR CAMPAIGNS
-                </button>
+                <div class="relative">
+                    <div id="videoGuide"
+                        class="absolute -top-16 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none">
+                        <div
+                            class="animate-bounce bg-maximus-red text-white text-sm font-montserrat font-bold px-6 py-2 rounded-full shadow-[0_0_20px_rgba(167,0,0,0.6)] whitespace-nowrap border-2 border-maximus-yellow tracking-wider flex items-center gap-2">
+                            <i class="fas fa-play-circle text-maximus-yellow text-lg"></i>
+                            <span>WATCH CAMPAIGN VIDEOS</span>
+                            <div
+                                class="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-maximus-red">
+                            </div>
+                        </div>
+                    </div>
+                    <button id="btnCampaigns" onclick="showGallerySection('campaigns')"
+                        class="gallery-filter-btn bg-gray-800 text-white px-6 py-3 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:bg-maximus-red hover:text-maximus-yellow hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">
+                        <i class="fas fa-play mr-2"></i>OUR CAMPAIGNS
+                    </button>
+                </div>
             </div>
         </div>
     </section>
@@ -666,7 +679,7 @@
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-10.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 10'
             },
-             {
+            {
                 src: 'assets/Gallery/Dalimbra/pakc-08.jpg',
                 alt: 'Dalimbra Pakc 08'
             },
@@ -1226,7 +1239,7 @@
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-98.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 98'
             },
-            
+
 
         ];
 
@@ -1446,12 +1459,16 @@
             const loadingIndicator = document.getElementById('loadingIndicator');
             const btnAllGallery = document.getElementById('btnAllGallery');
             const btnCampaigns = document.getElementById('btnCampaigns');
+            const videoGuide = document.getElementById('videoGuide');
 
             if (section === 'all') {
                 // Show gallery, hide campaigns
                 galleryGrid.classList.remove('hidden');
                 loadingIndicator.classList.remove('hidden');
                 campaignsSection.classList.add('hidden');
+
+                // Show video guide
+                if (videoGuide) videoGuide.classList.remove('hidden');
 
                 // Update button styles
                 btnAllGallery.classList.remove('bg-gray-800', 'text-white');
@@ -1463,6 +1480,9 @@
                 galleryGrid.classList.add('hidden');
                 loadingIndicator.classList.add('hidden');
                 campaignsSection.classList.remove('hidden');
+
+                // Hide video guide
+                if (videoGuide) videoGuide.classList.add('hidden');
 
                 // Update button styles
                 btnCampaigns.classList.remove('bg-gray-800', 'text-white');
