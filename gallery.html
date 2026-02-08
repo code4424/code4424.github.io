@@ -430,13 +430,20 @@
                 </button>
                 <div class="relative">
                     <div id="videoGuide"
-                        class="absolute -top-16 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none">
+                        class="absolute top-full mt-4 md:-top-16 md:mt-0 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none w-max">
                         <div
                             class="animate-bounce bg-maximus-red text-white text-sm font-montserrat font-bold px-6 py-2 rounded-full shadow-[0_0_20px_rgba(167,0,0,0.6)] whitespace-nowrap border-2 border-maximus-yellow tracking-wider flex items-center gap-2">
                             <i class="fas fa-play-circle text-maximus-yellow text-lg"></i>
                             <span>WATCH CAMPAIGN VIDEOS</span>
+
+                            <!-- Arrow for Desktop (Pointing Down) -->
                             <div
-                                class="absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-maximus-red">
+                                class="hidden md:block absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-maximus-red">
+                            </div>
+
+                            <!-- Arrow for Mobile (Pointing Up) -->
+                            <div
+                                class="md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-b-maximus-red">
                             </div>
                         </div>
                     </div>
