@@ -124,88 +124,85 @@
 
     <!-- Strategy Questions Popup -->
     <div id="strategyPopup"
-        class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black bg-opacity-70 backdrop-blur-sm">
-        <div
-            class="relative bg-maximus-dark border-2 border-maximus-red max-w-2xl w-full mx-4 rounded-lg shadow-2xl overflow-hidden animate-fadeIn">
-            <!-- Close Button -->
-            <button onclick="closePopup()"
-                class="absolute top-2 right-2 md:-top-3 md:-right-3 z-10 w-8 h-8 md:w-10 md:h-10 bg-maximus-red rounded-full flex items-center justify-center text-white hover:bg-white hover:text-maximus-red transition-all duration-300 shadow-lg hover:shadow-xl hover:scale-110 border-2 border-white group">
-                <svg class="w-4 h-4 md:w-5 md:h-5 stroke-current" fill="none" viewBox="0 0 24 24" stroke-width="2.5">
-                    <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
-            </button>
+        class="fixed inset-0 z-[9999] hidden items-center justify-center bg-black bg-opacity-50 font-montserrat">
+        <div class="relative bg-white bg-opacity-30 max-w-3xl w-full mx-4 overflow-hidden animate-fadeIn rounded-lg border border-white border-opacity-30 shadow-2xl"
+            style="backdrop-filter: blur(1px); -webkit-backdrop-filter: blur(1px);">
+            <!-- Close Button Removed -->
 
             <!-- Popup Header -->
-            <div class="bg-gradient-to-r from-maximus-red to-maximus-gray p-6 pb-8">
-                <h2 class="font-montserrat text-2xl md:text-3xl font-bold text-maximus-yellow tracking-wide">
+            <div class="bg-white bg-opacity-25 p-4 pb-2 text-center">
+                <h2 class="font-montserrat text-xl md:text-3xl font-bold text-black tracking-wide uppercase">
                     IS YOUR BRAND STRATEGY ALIGNED?
                 </h2>
-                <div class="w-20 h-1 bg-maximus-yellow mt-3"></div>
+            </div>
+
+            <div class="text-center pt-4 pb-2">
+                <p class="text-gray-900 text-sm md:text-xl font-bold px-2">
+                    Take a moment to reflect on these critical questions<br>about your brand and business strategy:
+                </p>
             </div>
 
             <!-- Popup Content -->
-            <div class="p-6 md:p-8 max-h-[60vh] overflow-y-auto custom-scrollbar">
-                <p class="text-warm-white text-sm md:text-base mb-6 leading-relaxed">
-                    Take a moment to reflect on these critical questions about your brand and business strategy:
-                </p>
-
-                <ul class="space-y-4">
-                    <li class="flex items-start group">
-                        <span
-                            class="text-maximus-red text-xl mr-3 mt-1 group-hover:scale-110 transition-transform duration-300">•</span>
-                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+            <div class="p-2 md:p-6 bg-transparent">
+                <ul class="space-y-1 md:space-y-1.5">
+                    <li
+                        class="flex items-start bg-white bg-opacity-60 p-1.5 md:p-3 border-b border-gray-400 border-opacity-40 rounded">
+                        <img src="assets/helmet-icon.png" alt="icon"
+                            class="w-3 h-3 md:w-5 md:h-5 mr-2 md:mr-3 mt-0.5 flex-shrink-0">
+                        <p class="text-black text-xs md:text-base leading-relaxed font-medium">
                             Why would your target audience find your brand worthy enough for a trial?
                         </p>
                     </li>
-                    <li class="flex items-start group">
-                        <span
-                            class="text-maximus-red text-xl mr-3 mt-1 group-hover:scale-110 transition-transform duration-300">•</span>
-                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                    <li
+                        class="flex items-start bg-white bg-opacity-60 p-1.5 md:p-3 border-b border-gray-400 border-opacity-40 rounded">
+                        <img src="assets/helmet-icon.png" alt="icon"
+                            class="w-3 h-3 md:w-5 md:h-5 mr-2 md:mr-3 mt-0.5 flex-shrink-0">
+                        <p class="text-black text-xs md:text-base leading-relaxed font-medium">
                             What makes your business strategy complement your brand strategy and vice-versa?
                         </p>
                     </li>
-                    <li class="flex items-start group">
-                        <span
-                            class="text-maximus-red text-xl mr-3 mt-1 group-hover:scale-110 transition-transform duration-300">•</span>
-                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                    <li
+                        class="flex items-start bg-white bg-opacity-60 p-1.5 md:p-3 border-b border-gray-400 border-opacity-40 rounded">
+                        <img src="assets/helmet-icon.png" alt="icon"
+                            class="w-3 h-3 md:w-5 md:h-5 mr-2 md:mr-3 mt-0.5 flex-shrink-0">
+                        <p class="text-black text-xs md:text-base leading-relaxed font-medium">
                             Is your marketing strategy well rounded and effective or does it need a reboot?
                         </p>
                     </li>
-                    <li class="flex items-start group">
-                        <span
-                            class="text-maximus-red text-xl mr-3 mt-1 group-hover:scale-110 transition-transform duration-300">•</span>
-                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
+                    <li
+                        class="flex items-start bg-white bg-opacity-60 p-1.5 md:p-3 border-b border-gray-400 border-opacity-40 rounded">
+                        <img src="assets/helmet-icon.png" alt="icon"
+                            class="w-3 h-3 md:w-5 md:h-5 mr-2 md:mr-3 mt-0.5 flex-shrink-0">
+                        <p class="text-black text-xs md:text-base leading-relaxed font-medium">
                             What premium do you place on your reputation management?
                         </p>
                     </li>
-                    <li class="flex items-start group">
-                        <span
-                            class="text-maximus-red text-xl mr-3 mt-1 group-hover:scale-110 transition-transform duration-300">•</span>
-                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                            How do your sales data drive your marketing plans?
+                    <li
+                        class="flex items-start bg-white bg-opacity-60 p-1.5 md:p-3 border-b border-gray-400 border-opacity-40 rounded">
+                        <img src="assets/helmet-icon.png" alt="icon"
+                            class="w-3 h-3 md:w-5 md:h-5 mr-2 md:mr-3 mt-0.5 flex-shrink-0">
+                        <p class="text-black text-xs md:text-base leading-relaxed font-medium">
+                            How do your sales data driving your marketing plans?
                         </p>
                     </li>
-                    <li class="flex items-start group">
-                        <span
-                            class="text-maximus-red text-xl mr-3 mt-1 group-hover:scale-110 transition-transform duration-300">•</span>
-                        <p class="text-gray-300 text-sm md:text-base leading-relaxed">
-                            When business or brand expansion happens, how do the overall brand and marketing strategies
-                            change or business and brand architectures behave?
+                    <li
+                        class="flex items-start bg-white bg-opacity-60 p-1.5 md:p-3 border-b border-gray-400 border-opacity-40 rounded">
+                        <img src="assets/helmet-icon.png" alt="icon"
+                            class="w-3 h-3 md:w-5 md:h-5 mr-2 md:mr-3 mt-0.5 flex-shrink-0">
+                        <p class="text-black text-xs md:text-base leading-relaxed font-medium">
+                            When business or brand expansion happens, how does the overall brand and marketing
+                            strategies change or business and brand architectures behave?
                         </p>
                     </li>
                 </ul>
             </div>
 
             <!-- Popup Footer -->
-            <div class="bg-maximus-gray p-6 border-t border-maximus-red">
-                <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-                    <a href="#contact" onclick="closePopup()"
-                        class="bg-maximus-red text-maximus-yellow px-8 py-3 font-bold text-xs tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105 w-full sm:w-auto text-center">
-                        LET'S DISCUSS
-                    </a>
+            <div class="bg-transparent p-6 pt-4">
+                <div class="flex justify-center">
                     <button onclick="closePopup()"
-                        class="text-warm-white hover:text-maximus-yellow transition-colors duration-300 text-sm uppercase tracking-wide">
-                        Maybe Later
+                        class="bg-white text-gray-900 px-12 py-3 font-montserrat font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:bg-gray-200 border border-gray-400 shadow-lg rounded">
+                        SKIP
                     </button>
                 </div>
             </div>
@@ -225,32 +222,66 @@
             }
         }
 
+        /* Flash In Animation for List Items */
+        @keyframes flashInItem {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Flash Out Animation for List Items */
+        @keyframes flashOutItem {
+            0% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(1.05);
+                /* Slight pulse before vanishing */
+            }
+
+            100% {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+        }
+
         .animate-fadeIn {
             animation: fadeIn 0.3s ease-out;
         }
 
+        .animate-flashInItem {
+            animation: flashInItem 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+        }
+
+        .animate-flashOutItem {
+            animation: flashOutItem 0.4s ease-in forwards;
+        }
+
         .custom-scrollbar::-webkit-scrollbar {
-            width: 8px;
+            width: 6px;
         }
 
         .custom-scrollbar::-webkit-scrollbar-track {
-            background: #1A1A1A;
-            border-radius: 4px;
+            background: rgba(209, 213, 219, 0.5);
+            border-radius: 3px;
         }
 
         .custom-scrollbar::-webkit-scrollbar-thumb {
-            background: #a70000;
-            border-radius: 4px;
+            background: rgba(156, 163, 175, 0.7);
+            border-radius: 3px;
         }
 
         .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-            background: #8a0000;
-        }
-
-        /* Perfect centering for close button */
-        #strategyPopup button svg {
-            display: block;
-            margin: auto;
+            background: rgba(107, 114, 128, 0.9);
         }
     </style>
 
@@ -264,15 +295,42 @@
             const popup = document.getElementById('strategyPopup');
             popup.classList.remove('hidden');
             popup.classList.add('flex');
+
+            // Reset and Animate List Items In
+            const listItems = popup.querySelectorAll('li');
+            listItems.forEach((item, index) => {
+                item.classList.remove('animate-flashOutItem');
+                item.style.opacity = '0'; // Start hidden
+                item.style.animationDelay = `${index * 100}ms`; // Staggered delay
+                item.classList.add('animate-flashInItem');
+            });
         }
 
         function closePopup() {
             const popup = document.getElementById('strategyPopup');
-            popup.classList.add('hidden');
-            popup.classList.remove('flex');
+            const listItems = popup.querySelectorAll('li');
 
-            // Schedule next popup appearance
-            setTimeout(showPopup, POPUP_LOOP_INTERVAL);
+            // Animate List Items Out
+            listItems.forEach((item, index) => {
+                item.classList.remove('animate-flashInItem');
+                item.style.animationDelay = '0ms'; // No delay for closing, or minimal
+                item.classList.add('animate-flashOutItem');
+            });
+
+            // Wait for animation to finish before hiding container
+            setTimeout(() => {
+                popup.classList.add('hidden');
+                popup.classList.remove('flex');
+
+                // Reset items for next time
+                listItems.forEach(item => {
+                    item.classList.remove('animate-flashOutItem');
+                    item.style.opacity = '1';
+                });
+
+                // Schedule next popup appearance
+                setTimeout(showPopup, POPUP_LOOP_INTERVAL);
+            }, 500); // 500ms matches/exceeds animation duration
         }
 
         // Show popup for the first time after initial delay
