@@ -331,7 +331,7 @@
     <nav id="navbar"
         class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-off-white shadow-md">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="flex items-center justify-between h-20">
+            <div class="flex items-center justify-between h-20 gap-8">
                 <div class="flex-shrink-0">
                     <a href="index.html" class="logo-link">
                         <img src="assets/maximus logo.png" alt="MAXIMUS"
@@ -340,7 +340,7 @@
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden lg:flex items-center lg:space-x-4 xl:space-x-8 whitespace-nowrap">
+                <div class="hidden xl:flex items-center xl:space-x-8 whitespace-nowrap">
                     <a href="index.html"
                         class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">HOME</a>
                     <a href="about.html"
@@ -366,14 +366,14 @@
                 </div>
 
                 <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="lg:hidden text-gray-800 focus:outline-none">
+                <button id="mobile-menu-btn" class="xl:hidden text-gray-800 focus:outline-none">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
         </div>
 
         <!-- Mobile Menu -->
-        <div id="mobile-menu" class="lg:hidden hidden bg-maximus-dark bg-opacity-95 backdrop-blur-lg">
+        <div id="mobile-menu" class="xl:hidden hidden bg-maximus-dark bg-opacity-95 backdrop-blur-lg">
             <div class="px-6 pt-2 pb-6 space-y-4">
                 <a href="index.html"
                     class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">HOME</a>
@@ -425,33 +425,13 @@
         <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
             <div class="flex justify-center gap-4 flex-wrap">
                 <button id="btnAllGallery" onclick="showGallerySection('all')"
-                    class="gallery-filter-btn bg-maximus-red text-maximus-yellow px-6 py-3 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">
-                    ALL PORTFOLIO
+                    class="gallery-filter-btn bg-maximus-red text-maximus-yellow px-6 py-3 font-montserrat font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">
+                    Creative Showcase
                 </button>
-                <div class="relative">
-                    <div id="videoGuide"
-                        class="absolute top-full mt-4 md:-top-16 md:mt-0 left-1/2 transform -translate-x-1/2 z-10 pointer-events-none w-max">
-                        <div
-                            class="animate-bounce bg-maximus-red text-white text-sm font-montserrat font-bold px-6 py-2 rounded-full shadow-[0_0_20px_rgba(167,0,0,0.6)] whitespace-nowrap border-2 border-maximus-yellow tracking-wider flex items-center gap-2">
-                            <i class="fas fa-play-circle text-maximus-yellow text-lg"></i>
-                            <span>WATCH CAMPAIGN VIDEOS</span>
-
-                            <!-- Arrow for Desktop (Pointing Down) -->
-                            <div
-                                class="hidden md:block absolute top-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-t-maximus-red">
-                            </div>
-
-                            <!-- Arrow for Mobile (Pointing Up) -->
-                            <div
-                                class="md:hidden absolute bottom-full left-1/2 transform -translate-x-1/2 border-8 border-transparent border-b-maximus-red">
-                            </div>
-                        </div>
-                    </div>
-                    <button id="btnCampaigns" onclick="showGallerySection('campaigns')"
-                        class="gallery-filter-btn bg-gray-800 text-white px-6 py-3 font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:bg-maximus-red hover:text-maximus-yellow hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">
-                        <i class="fas fa-play mr-2"></i>OUR CAMPAIGNS
-                    </button>
-                </div>
+                <button id="btnVideos" onclick="showGallerySection('videos')"
+                    class="gallery-filter-btn bg-maximus-dark text-white px-6 py-3 font-montserrat font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105 shadow-md">
+                    Videos and Reels
+                </button>
             </div>
         </div>
     </section>
@@ -463,93 +443,7 @@
                 <!-- Gallery items will be dynamically inserted here -->
             </div>
 
-            <!-- Campaigns Video Section -->
-            <div id="campaignsSection" class="hidden">
-                <h2 class="font-montserrat text-4xl text-maximus-dark mb-8 text-center tracking-wide">CAMPAIGN
-                    HIGHLIGHTS</h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-                    <!-- Video 1 -->
-                    <div class="group relative overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300"
-                        onmouseenter="playVideo(this)" onmouseleave="pauseVideo(this)">
-                        <div class="relative bg-maximus-dark">
-                            <video class="w-full h-64 object-cover campaign-video" preload="metadata" loop>
-                                <source src="assets/Video/VID-20191230-WA0016.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-maximus-dark via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 pointer-events-none">
-                            </div>
-                        </div>
-                        <div class="bg-white p-4">
-                            <h3 class="font-montserrat text-lg text-maximus-dark font-bold">Campaign Video 1
-                            </h3>
-                            <p class="text-gray-600 text-sm">Brand storytelling and visual narrative</p>
-                        </div>
-                    </div>
 
-                    <!-- Video 2 -->
-                    <div class="group relative overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300"
-                        onmouseenter="playVideo(this)" onmouseleave="pauseVideo(this)">
-                        <div class="relative bg-maximus-dark">
-                            <video class="w-full h-64 object-cover campaign-video" preload="metadata" loop>
-                                <source src="assets/Video/VID-20191230-WA0017.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-maximus-dark via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 pointer-events-none">
-                            </div>
-                        </div>
-                        <div class="bg-white p-4">
-                            <h3 class="font-montserrat text-lg text-maximus-dark font-bold">Campaign Video 2
-                            </h3>
-                            <p class="text-gray-600 text-sm">Product showcase and engagement</p>
-                        </div>
-                    </div>
-
-                    <!-- Video 3 -->
-                    <div class="group relative overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300"
-                        onmouseenter="playVideo(this)" onmouseleave="pauseVideo(this)">
-                        <div class="relative bg-maximus-dark">
-                            <video class="w-full h-64 object-cover campaign-video" preload="metadata" loop>
-                                <source src="assets/Video/VID-20191230-WA0018.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-maximus-dark via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 pointer-events-none">
-                            </div>
-                        </div>
-                        <div class="bg-white p-4">
-                            <h3 class="font-montserrat text-lg text-maximus-dark font-bold">Campaign Video 3
-                            </h3>
-                            <p class="text-gray-600 text-sm">Campaign impact and results</p>
-                        </div>
-                    </div>
-
-                    <!-- Video 4 -->
-                    <div class="group relative overflow-hidden rounded-lg shadow-xl hover:shadow-2xl transition-all duration-300"
-                        onmouseenter="playVideo(this)" onmouseleave="pauseVideo(this)">
-                        <div class="relative bg-maximus-dark">
-                            <video class="w-full h-64 object-cover campaign-video" preload="metadata" loop>
-                                <source src="assets/Video/video.mp4" type="video/mp4">
-                                Your browser does not support the video tag.
-                            </video>
-                            <div
-                                class="absolute inset-0 bg-gradient-to-t from-maximus-dark via-transparent to-transparent opacity-0 group-hover:opacity-70 transition-opacity duration-300 pointer-events-none">
-                            </div>
-                        </div>
-                        <div class="bg-white p-4">
-                            <h3 class="font-montserrat text-lg text-maximus-dark font-bold">Campaign Video 4
-                            </h3>
-                            <p class="text-gray-600 text-sm">Creative excellence and innovation</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="mt-8 text-center">
-                    <p class="text-gray-600 text-sm italic">Watch how we bring our clients' brand visions to life
-                        through
-                        compelling visual storytelling</p>
-                </div>
-            </div>
 
             <!-- Loading Indicator -->
             <div id="loadingIndicator" class="text-center py-8">
@@ -581,13 +475,7 @@
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
                 <div>
                     <h4 class="font-montserrat text-xl tracking-wider mb-4">REGISTERED OFFICE</h4>
-                    <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore South</p>
-                    <p class="text-gray-400 text-xs leading-tight mb-2">
-                        <a href="tel:9845452680" class="hover:text-maximus-yellow transition-colors">Sandeep Das:
-                            9845452680</a><br>
-                        <a href="mailto:Sandeepdas@brandmaximus.com"
-                            class="hover:text-maximus-yellow transition-colors">Sandeepdas@brandmaximus.com</a>
-                    </p>
+
                     <p class="text-gray-400 text-sm leading-tight">
                         Snn Raj Serenity,<br>
                         Begur Main Road,<br>
@@ -611,22 +499,7 @@
                                 <i class="fas fa-phone mr-1"></i>Chandan: 7795228071
                             </a>
                         </div>
-                        <div>
-                            <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore South</p>
-                            <p class="text-gray-400 text-xs leading-tight mb-2">
-                                Snn Raj Serenity,<br>
-                                Begur Main Road,<br>
-                                Bangalore-560068
-                            </p>
-                            <a href="tel:9845452680"
-                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors block mb-1">
-                                <i class="fas fa-phone mr-1"></i>Sandeep Das: 9845452680
-                            </a>
-                            <a href="mailto:Sandeepdas@brandmaximus.com"
-                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors block">
-                                <i class="fas fa-envelope mr-1"></i>Sandeepdas@brandmaximus.com
-                            </a>
-                        </div>
+
                     </div>
                 </div>
 
@@ -670,6 +543,14 @@
 
     <script src="js/main.js"></script>
     <script>
+        // Video Gallery Data
+        const galleryVideos = [
+            { src: 'assets/Video/video.mp4', title: 'Brand Video' },
+            { src: 'assets/Video/VID-20191230-WA0016.mp4', title: 'Campaign Video 1' },
+            { src: 'assets/Video/VID-20191230-WA0017.mp4', title: 'Campaign Video 2' },
+            { src: 'assets/Video/VID-20191230-WA0018.mp4', title: 'Campaign Video 3' }
+        ];
+
         // Gallery data - all unique images
         const galleryImages = [
 
@@ -693,6 +574,34 @@
             {
                 src: 'assets/Gallery/Dalimbra/pakc-13.jpg',
                 alt: 'Dalimbra Pakc 13'
+            },
+            {
+                src: 'assets/Gallery/NutriPack/nutri_pac2-images-0.jpg',
+                alt: 'Nutri Pac2 Images 0'
+            },
+            {
+                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-4.jpg',
+                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 4'
+            },
+            {
+                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-6.jpg',
+                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 6'
+            },
+            {
+                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-9.jpg',
+                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 9'
+            },
+            {
+                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-8.jpg',
+                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 8'
+            },
+            {
+                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-7.jpg',
+                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 7'
+            },
+            {
+                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-5.jpg',
+                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 5'
             },
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-3.jpg',
@@ -894,10 +803,6 @@
                 alt: 'SB PBCGVU1'
             },
             {
-                src: 'assets/Gallery/NutriPack/nutri_pac2-images-0.jpg',
-                alt: 'Nutri Pac2 Images 0'
-            },
-            {
                 src: 'assets/Gallery/NutriPack/nutri_pac2-images-13.jpg',
                 alt: 'Nutri Pac2 Images 13'
             },
@@ -987,10 +892,6 @@
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 39'
             },
             {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-4.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 4'
-            },
-            {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-40.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 40'
             },
@@ -1029,10 +930,6 @@
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-49.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 49'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-5.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 5'
             },
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-50.jpg',
@@ -1075,10 +972,6 @@
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 59'
             },
             {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-6.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 6'
-            },
-            {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-60.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 60'
             },
@@ -1117,10 +1010,6 @@
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-69.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 69'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-7.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 7'
             },
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-70.jpg',
@@ -1163,10 +1052,6 @@
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 79'
             },
             {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-8.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 8'
-            },
-            {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-80.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 80'
             },
@@ -1205,10 +1090,6 @@
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-89.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 89'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-9.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 9'
             },
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-90.jpg',
@@ -1460,42 +1341,62 @@
         });
 
         // Toggle between gallery and campaigns
+        // Toggle between gallery and videos
         function showGallerySection(section) {
-            const galleryGrid = document.getElementById('galleryGrid');
-            const campaignsSection = document.getElementById('campaignsSection');
+            // Update active button state
+            const buttons = document.querySelectorAll('.gallery-filter-btn');
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-maximus-red', 'text-maximus-yellow');
+                btn.classList.add('bg-maximus-dark', 'text-white');
+            });
+
+            const activeBtn = section === 'all' ? document.getElementById('btnAllGallery') : document.getElementById('btnVideos');
+            if (activeBtn) {
+                activeBtn.classList.remove('bg-maximus-dark', 'text-white');
+                activeBtn.classList.add('bg-maximus-red', 'text-maximus-yellow');
+            }
+
+            const grid = document.getElementById('galleryGrid');
             const loadingIndicator = document.getElementById('loadingIndicator');
-            const btnAllGallery = document.getElementById('btnAllGallery');
-            const btnCampaigns = document.getElementById('btnCampaigns');
-            const videoGuide = document.getElementById('videoGuide');
+
+            grid.innerHTML = ''; // Clear grid
 
             if (section === 'all') {
-                // Show gallery, hide campaigns
-                galleryGrid.classList.remove('hidden');
-                loadingIndicator.classList.remove('hidden');
-                campaignsSection.classList.add('hidden');
+                loadedImages = 0; // Reset count
+                renderGallery(false); // Fix: call renderGallery() instead of undefined function
+                if (loadingIndicator) {
+                    loadingIndicator.style.display = 'block';
+                    loadingIndicator.style.opacity = '1';
+                }
+            } else if (section === 'videos') {
+                // Render videos
+                if (loadingIndicator) loadingIndicator.style.display = 'none';
 
-                // Show video guide
-                if (videoGuide) videoGuide.classList.remove('hidden');
+                galleryVideos.forEach((video, index) => {
+                    const div = document.createElement('div');
+                    div.className = 'gallery-item';
 
-                // Update button styles
-                btnAllGallery.classList.remove('bg-gray-800', 'text-white');
-                btnAllGallery.classList.add('bg-maximus-red', 'text-maximus-yellow');
-                btnCampaigns.classList.remove('bg-maximus-red', 'text-maximus-yellow');
-                btnCampaigns.classList.add('bg-gray-800', 'text-white');
-            } else if (section === 'campaigns') {
-                // Show campaigns, hide gallery
-                galleryGrid.classList.add('hidden');
-                loadingIndicator.classList.add('hidden');
-                campaignsSection.classList.remove('hidden');
+                    // Video element container
+                    div.innerHTML = `
+                        <video class="w-full h-full object-cover" controls preload="metadata">
+                            <source src="${video.src}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    `;
 
-                // Hide video guide
-                if (videoGuide) videoGuide.classList.add('hidden');
+                    // Add animation
+                    div.style.opacity = '0';
+                    div.style.transform = 'translateY(20px)';
+                    div.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
 
-                // Update button styles
-                btnCampaigns.classList.remove('bg-gray-800', 'text-white');
-                btnCampaigns.classList.add('bg-maximus-red', 'text-maximus-yellow');
-                btnAllGallery.classList.remove('bg-maximus-red', 'text-maximus-yellow');
-                btnAllGallery.classList.add('bg-gray-800', 'text-white');
+                    grid.appendChild(div);
+
+                    // Trigger animation
+                    setTimeout(() => {
+                        div.style.opacity = '1';
+                        div.style.transform = 'translateY(0)';
+                    }, index * 100);
+                });
             }
         }
 
