@@ -402,8 +402,12 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-96 flex items-center justify-center overflow-hidden mt-20 bg-maximus-dark">
-        <div class="absolute inset-0 bg-gradient-to-r from-maximus-dark via-maximus-gray to-maximus-dark opacity-90">
+    <section
+        class="relative h-64 sm:h-80 md:h-96 flex items-center justify-center overflow-hidden mt-20 bg-maximus-dark">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-cover bg-center"
+                style="background-image: url('assets/Page-Images/Portfolio.jpeg');"></div>
         </div>
         <div class="relative z-10 text-center fade-up opacity-0">
             <h1
@@ -649,22 +653,7 @@
         // Gallery data - all unique images
         const galleryImages = [
 
-            {
-                src: 'assets/Gallery/01d7f992-fed9-4800-b8d9-23e311004fd8-0.jpg',
-                alt: '01D7F992 Fed9 4800 B8D9 23E311004Fd8 0'
-            },
-            {
-                src: 'assets/Gallery/01d7f992-fed9-4800-b8d9-23e311004fd8-1.jpg',
-                alt: '01D7F992 Fed9 4800 B8D9 23E311004Fd8 1'
-            },
-            {
-                src: 'assets/Gallery/01d7f992-fed9-4800-b8d9-23e311004fd8-2.jpg',
-                alt: '01D7F992 Fed9 4800 B8D9 23E311004Fd8 2'
-            },
-            {
-                src: 'assets/Gallery/01d7f992-fed9-4800-b8d9-23e311004fd8-3.jpg',
-                alt: '01D7F992 Fed9 4800 B8D9 23E311004Fd8 3'
-            },
+
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-0.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 0'
@@ -677,13 +666,128 @@
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-10.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 10'
             },
+             {
+                src: 'assets/Gallery/Dalimbra/pakc-08.jpg',
+                alt: 'Dalimbra Pakc 08'
+            },
             {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-100.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 100'
+                src: 'assets/Gallery/Dalimbra/pakc-13.jpg',
+                alt: 'Dalimbra Pakc 13'
+            },
+            {
+                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-3.jpg',
+                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 3'
             },
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-11.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 11'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0001.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0001'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0002.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0002'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0003.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0003'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0004.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0004'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0005.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0005'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0006.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0006'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0007.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0007'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0008.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0008'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0009.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0009'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0010.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0010'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0011.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0011'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0012.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0012'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0013.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0013'
+            },
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0014.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0014'
+            },
+
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0016.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0016'
+            },
+
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0018.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0018'
+            },
+
+            {
+                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0020.jpg',
+                alt: 'Packages Mockups Mini Pages To Jpg 0020'
+            },
+            {
+                src: 'assets/Gallery/Vermicelli-01A.jpg',
+                alt: 'Vermicelli 01A'
+            },
+            {
+                src: 'assets/Gallery/maiya/A.jpg',
+                alt: 'Maiya A'
+            },
+            {
+                src: 'assets/Gallery/maiya/B.jpg',
+                alt: 'Maiya B'
+            },
+            {
+                src: 'assets/Gallery/maiya/C.jpg',
+                alt: 'Maiya C'
+            },
+            {
+                src: 'assets/Gallery/maiya/D.jpg',
+                alt: 'Maiya D'
+            },
+            {
+                src: 'assets/Gallery/maiya/OPT1.jpg',
+                alt: 'Maiya OPT1'
+            },
+            {
+                src: 'assets/Gallery/maiya/aaa.jpg',
+                alt: 'Maiya AAA'
+            },
+            {
+                src: 'assets/Gallery/maiya/palak copy2.jpg',
+                alt: 'Maiya Palak Copy2'
+            },
+            {
+                src: 'assets/Gallery/maiya/samba copy.jpg',
+                alt: 'Maiya Samba Copy'
             },
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-12.jpg',
@@ -706,12 +810,28 @@
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 16'
             },
             {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-17.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 17'
+                src: 'assets/Gallery/img22.jpg',
+                alt: 'Img22'
             },
             {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-18.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 18'
+                src: 'assets/Gallery/img28.jpg',
+                alt: 'Img28'
+            },
+            {
+                src: 'assets/Gallery/img31.jpg',
+                alt: 'Img31'
+            },
+            {
+                src: 'assets/Gallery/img34.jpg',
+                alt: 'Img34'
+            },
+            {
+                src: 'assets/Gallery/img44.jpg',
+                alt: 'Img44'
+            },
+            {
+                src: 'assets/Gallery/img47.jpg',
+                alt: 'Img47'
             },
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-19.jpg',
@@ -742,12 +862,60 @@
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 24'
             },
             {
+                src: 'assets/Gallery/ED Hardy/Ed Hardy women.jpg',
+                alt: 'Ed Hardy Women'
+            },
+            {
+                src: 'assets/Gallery/SB/PBCGVU1-2copy.JPG',
+                alt: 'SB PBCGVU1 2copy'
+            },
+            {
+                src: 'assets/Gallery/SB/PBCGVU1.JPG',
+                alt: 'SB PBCGVU1'
+            },
+            {
+                src: 'assets/Gallery/NutriPack/nutri_pac2-images-0.jpg',
+                alt: 'Nutri Pac2 Images 0'
+            },
+
+            {
+                src: 'assets/Gallery/NutriPack/nutri_pac2-images-13.jpg',
+                alt: 'Nutri Pac2 Images 13'
+            },
+
+            {
+                src: 'assets/Gallery/NutriPack/nutri_pac2-images-4.jpg',
+                alt: 'Nutri Pac2 Images 4'
+            },
+
+
+            {
+                src: 'assets/Gallery/NutriPack/nutri_pac2-images-9.jpg',
+                alt: 'Nutri Pac2 Images 9'
+            },
+            {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-25.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 25'
             },
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-26.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 26'
+            },
+            {
+                src: 'assets/Gallery/pinaki-paradise-1.jpg',
+                alt: 'Pinaki Paradise 1'
+            },
+            {
+                src: 'assets/Gallery/pinaki-paradise-2.jpg',
+                alt: 'Pinaki Paradise 2'
+            },
+            {
+                src: 'assets/Gallery/pinaki-paradise-3.jpg',
+                alt: 'Pinaki Paradise 3'
+            },
+            {
+                src: 'assets/Gallery/pinaki-paradise-4.jpg',
+                alt: 'Pinaki Paradise 4'
             },
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-27.jpg',
@@ -760,10 +928,6 @@
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-29.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 29'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-3.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 3'
             },
             {
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-30.jpg',
@@ -1065,218 +1229,7 @@
                 src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-98.jpg',
                 alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 98'
             },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-99.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 99'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0001.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0001'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0002.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0002'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0003.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0003'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0004.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0004'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0005.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0005'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0006.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0006'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0007.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0007'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0008.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0008'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0009.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0009'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0010.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0010'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0011.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0011'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0012.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0012'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0013.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0013'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0014.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0014'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0015.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0015'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0016.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0016'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0017.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0017'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0018.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0018'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0019.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0019'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0020.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0020'
-            },
-            {
-                src: 'assets/Gallery/Vermicelli-01A.jpg',
-                alt: 'Vermicelli 01A'
-            },
-            {
-                src: 'assets/Gallery/img16.jpg',
-                alt: 'Img16'
-            },
-            {
-                src: 'assets/Gallery/img18.jpg',
-                alt: 'Img18'
-            },
-            {
-                src: 'assets/Gallery/img21.jpg',
-                alt: 'Img21'
-            },
-            {
-                src: 'assets/Gallery/img22.jpg',
-                alt: 'Img22'
-            },
-            {
-                src: 'assets/Gallery/img23.jpg',
-                alt: 'Img23'
-            },
-            {
-                src: 'assets/Gallery/img28.jpg',
-                alt: 'Img28'
-            },
-            {
-                src: 'assets/Gallery/img31.jpg',
-                alt: 'Img31'
-            },
-            {
-                src: 'assets/Gallery/img34.jpg',
-                alt: 'Img34'
-            },
-            {
-                src: 'assets/Gallery/img44.jpg',
-                alt: 'Img44'
-            },
-            {
-                src: 'assets/Gallery/img47.jpg',
-                alt: 'Img47'
-            },
-            {
-                src: 'assets/Gallery/pinaki-paradise-1.jpg',
-                alt: 'Pinaki Paradise 1'
-            },
-            {
-                src: 'assets/Gallery/pinaki-paradise-2.jpg',
-                alt: 'Pinaki Paradise 2'
-            },
-            {
-                src: 'assets/Gallery/pinaki-paradise-3.jpg',
-                alt: 'Pinaki Paradise 3'
-            },
-            {
-                src: 'assets/Gallery/pinaki-paradise-4.jpg',
-                alt: 'Pinaki Paradise 4'
-            },
-            {
-                src: 'assets/Gallery/approved-logo-07.jpg',
-                alt: 'Approved Logo 07'
-            },
-            {
-                src: 'assets/Gallery/approved-logo-09.jpg',
-                alt: 'Approved Logo 09'
-            },
-            {
-                src: 'assets/Gallery/approved-logo-11.jpg',
-                alt: 'Approved Logo 11'
-            },
-            {
-                src: 'assets/Gallery/Dalimbra/pakc-08.jpg',
-                alt: 'Dalimbra Pakc 08'
-            },
-            {
-                src: 'assets/Gallery/Dalimbra/pakc-13.jpg',
-                alt: 'Dalimbra Pakc 13'
-            },
-            {
-                src: 'assets/Gallery/ED Hardy/Ed Hardy women.jpg',
-                alt: 'Ed Hardy Women'
-            },
-            {
-                src: 'assets/Gallery/ED Hardy/Ed Hardy.jpg',
-                alt: 'Ed Hardy'
-            },
-            {
-                src: 'assets/Gallery/SB/PBCGVU1-2copy.JPG',
-                alt: 'SB PBCGVU1 2copy'
-            },
-            {
-                src: 'assets/Gallery/SB/PBCGVU1.JPG',
-                alt: 'SB PBCGVU1'
-            },
-            {
-                src: 'assets/Gallery/maiya/A.jpg',
-                alt: 'Maiya A'
-            },
-            {
-                src: 'assets/Gallery/maiya/B.jpg',
-                alt: 'Maiya B'
-            },
-            {
-                src: 'assets/Gallery/maiya/C.jpg',
-                alt: 'Maiya C'
-            },
-            {
-                src: 'assets/Gallery/maiya/D.jpg',
-                alt: 'Maiya D'
-            },
-            {
-                src: 'assets/Gallery/maiya/OPT1.jpg',
-                alt: 'Maiya OPT1'
-            },
-            {
-                src: 'assets/Gallery/maiya/aaa.jpg',
-                alt: 'Maiya AAA'
-            },
-            {
-                src: 'assets/Gallery/maiya/palak copy2.jpg',
-                alt: 'Maiya Palak Copy2'
-            },
-            {
-                src: 'assets/Gallery/maiya/samba copy.jpg',
-                alt: 'Maiya Samba Copy'
-            }
+            
 
         ];
 

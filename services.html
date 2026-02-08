@@ -122,8 +122,12 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="relative h-96 flex items-center justify-center overflow-hidden mt-20 bg-maximus-dark">
-        <div class="absolute inset-0 bg-gradient-to-r from-maximus-dark via-maximus-gray to-maximus-dark opacity-90">
+    <section
+        class="relative h-64 sm:h-80 md:h-96 flex items-center justify-center overflow-hidden mt-20 bg-maximus-dark">
+        <!-- Background Image -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-cover bg-center"
+                style="background-image: url('assets/Page-Images/Services.jpeg');"></div>
         </div>
         <div class="relative z-10 text-center fade-up opacity-0">
             <h1
@@ -143,6 +147,18 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 items-stretch">
 
                 <!-- Service 1 -->
+                <a href="#branding"
+                    class="service-card w-full h-full group bg-warm-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
+                    <div class="w-16 h-16 bg-maximus-red rounded-full flex items-center justify-center mb-6">
+                        <i class="fas fa-palette text-warm-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl text-maximus-dark mb-3">BUSINESS, BRAND AND MARKETING STRATEGY DEVELOPMENT</h3>
+                    <p class="text-gray-600 text-sm">
+                        Strategic brand development and visual identity design
+                    </p>
+                </a>
+
+                <!-- Service 2 -->
                 <a href="#marketing"
                     class="service-card w-full h-full group bg-warm-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
                     <div class="w-16 h-16 bg-maximus-red rounded-full flex items-center justify-center mb-6">
@@ -151,18 +167,6 @@
                     <h3 class="text-2xl text-maximus-dark mb-3">BUSINESS BRANDING AND MARKETING STRATEGY</h3>
                     <p class="text-gray-600 text-sm">
                         Market research, planning, and campaign management
-                    </p>
-                </a>
-
-                <!-- Service 2 -->
-                <a href="#branding"
-                    class="service-card w-full h-full group bg-warm-white p-8 rounded-lg shadow-lg hover:shadow-2xl transition-all duration-300">
-                    <div class="w-16 h-16 bg-maximus-red rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-palette text-warm-white text-2xl"></i>
-                    </div>
-                    <h3 class="text-2xl text-maximus-dark mb-3">BRANDING & CREATIVE</h3>
-                    <p class="text-gray-600 text-sm">
-                        Strategic brand development and visual identity design
                     </p>
                 </a>
 
@@ -218,8 +222,102 @@
         </div>
     </section>
 
+    <!-- Branding & Creative Services -->
+    <section id="branding" class="py-20 lg:py-32 bg-off-white">
+        <div class="max-w-6xl mx-auto px-6 lg:px-8">
+            <div class="fade-up opacity-0 text-center mb-12">
+                <h2 class="font-montserrat text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide leading-none">
+                    BUSINESS, BRAND AND MARKETING STRATEGY DEVELOPMENT</h2>
+                <div class="w-24 h-px bg-gray-200 mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+                <!-- Brand Strategy -->
+                <div class="fade-up opacity-0">
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-4 tracking-wide">BRAND STRATEGY DEVELOPMENT
+                    </h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Brand Positioning:</strong> Defining your unique value proposition</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Audience Segmentation:</strong> Identifying and targeting specific
+                                demographics</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Messaging Framework:</strong> Crafting consistent brand messages</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Competitive Analysis:</strong> Assessing market position relative to
+                                competitors</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Visual Identity -->
+                <div class="fade-up opacity-0">
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-4 tracking-wide">VISUAL IDENTITY DESIGN</h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Logo Creation:</strong> Designing a memorable brand symbol</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Color Palette Selection:</strong> Choosing colors that represent your
+                                brand</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Typography:</strong> Selecting fonts that align with brand personality</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                            <span><strong>Brand Guidelines:</strong> Documenting standards for consistent use</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Content Creation -->
+                <div class="fade-up opacity-0 md:col-span-2">
+                    <h3 class="font-montserrat text-2xl text-maximus-red mb-4 tracking-wide">CONTENT CREATION</h3>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Copywriting:</strong> Crafting compelling messages for various
+                                    platforms</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Graphic Design:</strong> Designing visuals for digital and print
+                                    media</span>
+                            </li>
+                        </ul>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Video Production:</strong> Creating promotional and explainer
+                                    videos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
+                                <span><strong>Photography:</strong> Capturing images that reflect your brand
+                                    essence</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Marketing & Business Strategy -->
-    <section id="marketing" class="py-20 lg:py-32 bg-off-white">
+    <section id="marketing" class="py-20 lg:py-32 bg-gray-50">
         <div class="max-w-6xl mx-auto px-6 lg:px-8">
             <div class="fade-up opacity-0 text-center mb-12">
                 <h2 class="font-montserrat text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide leading-none">
@@ -302,101 +400,6 @@
                                 <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
                                 <span><strong>Post-Campaign Analysis:</strong> Evaluating success and areas for
                                     improvement</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Branding & Creative Services -->
-    <section id="branding" class="py-20 lg:py-32 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-6 lg:px-8">
-            <div class="fade-up opacity-0 text-center mb-12">
-                <h2 class="font-montserrat text-4xl md:text-5xl text-maximus-dark mb-4 tracking-wide leading-none">
-                    BRANDING & CREATIVE
-                    SERVICES</h2>
-                <div class="w-24 h-px bg-gray-200 mx-auto"></div>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-                <!-- Brand Strategy -->
-                <div class="fade-up opacity-0">
-                    <h3 class="font-montserrat text-2xl text-maximus-red mb-4 tracking-wide">BRAND STRATEGY DEVELOPMENT
-                    </h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
-                            <span><strong>Brand Positioning:</strong> Defining your unique value proposition</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
-                            <span><strong>Audience Segmentation:</strong> Identifying and targeting specific
-                                demographics</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
-                            <span><strong>Messaging Framework:</strong> Crafting consistent brand messages</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
-                            <span><strong>Competitive Analysis:</strong> Assessing market position relative to
-                                competitors</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Visual Identity -->
-                <div class="fade-up opacity-0">
-                    <h3 class="font-montserrat text-2xl text-maximus-red mb-4 tracking-wide">VISUAL IDENTITY DESIGN</h3>
-                    <ul class="space-y-3 text-gray-700">
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
-                            <span><strong>Logo Creation:</strong> Designing a memorable brand symbol</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
-                            <span><strong>Color Palette Selection:</strong> Choosing colors that represent your
-                                brand</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
-                            <span><strong>Typography:</strong> Selecting fonts that align with brand personality</span>
-                        </li>
-                        <li class="flex items-start">
-                            <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
-                            <span><strong>Brand Guidelines:</strong> Documenting standards for consistent use</span>
-                        </li>
-                    </ul>
-                </div>
-
-                <!-- Content Creation -->
-                <div class="fade-up opacity-0 md:col-span-2">
-                    <h3 class="font-montserrat text-2xl text-maximus-red mb-4 tracking-wide">CONTENT CREATION</h3>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <ul class="space-y-3 text-gray-700">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
-                                <span><strong>Copywriting:</strong> Crafting compelling messages for various
-                                    platforms</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
-                                <span><strong>Graphic Design:</strong> Designing visuals for digital and print
-                                    media</span>
-                            </li>
-                        </ul>
-                        <ul class="space-y-3 text-gray-700">
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
-                                <span><strong>Video Production:</strong> Creating promotional and explainer
-                                    videos</span>
-                            </li>
-                            <li class="flex items-start">
-                                <i class="fas fa-check-circle text-maximus-red mt-1 mr-3"></i>
-                                <span><strong>Photography:</strong> Capturing images that reflect your brand
-                                    essence</span>
                             </li>
                         </ul>
                     </div>
