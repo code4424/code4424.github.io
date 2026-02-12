@@ -14,7 +14,8 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
 
     <!-- Font Awesome -->
@@ -29,6 +30,7 @@
             theme: {
                 extend: {
                     fontFamily: {
+                        'poppins': ['Poppins', 'sans-serif'],
                         'montserrat': ['Montserrat', 'sans-serif'],
                     },
                     colors: {
@@ -38,6 +40,7 @@
                         'maximus-gray': '#1A1A1A',
                         'off-white': '#FAFAFA',
                         'warm-white': '#F5F5F5',
+                        'cream': '#F5EFE6',
                     }
                 }
             }
@@ -45,97 +48,266 @@
     </script>
 
     <style>
-        /* Gallery Grid */
-        .gallery-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1rem;
+        body {
+            font-family: 'Poppins', sans-serif;
         }
 
-        @media (max-width: 768px) {
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 0.5rem;
-            }
-        }
-
-        /* Gallery Item */
-        .gallery-item {
+        /* Category Card Styling */
+        .category-card {
             position: relative;
-            overflow: hidden;
-            border-radius: 0.5rem;
             cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            aspect-ratio: 1;
-            will-change: transform;
-            content-visibility: auto;
-            contain: layout style paint;
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
+            transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+            /* Professional spring feel */
+            background: transparent;
+            box-shadow: none;
+            border: 2px solid transparent;
+            border-radius: 12px;
         }
 
-        .gallery-item.loaded {
-            background: none;
-            animation: none;
-        }
-
-        .gallery-item img {
+        .category-card img,
+        .category-card video {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.4s ease;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            opacity: 0;
+            /* Ensure consistent fill */
+            transition: transform 0.5s ease;
+            border-radius: 10px;
         }
 
-        .gallery-item img.loaded {
-            opacity: 1;
-            animation: fadeInScale 0.6s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        /* Hover Effect: Lift and Expand */
+        .category-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            z-index: 5;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
         }
 
-        .gallery-item:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        /* Active State: Enlarge and Highlight */
+        /* Active State: Enlarge and Highlight */
+        .category-card.active {
+            transform: scale(1.25);
+            /* 1.25 Zoom for clicked */
+            z-index: 20 !important;
+            border: 3px solid #C41E3A;
+            /* Red Border */
+            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.5);
+            /* Glow */
+            background: white;
+            border-radius: 12px;
         }
 
-        .gallery-item:hover img {
-            transform: scale(1.1) translateZ(0);
+        /* Legacy block renamed to avoid conflict */
+        .category-card.active-legacy {
+            transform: scale(1.2);
+            /* Stronger Zoom */
+            z-index: 20 !important;
+            border: 3px solid #C41E3A;
+            /* Thicker Maximus Red Border */
+            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.4);
+            /* Stronger Red Glow */
+            background: white;
         }
 
-        .gallery-item-overlay {
+        /* Click Feedback */
+        .category-card:active {
+            transform: scale(0.95);
+        }
+
+        /* Scroll Container Wrapper */
+        .scroll-container {
+            position: relative;
+            width: 100%;
+        }
+
+        /* Navigation Buttons */
+        .scroll-btn {
             position: absolute;
-            inset: 0;
-            background: linear-gradient(to top, rgba(167, 0, 0, 0.9), transparent);
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            top: 50%;
+            transform: translateY(-50%);
+            background: linear-gradient(135deg, #a70000, #d60000);
+            color: white;
+            border: none;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            cursor: pointer;
+            z-index: 10;
             display: flex;
-            align-items: flex-end;
+            align-items: center;
             justify-content: center;
-            padding: 1rem;
-            will-change: opacity;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 12px rgba(167, 0, 0, 0.4);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            pointer-events: none;
         }
 
-        .gallery-item:hover .gallery-item-overlay {
+        .scroll-container:hover .scroll-btn {
             opacity: 1;
+            pointer-events: all;
         }
 
-        /* Skeleton Loader */
-        .skeleton-loader {
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
-            background-size: 200% 100%;
-            animation: shimmer 1.5s infinite;
-            border-radius: 0.5rem;
+        .scroll-btn:hover {
+            background: linear-gradient(135deg, #8a0000, #a70000);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(167, 0, 0, 0.6);
         }
 
-        .skeleton-loader.hidden {
+        .scroll-btn:active {
+            transform: translateY(-50%) scale(0.95);
+        }
+
+        .scroll-btn-left {
+            left: -25px;
+        }
+
+        .scroll-btn-right {
+            right: -25px;
+        }
+
+        .scroll-btn.hidden {
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+
+        /* Mobile: Always show buttons */
+        @media (max-width: 768px) {
+            .scroll-btn {
+                opacity: 0.8;
+                pointer-events: all;
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+            }
+
+            .scroll-btn-left {
+                left: 10px;
+            }
+
+            .scroll-btn-right {
+                right: 10px;
+            }
+
+            .scroll-btn:hover {
+                opacity: 1;
+            }
+        }
+
+        /* Brands Horizontal Scroll Layout */
+        .brands-grid {
+            display: flex;
+            overflow-x: auto;
+            overflow-y: hidden;
+            gap: 1.5rem;
+            padding: 2rem 0;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            /* iOS smooth scrolling */
+            scrollbar-width: none;
+            /* Hide scrollbar Firefox */
+            -ms-overflow-style: none;
+            /* Hide scrollbar IE/Edge */
+        }
+
+        /* Hide scrollbar for Webkit browsers */
+        .brands-grid::-webkit-scrollbar,
+        .scrollbar-hide::-webkit-scrollbar {
             display: none;
         }
 
-        /* Lightbox */
+        /* Generic scrollbar hide utility */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
+
+        /* Brand Column - Fixed width for horizontal scroll */
+        .brand-column {
+            flex: 0 0 auto;
+        }
+
+        .brand-images-column {
+            display: flex;
+            gap: 1rem;
+        }
+
+        /* Uniform Image Sizes for Professional Look */
+        .brand-image-item {
+            position: relative;
+            flex: 0 0 auto;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 280px;
+            height: 280px;
+            background: white;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand-image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .brand-image-item:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        .brand-image-item:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Tablet Responsive */
+        @media (max-width: 1024px) {
+            .brand-image-item {
+                width: 240px;
+                height: 240px;
+            }
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .brand-image-item {
+                width: 200px;
+                height: 200px;
+            }
+
+            .brands-grid {
+                gap: 1rem;
+                padding: 1.5rem 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .brand-image-item {
+                width: 160px;
+                height: 160px;
+            }
+
+            .brands-grid {
+                gap: 0.75rem;
+            }
+        }
+
+        /* Section Visibility */
+        .section-hidden {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .section-visible {
+            display: block;
+            opacity: 1;
+            animation: fadeIn 0.3s ease;
+        }
+
+        /* Professional Lightbox Dialog */
         .lightbox {
             display: none;
             position: fixed;
@@ -143,11 +315,12 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(10, 10, 10, 0.98);
+            background: rgba(0, 0, 0, 0.95);
             z-index: 9999;
             align-items: center;
             justify-content: center;
-            backdrop-filter: blur(10px);
+            backdrop-filter: blur(20px);
+            padding: 20px;
         }
 
         .lightbox.active {
@@ -155,99 +328,271 @@
             animation: fadeIn 0.3s ease;
         }
 
+        /* Compact Dialog Container - Updated for Responsiveness */
         .lightbox-content {
-            max-width: 90%;
-            max-height: 90%;
             position: relative;
-            animation: zoomIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            width: 95%;
+            max-width: 900px;
+            height: 75vh;
+            max-height: 650px;
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+            animation: zoomIn 0.3s ease-out;
+            display: flex;
+            flex-direction: column;
         }
 
-        .lightbox-content img {
-            max-width: 100%;
-            max-height: 90vh;
-            object-fit: contain;
-            border: 4px solid #a70000;
-            border-radius: 0.5rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        @media (max-width: 768px) {
+            .lightbox-content {
+                width: 95%;
+                height: 60vh;
+                border-radius: 12px;
+            }
+
+            .lightbox-image-wrapper {
+                padding: 10px;
+            }
+
+            .lightbox-close {
+                width: 36px;
+                height: 36px;
+                font-size: 1rem;
+                top: 0.5rem;
+                right: 0.5rem;
+            }
         }
 
-        .lightbox-close {
-            position: fixed;
-            top: 1.5rem;
-            right: 1.5rem;
-            width: 3rem;
-            height: 3rem;
-            background: #a70000;
-            color: white;
-            border: none;
-            border-radius: 50%;
-            font-size: 1.5rem;
-            cursor: pointer;
-            z-index: 10000;
+        /* Scrollable Gallery Container */
+        .lightbox-gallery {
+            flex: 1;
+            overflow-x: auto;
+            overflow-y: hidden;
+            display: flex;
+            scroll-behavior: smooth;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            background: #f8f8f8;
+        }
+
+        .lightbox-gallery::-webkit-scrollbar {
+            display: none;
+        }
+
+        .lightbox-image-wrapper {
+            flex: 0 0 100%;
+            width: 100%;
+            height: 100%;
             display: flex;
             align-items: center;
             justify-content: center;
-            box-shadow: 0 4px 12px rgba(167, 0, 0, 0.5);
+            scroll-snap-align: center;
+            padding: 20px;
+        }
+
+        .lightbox-image-wrapper img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Close Button */
+        .lightbox-close {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            width: 44px;
+            height: 44px;
+            background: linear-gradient(135deg, #a70000, #d60000);
+            color: white;
+            border: 2px solid white;
+            border-radius: 50%;
+            font-size: 1.25rem;
+            cursor: pointer;
+            z-index: 10001;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
 
         .lightbox-close:hover {
-            transform: rotate(90deg) scale(1.1);
+            transform: rotate(90deg) scale(1.15);
             box-shadow: 0 6px 20px rgba(167, 0, 0, 0.7);
+            background: linear-gradient(135deg, #8a0000, #a70000);
         }
 
+        /* Navigation Arrows */
         .lightbox-nav {
-            position: fixed;
+            position: absolute;
             top: 50%;
             transform: translateY(-50%);
-            width: 3rem;
-            height: 3rem;
-            background: rgba(167, 0, 0, 0.8);
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, rgba(167, 0, 0, 0.9), rgba(214, 0, 0, 0.9));
             color: white;
-            border: none;
+            border: 2px solid white;
             border-radius: 50%;
             font-size: 1.5rem;
             cursor: pointer;
-            z-index: 10000;
+            z-index: 10001;
             display: flex;
             align-items: center;
             justify-content: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .lightbox:hover .lightbox-nav {
+            opacity: 1;
+            pointer-events: all;
         }
 
         .lightbox-nav:hover {
-            background: #a70000;
-            box-shadow: 0 4px 12px rgba(167, 0, 0, 0.5);
-            transform: translateY(-50%) scale(1.1);
+            background: linear-gradient(135deg, #a70000, #d60000);
+            box-shadow: 0 6px 20px rgba(167, 0, 0, 0.6);
+            transform: translateY(-50%) scale(1.15);
+        }
+
+        .lightbox-nav:active {
+            transform: translateY(-50%) scale(0.95);
         }
 
         .lightbox-prev {
-            left: 1.5rem;
+            left: 2rem;
         }
 
         .lightbox-next {
-            right: 1.5rem;
+            right: 2rem;
         }
 
-        /* Filter Buttons */
-        .filter-btn {
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-
-        .filter-btn.active {
-            background: #a70000;
+        /* Image Counter */
+        .lightbox-counter {
+            position: absolute;
+            bottom: 1.5rem;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.8);
             color: white;
+            padding: 10px 24px;
+            border-radius: 24px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            backdrop-filter: blur(10px);
+            z-index: 10001;
+            border: 2px solid rgba(255, 255, 255, 0.2);
         }
 
-        /* Loading Spinner */
-        .loading-spinner {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            border: 4px solid rgba(167, 0, 0, 0.1);
-            border-top-color: #a70000;
-            border-radius: 50%;
-            animation: spin 0.8s linear infinite;
+        /* Scroll Progress Indicator */
+        .lightbox-progress {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 10001;
+        }
+
+        .lightbox-progress-bar {
+            height: 100%;
+            background: linear-gradient(90deg, #a70000, #d60000);
+            width: 0%;
+            transition: width 0.1s ease;
+        }
+
+        /* Tablet and Mobile Responsive */
+        @media (max-width: 1024px) {
+            .lightbox-content {
+                width: 95%;
+                height: 80vh;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-content {
+                width: 100%;
+                height: 75vh;
+                border-radius: 12px;
+            }
+
+            .lightbox-nav {
+                opacity: 0.7;
+                pointer-events: all;
+                width: 44px;
+                height: 44px;
+                font-size: 1.25rem;
+            }
+
+            .lightbox-prev {
+                left: 1rem;
+            }
+
+            .lightbox-next {
+                right: 1rem;
+            }
+
+            .lightbox-close {
+                width: 40px;
+                height: 40px;
+                font-size: 1.1rem;
+            }
+
+            .lightbox-counter {
+                bottom: 1rem;
+                font-size: 0.75rem;
+                padding: 8px 18px;
+            }
+
+            .lightbox-image-wrapper {
+                padding: 10px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .lightbox-content {
+                width: 100%;
+                height: 70vh;
+                border-radius: 0;
+            }
+
+            .lightbox {
+                padding: 0;
+            }
+        }
+
+        /* Video Section */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .video-item {
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .video-item:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .video-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         /* Animations */
@@ -258,18 +603,6 @@
 
             to {
                 opacity: 1;
-            }
-        }
-
-        @keyframes fadeInScale {
-            from {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-
-            to {
-                opacity: 1;
-                transform: scale(1);
             }
         }
 
@@ -285,51 +618,55 @@
             }
         }
 
-        @keyframes shimmer {
-            0% {
-                background-position: 200% 0;
-            }
-
-            100% {
-                background-position: -200% 0;
-            }
-        }
-
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
-        }
-
         /* Smooth scroll behavior */
         html {
             scroll-behavior: smooth;
         }
 
-        /* Performance optimizations */
-        .gallery-item,
-        .gallery-item img,
-        .gallery-item-overlay {
-            transform: translateZ(0);
-            -webkit-transform: translateZ(0);
+        /* Section visibility */
+        .section-hidden {
+            display: none;
         }
 
-        /* Reduce motion for accessibility */
-        @media (prefers-reduced-motion: reduce) {
-            * {
-                animation-duration: 0.01ms !important;
-                animation-iteration-count: 1 !important;
-                transition-duration: 0.01ms !important;
-            }
+        .section-visible {
+            display: block;
+            animation: fadeIn 0.4s ease;
+        }
+
+        /* Indicator arrow */
+        .category-indicator {
+            display: none;
+            margin: 0 auto;
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid #333;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        .category-indicator.active {
+            display: block;
+        }
+
+        /* Adjusted Active State (Zoom Out / Pressed) for Responsiveness */
+        .category-card.active {
+            transform: scale(0.95) !important;
+            border: 4px solid #C41E3A !important;
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(0, 0, 0, 0.2) !important;
+            z-index: 10 !important;
+            border-radius: 16px !important;
+            background: transparent !important;
         }
     </style>
 </head>
 
-<body class="bg-off-white font-montserrat">
+<body class="bg-cream font-poppins">
 
     <!-- Navigation -->
     <nav id="navbar"
-        class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-off-white shadow-md">
+        class="fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out bg-off-white shadow-md font-montserrat">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
             <div class="flex items-center justify-between h-20 gap-8">
                 <div class="flex-shrink-0">
@@ -340,7 +677,7 @@
                 </div>
 
                 <!-- Desktop Menu -->
-                <div class="hidden xl:flex items-center xl:space-x-8 whitespace-nowrap">
+                <div class="hidden xl:flex items-center xl:space-x-5 whitespace-nowrap">
                     <a href="index.html"
                         class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">HOME</a>
                     <a href="about.html"
@@ -358,7 +695,8 @@
                         class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">CASE
                         STUDIES</a>
                     <a href="blog.html"
-                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">BLOG</a>
+                        class="nav-link text-gray-800 hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">STRATEGY
+                        THINKING</a>
                     <a href="gallery.html"
                         class="nav-link text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide">PORTFOLIO</a>
                     <a href="index.html#contact"
@@ -392,7 +730,8 @@
                     class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">CASE
                     STUDIES</a>
                 <a href="blog.html"
-                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">BLOG</a>
+                    class="block text-white hover:text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">STRATEGY
+                    THINKING</a>
                 <a href="gallery.html"
                     class="block text-maximus-red transition-colors duration-300 font-medium text-sm tracking-wide py-2">PORTFOLIO</a>
                 <a href="index.html#contact"
@@ -411,61 +750,604 @@
         </div>
         <div class="relative z-10 text-center fade-up opacity-0">
             <h1
-                class="font-montserrat text-5xl md:text-6xl lg:text-7xl text-warm-white mb-4 tracking-wider leading-none">
+                class="font-poppins text-5xl md:text-6xl lg:text-7xl text-warm-white mb-4 tracking-wider leading-none font-bold">
                 OUR PORTFOLIO</h1>
             <div class="w-32 h-1 bg-maximus-red mx-auto mb-6"></div>
             <p class="text-gray-300 text-lg md:text-xl max-w-2xl mx-auto px-6">
-                Visual stories of our campaigns, events, and memorable moments
+                Showcasing our creative excellence across diverse categories
             </p>
         </div>
     </section>
 
-    <!-- Filter Buttons -->
-    <section class="py-8 bg-off-white mt-20">
+    <!-- Main Content -->
+    <section class="py-12 md:py-16 bg-cream">
         <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-            <div class="flex justify-center gap-4 flex-wrap">
-                <button id="btnAllGallery" onclick="showGallerySection('all')"
-                    class="gallery-filter-btn bg-maximus-red text-maximus-yellow px-6 py-3 font-montserrat font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105">
-                    Creative Showcase
+
+            <!-- Categories Grid - Always Visible -->
+            <!-- Categories Grid - Always Visible -->
+            <div id="categoriesSection" class="mb-8 relative group">
+                <!-- Navigation Buttons (Always Visible) -->
+                <button
+                    class="scroll-btn scroll-btn-left opacity-0 pointer-events-none transition-opacity duration-300 flex z-20"
+                    onclick="scrollCategories(-1)">
+                    <i class="fas fa-chevron-left"></i>
                 </button>
-                <button id="btnVideos" onclick="showGallerySection('videos')"
-                    class="gallery-filter-btn bg-maximus-dark text-white px-6 py-3 font-montserrat font-bold text-sm tracking-widest uppercase transition-all duration-300 hover:shadow-[0_0_20px_rgba(167,0,0,0.6)] hover:scale-105 shadow-md">
-                    Videos and Reels
+                <button class="scroll-btn scroll-btn-right opacity-100 transition-opacity duration-300 flex z-20"
+                    onclick="scrollCategories(1)">
+                    <i class="fas fa-chevron-right"></i>
                 </button>
+
+                <!-- Categories Grid - Updated for Scroll/Responsive -->
+                <div id="categoryScrollContainer"
+                    class="flex overflow-x-auto gap-4 md:gap-6 snap-x snap-proximity scrollbar-hide">
+                    <!-- Logo & Brand Identity -->
+                    <div id="cat-branding"
+                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        onclick="showCategory('branding')">
+                        <img src="assets/Category/Branding.svg" alt="Logo & Brand Identity"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+
+                    <!-- Packaging -->
+                    <div id="cat-packaging"
+                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        onclick="showCategory('packaging')">
+                        <img src="assets/Category/Packaging.svg" alt="Packaging"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+
+                    <!-- Real Estate -->
+                    <div id="cat-realestate"
+                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        onclick="showCategory('realestate')">
+                        <img src="assets/Category/Realestate.svg" alt="Real Estate"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+
+                    <!-- Creative & Communications -->
+                    <div id="cat-creative"
+                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        onclick="showCategory('creative')">
+                        <img src="assets/Category/UX.svg" alt="Creative & Communications"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+
+                    <!-- Lifestyle -->
+                    <div id="cat-videos"
+                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        onclick="showCategory('videos')">
+                        <img src="assets/Category/Lifestyle.svg" alt="Lifestyle"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                    </div>
+
+                    <!-- Videos & Reels (New) -->
+                    <div id="cat-reels"
+                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group bg-black"
+                        onclick="showCategory('reels')">
+                        <video src="assets/Video/video.mp4" muted loop autoplay playsinline
+                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"></video>
+                        <div
+                            class="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
+                            <i class="fas fa-play text-white text-2xl mb-1 drop-shadow-md"></i>
+                            <p class="text-white font-bold text-xs md:text-sm tracking-wider drop-shadow-md px-1">Videos
+                                & Reels</p>
+                        </div>
+                    </div>
+                </div>
             </div>
+
+            <!-- Category Indicator Arrow -->
+            <div id="categoryIndicator" class="category-indicator"></div>
+
+            <!-- Logo & Brand Identity Content -->
+            <div id="brandingContent" class="section-hidden">
+                <div class="scroll-container">
+                    <button class="scroll-btn scroll-btn-left" onclick="scrollGallery('brandingContent', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn scroll-btn-right" onclick="scrollGallery('brandingContent', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="brands-grid">
+                        <!-- New Branding Images from assets/Branding/RESIZE -->
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/ANTHILL/ANTHILL-1.jpg')">
+                            <img src="assets/Branding/RESIZE/ANTHILL/ANTHILL-1.jpg" alt="ANTHILL Branding">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/ANTHILL/ANTHILL-2.jpg')">
+                            <img src="assets/Branding/RESIZE/ANTHILL/ANTHILL-2.jpg" alt="ANTHILL Branding">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/ANTHILL/ANTHILL-3.jpg')">
+                            <img src="assets/Branding/RESIZE/ANTHILL/ANTHILL-3.jpg" alt="ANTHILL Branding">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/ANTHILL/ANTHILL-4.jpg')">
+                            <img src="assets/Branding/RESIZE/ANTHILL/ANTHILL-4.jpg" alt="ANTHILL Branding">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/ANTHILL/ANTHILL-5.jpg')">
+                            <img src="assets/Branding/RESIZE/ANTHILL/ANTHILL-5.jpg" alt="ANTHILL Branding">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/BLUE MARLIN/Blue-Marlin-1.jpg')">
+                            <img src="assets/Branding/RESIZE/BLUE MARLIN/Blue-Marlin-1.jpg" alt="Blue Marlin Branding">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/BLUE MARLIN/Blue-Marlin-2.jpg')">
+                            <img src="assets/Branding/RESIZE/BLUE MARLIN/Blue-Marlin-2.jpg" alt="Blue Marlin Branding">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/BLUE MARLIN/Blue-Marlin-3.jpg')">
+                            <img src="assets/Branding/RESIZE/BLUE MARLIN/Blue-Marlin-3.jpg" alt="Blue Marlin Branding">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/FOOD/Babak-Logo.jpg')">
+                            <img src="assets/Branding/RESIZE/FOOD/Babak-Logo.jpg" alt="Babak Logo">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/FOOD/Cakewala---Branding.jpg')">
+                            <img src="assets/Branding/RESIZE/FOOD/Cakewala---Branding.jpg" alt="Cakewala Branding">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/FOOD/Cakewala--1.jpg')">
+                            <img src="assets/Branding/RESIZE/FOOD/Cakewala--1.jpg" alt="Cakewala">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/FOOD/Cakewala--3.jpg')">
+                            <img src="assets/Branding/RESIZE/FOOD/Cakewala--3.jpg" alt="Cakewala">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/FOOD/Cakewala-logo.jpg')">
+                            <img src="assets/Branding/RESIZE/FOOD/Cakewala-logo.jpg" alt="Cakewala Logo">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/FOOD/Da-Limbra---Branding.jpg')">
+                            <img src="assets/Branding/RESIZE/FOOD/Da-Limbra---Branding.jpg" alt="Da Limbra Branding">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/FOOD/Da-Limbra-Logo.jpg')">
+                            <img src="assets/Branding/RESIZE/FOOD/Da-Limbra-Logo.jpg" alt="Da Limbra Logo">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/FOOD/Khaogalli.jpg')">
+                            <img src="assets/Branding/RESIZE/FOOD/Khaogalli.jpg" alt="Khaogalli">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/FOOD/Taaza-Mithai-1.jpg')">
+                            <img src="assets/Branding/RESIZE/FOOD/Taaza-Mithai-1.jpg" alt="Taaza Mithai">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/FOOD/Taaza-Mithai-2.jpg')">
+                            <img src="assets/Branding/RESIZE/FOOD/Taaza-Mithai-2.jpg" alt="Taaza Mithai">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/FOOD/Taaza-Mithai-3.jpg')">
+                            <img src="assets/Branding/RESIZE/FOOD/Taaza-Mithai-3.jpg" alt="Taaza Mithai">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/FOOD/Taaza-Mithai-4.jpg')">
+                            <img src="assets/Branding/RESIZE/FOOD/Taaza-Mithai-4.jpg" alt="Taaza Mithai">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/RESIZE/Iqura.jpg')">
+                            <img src="assets/Branding/RESIZE/Iqura.jpg" alt="Iqura">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/JEWELLERS/Babak-Logo.jpg')">
+                            <img src="assets/Branding/RESIZE/JEWELLERS/Babak-Logo.jpg" alt="Babak Jewellers Logo">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/JEWELLERS/Coimbatore-1.jpg')">
+                            <img src="assets/Branding/RESIZE/JEWELLERS/Coimbatore-1.jpg" alt="Coimbatore Jewellers">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/JEWELLERS/Coimbatore-2.jpg')">
+                            <img src="assets/Branding/RESIZE/JEWELLERS/Coimbatore-2.jpg" alt="Coimbatore Jewellers">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Branding/RESIZE/JEWELLERS/Coimbatore-3.jpg')">
+                            <img src="assets/Branding/RESIZE/JEWELLERS/Coimbatore-3.jpg" alt="Coimbatore Jewellers">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/RESIZE/K&A/K&A-1.jpg')">
+                            <img src="assets/Branding/RESIZE/K&A/K&A-1.jpg" alt="K&A Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/RESIZE/K&A/K&A-2.jpg')">
+                            <img src="assets/Branding/RESIZE/K&A/K&A-2.jpg" alt="K&A Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/RESIZE/K&A/K&A-3.jpg')">
+                            <img src="assets/Branding/RESIZE/K&A/K&A-3.jpg" alt="K&A Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/RESIZE/SOUL/Soul-1.jpg')">
+                            <img src="assets/Branding/RESIZE/SOUL/Soul-1.jpg" alt="Soul Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/RESIZE/SOUL/Soul-2.jpg')">
+                            <img src="assets/Branding/RESIZE/SOUL/Soul-2.jpg" alt="Soul Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/RESIZE/SOUL/Soul-3.jpg')">
+                            <img src="assets/Branding/RESIZE/SOUL/Soul-3.jpg" alt="Soul Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/RESIZE/SOUL/Soul-4.jpg')">
+                            <img src="assets/Branding/RESIZE/SOUL/Soul-4.jpg" alt="Soul Branding">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Packaging Content -->
+            <div id="packagingContent" class="section-hidden">
+                <div class="scroll-container">
+                    <button class="scroll-btn scroll-btn-left" onclick="scrollGallery('packagingContent', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn scroll-btn-right" onclick="scrollGallery('packagingContent', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="brands-grid">
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/BANANNA-CHIPS.jpg')">
+                            <img src="assets/Packaging/BANANNA-CHIPS.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/BENNE-MURUKKU.jpg')">
+                            <img src="assets/Packaging/BENNE-MURUKKU.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/EDHARDLY-RED.jpg')">
+                            <img src="assets/Packaging/EDHARDLY-RED.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/EDHARDLY-YELLOW.jpg')">
+                            <img src="assets/Packaging/EDHARDLY-YELLOW.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Mango-pudding.jpg')">
+                            <img src="assets/Packaging/Mango-pudding.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/PAPER-BAG.jpg')">
+                            <img src="assets/Packaging/PAPER-BAG.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/PLUM-CAKE.jpg')">
+                            <img src="assets/Packaging/PLUM-CAKE.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Plum-cake-Red.jpg')">
+                            <img src="assets/Packaging/Plum-cake-Red.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Taaza-Mithai-1.jpg')">
+                            <img src="assets/Packaging/Taaza-Mithai-1.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Taaza-Mithai-2.jpg')">
+                            <img src="assets/Packaging/Taaza-Mithai-2.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Taaza-Mithai-3.jpg')">
+                            <img src="assets/Packaging/Taaza-Mithai-3.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Taaza-Mithai-4.jpg')">
+                            <img src="assets/Packaging/Taaza-Mithai-4.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Taaza-Mithai-5.jpg')">
+                            <img src="assets/Packaging/Taaza-Mithai-5.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Packaging/chocolate-truffle-cake.jpg')">
+                            <img src="assets/Packaging/chocolate-truffle-cake.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/mawa-Mango-cake.jpg')">
+                            <img src="assets/Packaging/mawa-Mango-cake.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/pineapple-cake.jpg')">
+                            <img src="assets/Packaging/pineapple-cake.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/plum-cake-green.jpg')">
+                            <img src="assets/Packaging/plum-cake-green.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/plum-cake-purple.jpg')">
+                            <img src="assets/Packaging/plum-cake-purple.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/plum-cake-tin-box.jpg')">
+                            <img src="assets/Packaging/plum-cake-tin-box.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/taza-mithai-Ashwa.jpg')">
+                            <img src="assets/Packaging/taza-mithai-Ashwa.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Packaging/taza-mithai-Namkeen-1.jpg')">
+                            <img src="assets/Packaging/taza-mithai-Namkeen-1.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Packaging/taza-mithai-Namkeen-2.jpg')">
+                            <img src="assets/Packaging/taza-mithai-Namkeen-2.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Packaging/taza-mithai-Vrishaba.jpg')">
+                            <img src="assets/Packaging/taza-mithai-Vrishaba.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/taza-mithai-gaja.jpg')">
+                            <img src="assets/Packaging/taza-mithai-gaja.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/taza-mithai-hamsa.jpg')">
+                            <img src="assets/Packaging/taza-mithai-hamsa.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/taza-mithai-mayura.jpg')">
+                            <img src="assets/Packaging/taza-mithai-mayura.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Packaging/taza-mithai-paper-bag-1.jpg')">
+                            <img src="assets/Packaging/taza-mithai-paper-bag-1.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Packaging/taza-mithai-paper-bag-2.jpg')">
+                            <img src="assets/Packaging/taza-mithai-paper-bag-2.jpg" alt="Packaging">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Real Estate Content -->
+            <div id="realestateContent" class="section-hidden">
+                <div class="scroll-container">
+                    <button class="scroll-btn scroll-btn-left" onclick="scrollGallery('realestateContent', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn scroll-btn-right" onclick="scrollGallery('realestateContent', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="brands-grid">
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ADORA-1.jpg')">
+                            <img src="assets/RealEstateResize/ADORA-1.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ADORA-2.jpg')">
+                            <img src="assets/RealEstateResize/ADORA-2.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ADORA-3.jpg')">
+                            <img src="assets/RealEstateResize/ADORA-3.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ADORA-4.jpg')">
+                            <img src="assets/RealEstateResize/ADORA-4.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/All-Real-Estate-1.jpg')">
+                            <img src="assets/RealEstateResize/All-Real-Estate-1.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/All-Real-Estate-2.jpg')">
+                            <img src="assets/RealEstateResize/All-Real-Estate-2.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/All-Real-Estate-3.jpg')">
+                            <img src="assets/RealEstateResize/All-Real-Estate-3.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/All-Real-Estate-4.jpg')">
+                            <img src="assets/RealEstateResize/All-Real-Estate-4.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/All-Real-Estate.jpg')">
+                            <img src="assets/RealEstateResize/All-Real-Estate.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/Greenfinch-1-3.jpg')">
+                            <img src="assets/RealEstateResize/Greenfinch-1-3.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/Greenfinch-1.jpg')">
+                            <img src="assets/RealEstateResize/Greenfinch-1.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/Greenfinch-2.jpg')">
+                            <img src="assets/RealEstateResize/Greenfinch-2.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/Greenfinch-4.jpg')">
+                            <img src="assets/RealEstateResize/Greenfinch-4.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/Greenfinch-5.jpg')">
+                            <img src="assets/RealEstateResize/Greenfinch-5.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/Greenfinch-6.jpg')">
+                            <img src="assets/RealEstateResize/Greenfinch-6.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/PURAVANKARA-1.jpg')">
+                            <img src="assets/RealEstateResize/PURAVANKARA-1.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/PURAVANKARA-2.jpg')">
+                            <img src="assets/RealEstateResize/PURAVANKARA-2.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/PURAVANKARA-3.jpg')">
+                            <img src="assets/RealEstateResize/PURAVANKARA-3.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/PURAVANKARA-4.jpg')">
+                            <img src="assets/RealEstateResize/PURAVANKARA-4.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/RealEstateResize/PURAVANKARA-5.jpg')">
+                            <img src="assets/RealEstateResize/PURAVANKARA-5.jpg" alt="Gallery Image">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Creative & Communications Content -->
+            <div id="creativeContent" class="section-hidden">
+                <div class="scroll-container">
+                    <button class="scroll-btn scroll-btn-left" onclick="scrollGallery('creativeContent', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn scroll-btn-right" onclick="scrollGallery('creativeContent', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="brands-grid">
+                        <div class="brand-image-item" onclick="openLightbox('assets/UI/Asset 1@2x.png')">
+                            <img src="assets/UI/Asset 1@2x.png" alt="UI Design">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/UI/Greenfinch Web@2x.png')">
+                            <img src="assets/UI/Greenfinch Web@2x.png" alt="UI Design">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/UI/Hebuni website-REF.jpg')">
+                            <img src="assets/UI/Hebuni website-REF.jpg" alt="UI Design">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Videos & Reels Content (New) -->
+            <div id="reelsContent" class="section-hidden">
+                <div class="scroll-container">
+                    <button class="scroll-btn scroll-btn-left" onclick="scrollGallery('reelsContent', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn scroll-btn-right" onclick="scrollGallery('reelsContent', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="brands-grid">
+                        <!-- Video Items -->
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/video.mp4')">
+                            <video src="assets/Video/video.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/VID-20191230-WA0016.mp4')">
+                            <video src="assets/Video/VID-20191230-WA0016.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/VID-20191230-WA0017.mp4')">
+                            <video src="assets/Video/VID-20191230-WA0017.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/VID-20191230-WA0018.mp4')">
+                            <video src="assets/Video/VID-20191230-WA0018.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Lifestyle / Old Videos Content -->
+            <div id="videosContent" class="section-hidden">
+                <div class="scroll-container">
+                    <button class="scroll-btn scroll-btn-left" onclick="scrollGallery('videosContent', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn scroll-btn-right" onclick="scrollGallery('videosContent', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="brands-grid">
+                        <!-- Lifestyle Images from assets/Lifestyle RESIZE -->
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/EDHARDLY/ED-HARDLY.jpg')">
+                            <img src="assets/Lifestyle RESIZE/EDHARDLY/ED-HARDLY.jpg" alt="ED HARDLY Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/EDHARDLY/EDHARDLY-2.jpg')">
+                            <img src="assets/Lifestyle RESIZE/EDHARDLY/EDHARDLY-2.jpg" alt="ED HARDLY Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/EDHARDLY/EDHARDLY-3.jpg')">
+                            <img src="assets/Lifestyle RESIZE/EDHARDLY/EDHARDLY-3.jpg" alt="ED HARDLY Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/EDHARDLY/EDHARDLY-4.jpg')">
+                            <img src="assets/Lifestyle RESIZE/EDHARDLY/EDHARDLY-4.jpg" alt="ED HARDLY Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/EDHARDLY/EDHARDLY-5.jpg')">
+                            <img src="assets/Lifestyle RESIZE/EDHARDLY/EDHARDLY-5.jpg" alt="ED HARDLY Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/EDHARDLY/EDHARDLY-6.jpg')">
+                            <img src="assets/Lifestyle RESIZE/EDHARDLY/EDHARDLY-6.jpg" alt="ED HARDLY Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/EDHARDLY/EDHARDLY-7.jpg')">
+                            <img src="assets/Lifestyle RESIZE/EDHARDLY/EDHARDLY-7.jpg" alt="ED HARDLY Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/EDHARDLY/Live It_01.jpg')">
+                            <img src="assets/Lifestyle RESIZE/EDHARDLY/Live It_01.jpg" alt="Live It">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/EDHARDLY/Live It_02.jpg')">
+                            <img src="assets/Lifestyle RESIZE/EDHARDLY/Live It_02.jpg" alt="Live It">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/EDHARDLY/Live It_03.jpg')">
+                            <img src="assets/Lifestyle RESIZE/EDHARDLY/Live It_03.jpg" alt="Live It">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-1.jpg')">
+                            <img src="assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-1.jpg" alt="TAB INDIA Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-2.jpg')">
+                            <img src="assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-2.jpg" alt="TAB INDIA Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-3.jpg')">
+                            <img src="assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-3.jpg" alt="TAB INDIA Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-4.jpg')">
+                            <img src="assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-4.jpg" alt="TAB INDIA Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-5.jpg')">
+                            <img src="assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-5.jpg" alt="TAB INDIA Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-6.jpg')">
+                            <img src="assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-6.jpg" alt="TAB INDIA Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-7.jpg')">
+                            <img src="assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-7.jpg" alt="TAB INDIA Lifestyle">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     </section>
 
-    <!-- Gallery Grid -->
-    <section class="py-12 md:py-20 bg-off-white">
-        <div class="max-w-7xl mx-auto px-4 md:px-6 lg:px-8">
-            <div class="gallery-grid" id="galleryGrid">
-                <!-- Gallery items will be dynamically inserted here -->
+    <!-- Professional Lightbox Dialog with Horizontal Scroll -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <div class="lightbox-content" onclick="event.stopPropagation()">
+            <button class="lightbox-close" onclick="closeLightbox()">
+                <i class="fas fa-times"></i>
+            </button>
+            <button class="lightbox-nav lightbox-prev" onclick="event.stopPropagation(); scrollLightbox(-1)">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button class="lightbox-nav lightbox-next" onclick="event.stopPropagation(); scrollLightbox(1)">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
+            <!-- Scrollable Gallery Container -->
+            <div id="lightboxGallery" class="lightbox-gallery">
+                <!-- Images will be dynamically inserted here -->
             </div>
 
 
 
-            <!-- Loading Indicator -->
-            <div id="loadingIndicator" class="text-center py-8">
-                <div class="loading-spinner mx-auto"></div>
-                <p class="text-gray-600 mt-4 font-medium">Loading more images...</p>
+            <!-- Scroll Progress Bar -->
+            <div class="lightbox-progress">
+                <div id="lightboxProgressBar" class="lightbox-progress-bar"></div>
             </div>
-        </div>
-    </section>
-
-    <!-- Lightbox -->
-    <div id="lightbox" class="lightbox">
-        <button class="lightbox-close" onclick="closeLightbox()">
-            <i class="fas fa-times"></i>
-        </button>
-        <button class="lightbox-nav lightbox-prev" onclick="navigateImage(-1)">
-            <i class="fas fa-chevron-left"></i>
-        </button>
-        <button class="lightbox-nav lightbox-next" onclick="navigateImage(1)">
-            <i class="fas fa-chevron-right"></i>
-        </button>
-        <div class="lightbox-content">
-            <img id="lightboxImage" src="" alt="Gallery Image">
         </div>
     </div>
 
@@ -543,759 +1425,118 @@
 
     <script src="js/main.js"></script>
     <script>
-        // Video Gallery Data
-        const galleryVideos = [
-            { src: 'assets/Video/video.mp4', title: 'Brand Video' },
-            { src: 'assets/Video/VID-20191230-WA0016.mp4', title: 'Campaign Video 1' },
-            { src: 'assets/Video/VID-20191230-WA0017.mp4', title: 'Campaign Video 2' },
-            { src: 'assets/Video/VID-20191230-WA0018.mp4', title: 'Campaign Video 3' }
-        ];
+        let currentCategory = null;
 
-        // Gallery data - all unique images
-        const galleryImages = [
+        // Lightbox with Horizontal Scroll Gallery
+        let currentImages = [];
 
+        // Open Lightbox with Scrollable Gallery
+        function openLightbox(clickedImageSrc) {
+            // Collect all images from the current visible category
+            collectCurrentImages();
 
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-0.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 0'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-1.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 1'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-10.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 10'
-            },
-            {
-                src: 'assets/Gallery/Dalimbra/pakc-08.jpg',
-                alt: 'Dalimbra Pakc 08'
-            },
-            {
-                src: 'assets/Gallery/Dalimbra/pakc-13.jpg',
-                alt: 'Dalimbra Pakc 13'
-            },
-            {
-                src: 'assets/Gallery/NutriPack/nutri_pac2-images-0.jpg',
-                alt: 'Nutri Pac2 Images 0'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-4.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 4'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-6.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 6'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-9.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 9'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-8.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 8'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-7.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 7'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-5.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 5'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-3.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 3'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-11.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 11'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0001.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0001'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0002.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0002'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0003.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0003'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0004.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0004'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0005.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0005'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0006.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0006'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0007.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0007'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0008.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0008'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0009.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0009'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0010.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0010'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0011.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0011'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0012.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0012'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0013.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0013'
-            },
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0014.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0014'
-            },
+            // Find the index of the clicked image
+            const clickedIndex = currentImages.indexOf(clickedImageSrc);
 
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0016.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0016'
-            },
+            // Populate the gallery
+            populateLightboxGallery();
 
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0018.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0018'
-            },
-
-            {
-                src: 'assets/Gallery/PACKAGES-MOCKUPS-MINI_pages-to-jpg-0020.jpg',
-                alt: 'Packages Mockups Mini Pages To Jpg 0020'
-            },
-            {
-                src: 'assets/Gallery/Vermicelli-01A.jpg',
-                alt: 'Vermicelli 01A'
-            },
-            {
-                src: 'assets/Gallery/maiya/A.jpg',
-                alt: 'Maiya A'
-            },
-            {
-                src: 'assets/Gallery/maiya/B.jpg',
-                alt: 'Maiya B'
-            },
-            {
-                src: 'assets/Gallery/maiya/C.jpg',
-                alt: 'Maiya C'
-            },
-            {
-                src: 'assets/Gallery/maiya/D.jpg',
-                alt: 'Maiya D'
-            },
-            {
-                src: 'assets/Gallery/maiya/OPT1.jpg',
-                alt: 'Maiya OPT1'
-            },
-            {
-                src: 'assets/Gallery/maiya/aaa.jpg',
-                alt: 'Maiya AAA'
-            },
-            {
-                src: 'assets/Gallery/maiya/palak copy2.jpg',
-                alt: 'Maiya Palak Copy2'
-            },
-            {
-                src: 'assets/Gallery/maiya/samba copy.jpg',
-                alt: 'Maiya Samba Copy'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-12.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 12'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-13.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 13'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-14.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 14'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-15.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 15'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-16.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 16'
-            },
-            {
-                src: 'assets/Gallery/img22.jpg',
-                alt: 'Img22'
-            },
-            {
-                src: 'assets/Gallery/img28.jpg',
-                alt: 'Img28'
-            },
-            {
-                src: 'assets/Gallery/img31.jpg',
-                alt: 'Img31'
-            },
-            {
-                src: 'assets/Gallery/img34.jpg',
-                alt: 'Img34'
-            },
-            {
-                src: 'assets/Gallery/img44.jpg',
-                alt: 'Img44'
-            },
-            {
-                src: 'assets/Gallery/img47.jpg',
-                alt: 'Img47'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-19.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 19'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-2.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 2'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-20.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 20'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-21.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 21'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-22.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 22'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-23.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 23'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-24.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 24'
-            },
-            {
-                src: 'assets/Gallery/ED Hardy/Ed Hardy women.jpg',
-                alt: 'Ed Hardy Women'
-            },
-            {
-                src: 'assets/Gallery/SB/PBCGVU1-2copy.JPG',
-                alt: 'SB PBCGVU1 2copy'
-            },
-            {
-                src: 'assets/Gallery/SB/PBCGVU1.JPG',
-                alt: 'SB PBCGVU1'
-            },
-            {
-                src: 'assets/Gallery/NutriPack/nutri_pac2-images-13.jpg',
-                alt: 'Nutri Pac2 Images 13'
-            },
-
-            {
-                src: 'assets/Gallery/NutriPack/nutri_pac2-images-4.jpg',
-                alt: 'Nutri Pac2 Images 4'
-            },
-            {
-                src: 'assets/Gallery/NutriPack/nutri_pac2-images-9.jpg',
-                alt: 'Nutri Pac2 Images 9'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-25.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 25'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-26.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 26'
-            },
-            {
-                src: 'assets/Gallery/pinaki-paradise-1.jpg',
-                alt: 'Pinaki Paradise 1'
-            },
-            {
-                src: 'assets/Gallery/pinaki-paradise-2.jpg',
-                alt: 'Pinaki Paradise 2'
-            },
-            {
-                src: 'assets/Gallery/pinaki-paradise-3.jpg',
-                alt: 'Pinaki Paradise 3'
-            },
-            {
-                src: 'assets/Gallery/pinaki-paradise-4.jpg',
-                alt: 'Pinaki Paradise 4'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-27.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 27'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-28.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 28'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-29.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 29'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-30.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 30'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-31.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 31'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-32.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 32'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-33.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 33'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-34.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 34'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-35.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 35'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-36.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 36'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-37.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 37'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-38.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 38'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-39.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 39'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-40.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 40'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-41.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 41'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-42.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 42'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-43.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 43'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-44.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 44'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-45.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 45'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-46.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 46'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-47.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 47'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-48.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 48'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-49.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 49'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-50.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 50'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-51.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 51'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-52.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 52'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-53.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 53'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-54.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 54'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-55.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 55'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-56.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 56'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-57.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 57'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-58.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 58'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-59.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 59'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-60.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 60'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-61.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 61'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-62.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 62'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-63.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 63'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-64.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 64'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-65.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 65'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-66.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 66'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-67.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 67'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-68.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 68'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-69.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 69'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-70.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 70'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-71.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 71'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-72.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 72'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-73.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 73'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-74.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 74'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-75.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 75'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-76.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 76'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-77.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 77'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-78.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 78'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-79.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 79'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-80.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 80'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-81.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 81'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-82.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 82'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-83.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 83'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-84.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 84'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-85.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 85'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-86.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 86'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-87.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 87'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-88.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 88'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-89.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 89'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-90.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 90'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-91.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 91'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-92.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 92'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-93.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 93'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-94.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 94'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-95.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 95'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-96.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 96'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-97.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 97'
-            },
-            {
-                src: 'assets/Gallery/3db95d4fdb492a0cecd0bd1c13181796-98.jpg',
-                alt: '3Db95D4Fdb492A0Cecd0Bd1C13181796 98'
-            },
-
-
-        ];
-
-        let currentImageIndex = 0;
-        let loadedImages = 0;
-        const imagesPerLoad = 40; // Optimized for 157 total images - loads ~4 batches
-
-        // Render gallery with pagination and optimizations
-        function renderGallery(append = false) {
-            const grid = document.getElementById('galleryGrid');
-            const start = append ? loadedImages : 0;
-            const end = Math.min(start + imagesPerLoad, galleryImages.length);
-
-            // Use DocumentFragment for better performance
-            const fragment = document.createDocumentFragment();
-
-            for (let i = start; i < end; i++) {
-                const img = galleryImages[i];
-                const div = document.createElement('div');
-                div.className = 'gallery-item';
-                div.onclick = () => openLightbox(i);
-
-                // Create image with optimizations
-                const imgElement = document.createElement('img');
-                imgElement.dataset.src = img.src + '?v=restore'; // Use data-src for lazy loading
-                imgElement.alt = img.alt;
-                imgElement.loading = 'lazy';
-                imgElement.className = 'lazy-image';
-
-                const overlay = document.createElement('div');
-                overlay.className = 'gallery-item-overlay';
-                overlay.innerHTML = '<i class="fas fa-search-plus text-warm-white text-2xl"></i>';
-
-                div.appendChild(imgElement);
-                div.appendChild(overlay);
-
-                // Add staggered animation delay for smooth entrance
-                const delay = (i - start) * 30; // 30ms delay between each item
-                div.style.opacity = '0';
-                div.style.transform = 'translateY(20px)';
-                div.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-
-                setTimeout(() => {
-                    div.style.opacity = '1';
-                    div.style.transform = 'translateY(0)';
-                }, delay);
-
-                fragment.appendChild(div);
-            }
-
-            if (append) {
-                grid.appendChild(fragment);
-            } else {
-                grid.innerHTML = '';
-                grid.appendChild(fragment);
-            }
-
-            loadedImages = end;
-
-            // Initialize lazy loading for new images
-            lazyLoadImages();
-
-            // Hide loading indicator if all images loaded
-            if (loadedImages >= galleryImages.length) {
-                const loadingIndicator = document.getElementById('loadingIndicator');
-                if (loadingIndicator) {
-                    loadingIndicator.style.transition = 'opacity 0.3s ease';
-                    loadingIndicator.style.opacity = '0';
-                    setTimeout(() => {
-                        loadingIndicator.style.display = 'none';
-                    }, 300);
-                }
-            }
-        }
-
-        // Intersection Observer for lazy loading images
-        let imageObserver;
-        function lazyLoadImages() {
-            const lazyImages = document.querySelectorAll('.lazy-image:not(.loaded)');
-
-            if (!imageObserver) {
-                imageObserver = new IntersectionObserver((entries, observer) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            const img = entry.target;
-                            const parentItem = img.closest('.gallery-item');
-
-                            img.src = img.dataset.src;
-                            img.classList.add('loaded');
-
-                            img.onload = () => {
-                                // Add loaded class to parent for shimmer removal
-                                if (parentItem) {
-                                    parentItem.classList.add('loaded');
-                                }
-
-                                // Trigger smooth fade-in animation
-                                requestAnimationFrame(() => {
-                                    img.classList.add('loaded');
-                                });
-                            };
-
-                            img.onerror = () => {
-                                // Handle image load errors gracefully
-                                if (parentItem) {
-                                    parentItem.classList.add('loaded');
-                                    parentItem.style.background = '#f0f0f0';
-                                }
-                                img.style.opacity = '1';
-                                console.warn(`Failed to load image: ${img.dataset.src}`);
-                            };
-
-                            observer.unobserve(img);
-                        }
-                    });
-                }, {
-                    rootMargin: '100px' // Start loading 100px before image enters viewport
-                });
-            }
-
-            lazyImages.forEach(img => imageObserver.observe(img));
-        }
-
-        // Optimized infinite scroll with Intersection Observer
-        let isLoading = false;
-        const loadingIndicator = document.getElementById('loadingIndicator');
-
-        if (loadingIndicator) {
-            const scrollObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting && !isLoading && loadedImages < galleryImages.length) {
-                        isLoading = true;
-
-                        // Use requestAnimationFrame for smoother rendering
-                        requestAnimationFrame(() => {
-                            setTimeout(() => {
-                                renderGallery(true);
-                                isLoading = false;
-                            }, 100); // Reduced delay for faster loading
-                        });
-                    }
-                });
-            }, {
-                rootMargin: '200px' // Start loading earlier
-            });
-
-            scrollObserver.observe(loadingIndicator);
-        }
-
-
-        // Lightbox functions
-        function openLightbox(index) {
-            currentImageIndex = index;
+            // Show lightbox
             const lightbox = document.getElementById('lightbox');
-            const img = document.getElementById('lightboxImage');
-            img.src = galleryImages[index].src;
             lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
 
-            // Preload adjacent images for smoother navigation
-            const nextIndex = (index + 1) % galleryImages.length;
-            const prevIndex = (index - 1 + galleryImages.length) % galleryImages.length;
+            // Scroll to the clicked image
+            if (clickedIndex !== -1) {
+                setTimeout(() => {
+                    scrollToImage(clickedIndex);
+                }, 100);
+            }
 
-            const preloadNext = new Image();
-            preloadNext.src = galleryImages[nextIndex].src;
+            // Initialize scroll listeners
+            initializeScrollTracking();
+        }
 
-            const preloadPrev = new Image();
-            preloadPrev.src = galleryImages[prevIndex].src;
+        function collectCurrentImages() {
+            currentImages = [];
+            // Get images/videos from currently visible category
+            const visibleSection = document.querySelector('.section-visible');
+            if (visibleSection) {
+                // Select both images and videos
+                const mediaElements = visibleSection.querySelectorAll('.brand-image-item img, .brand-image-item video');
+                mediaElements.forEach(media => {
+                    // Use getAttribute('src') to get the raw relative path
+                    currentImages.push(media.getAttribute('src'));
+                });
+            }
+        }
+
+        function populateLightboxGallery() {
+            const gallery = document.getElementById('lightboxGallery');
+            gallery.innerHTML = ''; // Clear existing
+
+            currentImages.forEach((src, index) => {
+                const wrapper = document.createElement('div');
+                wrapper.className = 'lightbox-image-wrapper';
+
+                // Check if it's a video
+                if (src.toLowerCase().endsWith('.mp4') || src.toLowerCase().endsWith('.webm')) {
+                    wrapper.innerHTML = `
+                        <video controls class="max-w-full max-h-full object-contain">
+                            <source src="${src}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>`;
+                } else {
+                    wrapper.innerHTML = `<img src="${src}" alt="Gallery Image ${index + 1}">`;
+                }
+
+                gallery.appendChild(wrapper);
+            });
+
+
+        }
+
+        function scrollToImage(index) {
+            const gallery = document.getElementById('lightboxGallery');
+            const wrapper = gallery.children[index];
+            if (wrapper) {
+                // Use scrollIntoView which is more robust with scroll-snapping and variable widths
+                wrapper.scrollIntoView({ behavior: 'auto', block: 'nearest', inline: 'start' });
+            }
+        }
+
+        function scrollLightbox(direction) {
+            const gallery = document.getElementById('lightboxGallery');
+            const imageWidth = gallery.offsetWidth;
+            gallery.scrollBy({
+                left: imageWidth * direction,
+                behavior: 'smooth'
+            });
+        }
+
+        function initializeScrollTracking() {
+            const gallery = document.getElementById('lightboxGallery');
+
+            gallery.addEventListener('scroll', () => {
+                updateLightboxProgress();
+            });
+
+            // Initial update
+            setTimeout(() => updateLightboxProgress(), 200);
+        }
+
+        function updateLightboxProgress() {
+            const gallery = document.getElementById('lightboxGallery');
+            const scrollLeft = gallery.scrollLeft;
+            const scrollWidth = gallery.scrollWidth - gallery.clientWidth;
+            const imageWidth = gallery.offsetWidth;
+
+            // Calculate current image index
+            const currentIndex = Math.round(scrollLeft / imageWidth);
+
+            // Update progress bar
+            const progress = scrollWidth > 0 ? (scrollLeft / scrollWidth) * 100 : 0;
+            document.getElementById('lightboxProgressBar').style.width = progress + '%';
         }
 
         function closeLightbox() {
@@ -1304,216 +1545,235 @@
             document.body.style.overflow = '';
         }
 
-        function navigateImage(direction) {
-            currentImageIndex += direction;
-            if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
-            if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
+        // Touch Swipe Support is built-in with scroll-snap
+        // But we can add keyboard support for navigation
+        function handleLightboxKeyboard(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (!lightbox.classList.contains('active')) return;
 
-            const lightboxImg = document.getElementById('lightboxImage');
-            lightboxImg.src = galleryImages[currentImageIndex].src;
-
-            // Preload adjacent images for smoother navigation
-            const nextIndex = (currentImageIndex + 1) % galleryImages.length;
-            const prevIndex = (currentImageIndex - 1 + galleryImages.length) % galleryImages.length;
-
-            // Preload next image
-            const preloadNext = new Image();
-            preloadNext.src = galleryImages[nextIndex].src;
-
-            // Preload previous image
-            const preloadPrev = new Image();
-            preloadPrev.src = galleryImages[prevIndex].src;
+            if (e.key === 'Escape') {
+                closeLightbox();
+            } else if (e.key === 'ArrowLeft') {
+                scrollLightbox(-1);
+            } else if (e.key === 'ArrowRight') {
+                scrollLightbox(1);
+            }
         }
 
-        // Keyboard navigation
-        document.addEventListener('keydown', function (e) {
-            const lightbox = document.getElementById('lightbox');
-            if (lightbox.classList.contains('active')) {
-                if (e.key === 'Escape') closeLightbox();
-                if (e.key === 'ArrowLeft') navigateImage(-1);
-                if (e.key === 'ArrowRight') navigateImage(1);
+        // Gallery Scroll Function with Button Navigation
+        function scrollGallery(contentId, direction) {
+            const content = document.getElementById(contentId);
+            const grid = content.querySelector('.brands-grid');
+            const scrollAmount = 300; // Pixels to scroll
+
+            if (grid) {
+                grid.scrollBy({
+                    left: scrollAmount * direction,
+                    behavior: 'smooth'
+                });
+
+                // Update button visibility after scroll
+                setTimeout(() => updateScrollButtons(contentId), 300);
             }
-        });
+        }
 
-        // Close lightbox on background click
-        document.getElementById('lightbox').addEventListener('click', function (e) {
-            if (e.target === this) closeLightbox();
-        });
+        // Update button visibility based on scroll position
+        function updateScrollButtons(contentId) {
+            const content = document.getElementById(contentId);
+            const grid = content.querySelector('.brands-grid');
+            const leftBtn = content.querySelector('.scroll-btn-left');
+            const rightBtn = content.querySelector('.scroll-btn-right');
 
-        // Toggle between gallery and campaigns
-        // Toggle between gallery and videos
-        function showGallerySection(section) {
-            // Update active button state
-            const buttons = document.querySelectorAll('.gallery-filter-btn');
-            buttons.forEach(btn => {
-                btn.classList.remove('bg-maximus-red', 'text-maximus-yellow');
-                btn.classList.add('bg-maximus-dark', 'text-white');
+            if (!grid || !leftBtn || !rightBtn) return;
+
+            // Hide left button if at start
+            if (grid.scrollLeft <= 10) {
+                leftBtn.classList.add('hidden');
+            } else {
+                leftBtn.classList.remove('hidden');
+            }
+
+            // Hide right button if at end
+            if (grid.scrollLeft + grid.clientWidth >= grid.scrollWidth - 10) {
+                rightBtn.classList.add('hidden');
+            } else {
+                rightBtn.classList.remove('hidden');
+            }
+        }
+
+        // Initialize button states when category is shown
+        function showCategory(category) {
+            // Remove active class from all categories
+            document.querySelectorAll('.category-card').forEach(card => {
+                card.classList.remove('active');
             });
 
-            const activeBtn = section === 'all' ? document.getElementById('btnAllGallery') : document.getElementById('btnVideos');
-            if (activeBtn) {
-                activeBtn.classList.remove('bg-maximus-dark', 'text-white');
-                activeBtn.classList.add('bg-maximus-red', 'text-maximus-yellow');
+            // Hide all content sections
+            document.getElementById('brandingContent').classList.remove('section-visible');
+            document.getElementById('brandingContent').classList.add('section-hidden');
+            document.getElementById('packagingContent').classList.remove('section-visible');
+            document.getElementById('packagingContent').classList.add('section-hidden');
+            document.getElementById('realestateContent').classList.remove('section-visible');
+            document.getElementById('realestateContent').classList.add('section-hidden');
+            document.getElementById('creativeContent').classList.remove('section-visible');
+            document.getElementById('creativeContent').classList.add('section-hidden');
+            document.getElementById('videosContent').classList.remove('section-visible');
+            document.getElementById('videosContent').classList.add('section-hidden');
+            document.getElementById('reelsContent').classList.remove('section-visible');
+            document.getElementById('reelsContent').classList.add('section-hidden');
+
+            // Hide indicator
+            document.getElementById('categoryIndicator').classList.remove('active');
+
+            // Show selected category content
+            const contentId = category + 'Content';
+            const categoryCard = document.getElementById('cat-' + category);
+
+            if (currentCategory === category) {
+                // If clicking the same category, hide it
+                currentCategory = null;
+            } else {
+                // Show the selected category
+                document.getElementById(contentId).classList.remove('section-hidden');
+                document.getElementById(contentId).classList.add('section-visible');
+                categoryCard.classList.add('active');
+                document.getElementById('categoryIndicator').classList.add('active');
+                currentCategory = category;
+
+                // Initialize button visibility
+                setTimeout(() => updateScrollButtons(contentId), 100);
             }
+        }
 
-            const grid = document.getElementById('galleryGrid');
-            const loadingIndicator = document.getElementById('loadingIndicator');
-
-            grid.innerHTML = ''; // Clear grid
-
-            if (section === 'all') {
-                loadedImages = 0; // Reset count
-                renderGallery(false); // Fix: call renderGallery() instead of undefined function
-                if (loadingIndicator) {
-                    loadingIndicator.style.display = 'block';
-                    loadingIndicator.style.opacity = '1';
-                }
-            } else if (section === 'videos') {
-                // Render videos
-                if (loadingIndicator) loadingIndicator.style.display = 'none';
-
-                galleryVideos.forEach((video, index) => {
-                    const div = document.createElement('div');
-                    div.className = 'gallery-item';
-
-                    // Video element container
-                    div.innerHTML = `
-                        <video class="w-full h-full object-cover" controls preload="metadata">
-                            <source src="${video.src}" type="video/mp4">
-                            Your browser does not support the video tag.
-                        </video>
-                    `;
-
-                    // Add animation
-                    div.style.opacity = '0';
-                    div.style.transform = 'translateY(20px)';
-                    div.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
-
-                    grid.appendChild(div);
-
-                    // Trigger animation
-                    setTimeout(() => {
-                        div.style.opacity = '1';
-                        div.style.transform = 'translateY(0)';
-                    }, index * 100);
+        // Add scroll listeners to update buttons on scroll
+        document.addEventListener('DOMContentLoaded', function () {
+            const grids = document.querySelectorAll('.brands-grid');
+            grids.forEach((grid, index) => {
+                grid.addEventListener('scroll', function () {
+                    const contentDiv = this.closest('[id$="Content"]');
+                    if (contentDiv) {
+                        updateScrollButtons(contentDiv.id);
+                    }
                 });
+            });
+        });
+
+        // Keyboard navigation for lightbox
+        document.addEventListener('keydown', handleLightboxKeyboard);
+
+        // Close lightbox on background click (handled by onclick in HTML)
+
+
+        // Hero animation
+        window.addEventListener('load', function () {
+            const fadeUp = document.querySelector('.fade-up');
+            if (fadeUp) {
+                setTimeout(() => {
+                    fadeUp.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+                    fadeUp.style.opacity = '1';
+                    fadeUp.style.transform = 'translateY(0)';
+                }, 100);
+            }
+
+            // Auto-scroll hint for categories
+            const categoryContainer = document.getElementById('categoryScrollContainer');
+            if (categoryContainer) {
+                setTimeout(() => {
+                    // Larger scroll for visibility on mobile
+                    categoryContainer.scrollBy({ left: 200, behavior: 'smooth' });
+                    setTimeout(() => {
+                        categoryContainer.scrollBy({ left: -200, behavior: 'smooth' });
+                    }, 1500);
+                }, 1500);
+            }
+        });
+
+        // Category Scroll function
+        function scrollCategories(direction) {
+            const container = document.getElementById('categoryScrollContainer');
+            const scrollAmount = 300;
+            if (container) {
+                container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
+            }
+            // Trigger update immediately and after animation
+            setTimeout(updateCategoryButtons, 50);
+            setTimeout(updateCategoryButtons, 500);
+        }
+
+        // Check if category scroll buttons should be visible
+        // Check if category scroll buttons should be visible
+        // Updated Logic for better reliability
+        function updateCategoryButtons() {
+            const container = document.getElementById('categoryScrollContainer');
+            // Specific selection
+            const leftBtn = document.querySelector('#categoriesSection .scroll-btn-left');
+            const rightBtn = document.querySelector('#categoriesSection .scroll-btn-right');
+
+            if (!container || !leftBtn || !rightBtn) return;
+
+            const maxScroll = container.scrollWidth - container.clientWidth;
+
+            // If strictly no overflow, hide/dim
+            if (maxScroll <= 1) {
+                leftBtn.style.opacity = '0'; rightBtn.style.opacity = '0';
+                leftBtn.style.pointerEvents = 'none'; rightBtn.style.pointerEvents = 'none';
+                return;
+            }
+
+            // Left Check
+            if (container.scrollLeft <= 5) {
+                leftBtn.style.opacity = '0.2'; // Visible but clearly disabled
+                leftBtn.style.pointerEvents = 'none';
+            } else {
+                leftBtn.style.opacity = '1';
+                leftBtn.style.pointerEvents = 'auto';
+            }
+
+            // Right Check
+            if (container.scrollLeft >= maxScroll - 5) {
+                rightBtn.style.opacity = '0.2';
+                rightBtn.style.pointerEvents = 'none';
+            } else {
+                rightBtn.style.opacity = '1';
+                rightBtn.style.pointerEvents = 'auto';
             }
         }
 
-        // Video hover-to-play functionality
-        function playVideo(container) {
-            const video = container.querySelector('.campaign-video');
-            if (video) {
-                video.play();
-                video.setAttribute('controls', 'controls');
+        // Legacy function renamed
+        function updateCategoryButtons_legacy() {
+            const container = document.getElementById('categoryScrollContainer');
+            const leftBtn = document.querySelector('#categoriesSection .scroll-btn-left');
+            const rightBtn = document.querySelector('#categoriesSection .scroll-btn-right');
+
+            if (!container || !leftBtn || !rightBtn) return;
+
+            // Show/Hide Left Button
+            if (container.scrollLeft <= 10) {
+                leftBtn.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                leftBtn.classList.remove('opacity-0', 'pointer-events-none');
+            }
+
+            // Show/Hide Right Button
+            if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 10) {
+                rightBtn.classList.add('opacity-0', 'pointer-events-none');
+            } else {
+                rightBtn.classList.remove('opacity-0', 'pointer-events-none');
             }
         }
 
-        function pauseVideo(container) {
-            const video = container.querySelector('.campaign-video');
-            if (video) {
-                video.pause();
-                video.removeAttribute('controls');
-            }
-        }
+        // Initialize Category Scroll Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const categoryContainer = document.getElementById('categoryScrollContainer');
+            if (categoryContainer) {
+                // Update on scroll
+                categoryContainer.addEventListener('scroll', updateCategoryButtons);
 
-        // Initial render - load first batch
-        renderGallery();
+                // Initial check
+                setTimeout(updateCategoryButtons, 100);
+            }
+        });
     </script>
-    <style>
-        /* Performance optimizations */
-        * {
-            -webkit-font-smoothing: antialiased;
-            -moz-osx-font-smoothing: grayscale;
-        }
-
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* Lazy loading image styles */
-        .lazy-image {
-            opacity: 0;
-            transition: opacity 0.3s ease-in-out;
-            will-change: opacity;
-        }
-
-        .lazy-image.loaded {
-            opacity: 1;
-        }
-
-        /* Gallery item optimizations */
-        .gallery-item {
-            will-change: transform;
-            transform: translateZ(0);
-            /* Hardware acceleration */
-            backface-visibility: hidden;
-        }
-
-        .gallery-item img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transform: translateZ(0);
-            /* Hardware acceleration */
-        }
-
-        /* Smooth hover transitions */
-        .gallery-item-overlay {
-            transition: opacity 0.3s ease-in-out;
-            will-change: opacity;
-        }
-
-        /* Video controls optimization */
-        .campaign-video {
-            cursor: pointer;
-            transform: translateZ(0);
-            /* Hardware acceleration */
-        }
-
-        .campaign-video::-webkit-media-controls {
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .campaign-video:hover::-webkit-media-controls {
-            opacity: 1;
-        }
-
-        .campaign-video[controls]::-webkit-media-controls {
-            opacity: 1;
-        }
-
-        /* Loading indicator smooth animation */
-        #loadingIndicator {
-            animation: pulse 1.5s ease-in-out infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        /* Optimize lightbox transitions */
-        #lightbox {
-            transition: opacity 0.3s ease-in-out;
-            will-change: opacity;
-        }
-
-        #lightboxImage {
-            transition: transform 0.3s ease-in-out;
-            will-change: transform;
-        }
-    </style>
 
 </body>
 
