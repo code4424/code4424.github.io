@@ -81,28 +81,17 @@
 
         /* Active State: Enlarge and Highlight */
         /* Active State: Enlarge and Highlight */
-        .category-card.active {
-            transform: scale(1.25);
-            /* 1.25 Zoom for clicked */
+        /* Active State: Enlarge and Highlight */
+        .category-card.category-active {
+            transform: scale(0.95);
+            /* Reduced scale for active state */
             z-index: 20 !important;
-            border: 3px solid #C41E3A;
-            /* Red Border */
-            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.5);
-            /* Glow */
-            background: white;
+            border: 3px solid #FAFAFA;
+            /* White Border for contrast */
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            /* Reduced shadow */
+            background-color: #a70000 !important;
             border-radius: 12px;
-        }
-
-        /* Legacy block renamed to avoid conflict */
-        .category-card.active-legacy {
-            transform: scale(1.2);
-            /* Stronger Zoom */
-            z-index: 20 !important;
-            border: 3px solid #C41E3A;
-            /* Thicker Maximus Red Border */
-            box-shadow: 0 20px 40px rgba(196, 30, 58, 0.4);
-            /* Stronger Red Glow */
-            background: white;
         }
 
         /* Click Feedback */
@@ -780,42 +769,57 @@
                     class="flex overflow-x-auto gap-4 md:gap-6 snap-x snap-proximity scrollbar-hide">
                     <!-- Logo & Brand Identity -->
                     <div id="cat-branding"
-                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
-                        onclick="showCategory('branding')">
+                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group bg-maximus-red"
+                        style="background-color: #a70000;" onclick="showCategory('branding')">
                         <img src="assets/Category/Branding.png" alt="Logo & Brand Identity"
                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 py-3 text-center">
+                            <h3 class="text-white font-montserrat font-bold text-2xl tracking-wide">Branding</h3>
+                        </div>
                     </div>
 
                     <!-- Packaging -->
                     <div id="cat-packaging"
-                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
-                        onclick="showCategory('packaging')">
-                        <img src="assets/Category/Packaging.svg" alt="Packaging"
+                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group bg-maximus-red"
+                        style="background-color: #a70000;" onclick="showCategory('packaging')">
+                        <img src="assets/Category/Packaging.png" alt="Packaging"
                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 py-3 text-center">
+                            <h3 class="text-white font-montserrat font-bold text-2xl tracking-wide">Packaging</h3>
+                        </div>
                     </div>
 
                     <!-- Real Estate -->
                     <div id="cat-realestate"
-                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
-                        onclick="showCategory('realestate')">
-                        <img src="assets/Category/Realestate.svg" alt="Real Estate"
+                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group bg-maximus-red"
+                        style="background-color: #a70000;" onclick="showCategory('realestate')">
+                        <img src="assets/Category/Realestate.png" alt="Real Estate"
                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 py-3 text-center">
+                            <h3 class="text-white font-montserrat font-bold text-2xl tracking-wide">Real Estate</h3>
+                        </div>
                     </div>
 
                     <!-- Creative & Communications -->
                     <div id="cat-creative"
-                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
-                        onclick="showCategory('creative')">
-                        <img src="assets/Category/UX.svg" alt="Creative & Communications"
+                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group bg-maximus-red"
+                        style="background-color: #a70000;" onclick="showCategory('creative')">
+                        <img src="assets/Category/UX.png" alt="Creative & Communications"
                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 py-3 text-center">
+                            <h3 class="text-white font-montserrat font-bold text-2xl tracking-wide">Creative</h3>
+                        </div>
                     </div>
 
                     <!-- Lifestyle -->
                     <div id="cat-videos"
-                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
-                        onclick="showCategory('videos')">
-                        <img src="assets/Category/Lifestyle.svg" alt="Lifestyle"
+                        class="category-card flex-shrink-0 w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group bg-maximus-red"
+                        style="background-color: #a70000;" onclick="showCategory('videos')">
+                        <img src="assets/Category/Lifestyle.png" alt="Lifestyle"
                             class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                        <div class="absolute bottom-0 left-0 right-0 py-3 text-center">
+                            <h3 class="text-white font-montserrat font-bold text-2xl tracking-wide">Lifestyle</h3>
+                        </div>
                     </div>
 
                     <!-- Videos & Reels (New) -->
@@ -1352,10 +1356,17 @@
     <!-- Footer -->
     <footer class="bg-maximus-dark text-white py-12">
         <div class="max-w-7xl mx-auto px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+                <!-- Registered Office -->
                 <div>
                     <h4 class="font-montserrat text-xl tracking-wider mb-4">REGISTERED OFFICE</h4>
-
+                    <p class="text-maximus-yellow text-sm font-semibold mb-1">Bangalore South</p>
+                    <p class="text-gray-400 text-xs leading-tight mb-2">
+                        <a href="tel:9845452680" class="hover:text-maximus-yellow transition-colors">Sandeep Das:
+                            9845452680</a><br>
+                        <a href="mailto:Sandeepdas@brandmaximus.com"
+                            class="hover:text-maximus-yellow transition-colors">Sandeepdas@brandmaximus.com</a>
+                    </p>
                     <p class="text-gray-400 text-sm leading-tight">
                         Snn Raj Serenity,<br>
                         Begur Main Road,<br>
@@ -1363,6 +1374,7 @@
                     </p>
                 </div>
 
+                <!-- Bangalore Offices -->
                 <div>
                     <h4 class="font-montserrat text-xl tracking-wider mb-4">BANGALORE OFFICES</h4>
                     <div class="space-y-4">
@@ -1375,32 +1387,28 @@
                                 Bangalore North - 560086
                             </p>
                             <a href="tel:7795228071"
-                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors">
+                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors block mb-1">
                                 <i class="fas fa-phone mr-1"></i>Chandan: 7795228071
                             </a>
+                            <a href="mailto:Chandan.maximus24@gmail.com"
+                                class="text-gray-400 text-xs hover:text-maximus-yellow transition-colors block">
+                                <i class="fas fa-envelope mr-1"></i>Chandan.maximus24@gmail.com
+                            </a>
                         </div>
-
                     </div>
                 </div>
 
+                <!-- Social Media -->
                 <div>
                     <h4 class="font-montserrat text-xl tracking-wider mb-4">CONNECT WITH US</h4>
                     <div class="flex space-x-4">
-                        <a href="#"
-                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#"
-                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#"
+                        <a href="https://LinkedIn.com/company/1037624/admin/dashboard/" target="_blank"
                             class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
                             <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="https://wa.me/919845452680" target="_blank"
+                            class="w-10 h-10 bg-gray-800 rounded-full flex items-center justify-center hover:bg-maximus-red transition-colors duration-300">
+                            <i class="fab fa-whatsapp"></i>
                         </a>
                     </div>
                     <div class="mt-6">
@@ -1413,9 +1421,10 @@
                 </div>
             </div>
 
-            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
-                <p class="text-gray-400 text-sm">
-                    &copy; 2024 MAXIMUS Integrated. All rights reserved.
+            <!-- Copyright -->
+            <div class="border-t border-gray-800 pt-8 text-center">
+                <p class="text-gray-500 text-sm">
+                    &copy; 2026 Maximus Integrated. All rights reserved.
                 </p>
             </div>
         </div>
@@ -1603,7 +1612,7 @@
         function showCategory(category) {
             // Remove active class from all categories
             document.querySelectorAll('.category-card').forEach(card => {
-                card.classList.remove('active');
+                card.classList.remove('category-active');
             });
 
             // Hide all content sections
@@ -1634,7 +1643,7 @@
                 // Show the selected category
                 document.getElementById(contentId).classList.remove('section-hidden');
                 document.getElementById(contentId).classList.add('section-visible');
-                categoryCard.classList.add('active');
+                categoryCard.classList.add('category-active');
                 document.getElementById('categoryIndicator').classList.add('active');
                 currentCategory = category;
 
