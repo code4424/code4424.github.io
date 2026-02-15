@@ -620,31 +620,55 @@
             animation: fadeIn 0.4s ease;
         }
 
-        /* Indicator arrow */
-        .category-indicator {
+        /* Updated Category Indicator */
+        .category-triangle {
             display: none;
-            margin: 0 auto;
+            position: absolute;
+            bottom: -20px;
+            left: 50%;
+            transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 20px solid transparent;
-            border-right: 20px solid transparent;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
             border-top: 20px solid #333;
-            margin-top: -10px;
-            margin-bottom: 10px;
+            z-index: 50;
         }
 
-        .category-indicator.active {
+        .category-card.category-active .category-triangle {
             display: block;
         }
 
-        /* Adjusted Active State (Zoom Out / Pressed) for Responsiveness */
-        .category-card.active {
-            transform: scale(0.95) !important;
-            border: 4px solid #C41E3A !important;
-            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.4), 0 5px 15px rgba(0, 0, 0, 0.2) !important;
-            z-index: 10 !important;
-            border-radius: 16px !important;
-            background: transparent !important;
+        /* Adjusted Active State */
+        .category-card.category-active {
+            transform: scale(0.95);
+            z-index: 20 !important;
+            /* Border and shadow moved to inner wrapper or handled there, but we keep basic scale here */
+        }
+
+        .category-inner {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .category-card.category-active .category-inner {
+            border: 3px solid #FAFAFA;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Default state for text */
+        .category-card h3 {
+            font-weight: 500;
+            transition: font-weight 0.3s;
+        }
+
+        /* Active or Hover state for text */
+        .category-card.category-active h3,
+        .category-card:hover h3 {
+            font-weight: 700;
         }
     </style>
 </head>
@@ -766,84 +790,105 @@
 
                 <!-- Categories Grid - Updated for Scroll/Responsive -->
                 <div id="categoryScrollContainer"
-                    class="flex overflow-x-auto gap-4 md:gap-6 snap-x snap-proximity scrollbar-hide">
+                    class="flex overflow-x-auto gap-4 md:gap-6 snap-x snap-proximity scrollbar-hide pb-10">
                     <!-- Logo & Brand Identity -->
                     <div id="cat-branding"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group bg-maximus-red"
-                        style="background-color: #a70000;" onclick="showCategory('branding')">
-                        <img src="assets/Category/Branding.png" alt="Logo & Brand Identity"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
-                            <h3
-                                class="text-white font-montserrat font-bold text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-                                Branding</h3>
+                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        onclick="showCategory('branding')">
+                        <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
+                            <img src="assets/Category/Branding.png" alt="Logo & Brand Identity"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
+                                <h3
+                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+                                    Branding</h3>
+                            </div>
                         </div>
+                        <div class="category-triangle hidden"></div>
                     </div>
 
                     <!-- Packaging -->
+                    <!-- Packaging -->
                     <div id="cat-packaging"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group bg-maximus-red"
-                        style="background-color: #a70000;" onclick="showCategory('packaging')">
-                        <img src="assets/Category/Packaging.png" alt="Packaging"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
-                            <h3
-                                class="text-white font-montserrat font-bold text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-                                Packaging</h3>
+                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        onclick="showCategory('packaging')">
+                        <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
+                            <img src="assets/Category/Packaging.png" alt="Packaging"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
+                                <h3
+                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+                                    Packaging</h3>
+                            </div>
                         </div>
+                        <div class="category-triangle hidden"></div>
                     </div>
 
                     <!-- Real Estate -->
+                    <!-- Real Estate -->
                     <div id="cat-realestate"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group bg-maximus-red"
-                        style="background-color: #a70000;" onclick="showCategory('realestate')">
-                        <img src="assets/Category/Realestate.png" alt="Real Estate"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
-                            <h3
-                                class="text-white font-montserrat font-bold text-xs sm:text-lg md:text-xl lg:text-2xl tracking-wide leading-tight px-1">
-                                Real Estate</h3>
+                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        onclick="showCategory('realestate')">
+                        <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
+                            <img src="assets/Category/Realestate.png" alt="Real Estate"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
+                                <h3
+                                    class="text-white font-montserrat font-medium text-xs sm:text-lg md:text-xl lg:text-2xl tracking-wide leading-tight px-1">
+                                    Real Estate</h3>
+                            </div>
                         </div>
+                        <div class="category-triangle hidden"></div>
                     </div>
 
-                    <!-- Creative & Communications -->
+                    <!-- UI/UX -->
+                    <!-- UI/UX -->
                     <div id="cat-creative"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group bg-maximus-red"
-                        style="background-color: #a70000;" onclick="showCategory('creative')">
-                        <img src="assets/Category/UX.png" alt="Creative & Communications"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
-                            <h3
-                                class="text-white font-montserrat font-bold text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-                                Creative</h3>
+                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        onclick="showCategory('creative')">
+                        <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
+                            <img src="assets/Category/UX.png" alt="UI/UX"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
+                                <h3
+                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+                                    UI/UX</h3>
+                            </div>
                         </div>
+                        <div class="category-triangle hidden"></div>
                     </div>
 
                     <!-- Lifestyle -->
+                    <!-- Lifestyle -->
                     <div id="cat-videos"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group bg-maximus-red"
-                        style="background-color: #a70000;" onclick="showCategory('videos')">
-                        <img src="assets/Category/Lifestyle.png" alt="Lifestyle"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
-                        <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
-                            <h3
-                                class="text-white font-montserrat font-bold text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-                                Lifestyle</h3>
+                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        onclick="showCategory('videos')">
+                        <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
+                            <img src="assets/Category/Lifestyle.png" alt="Lifestyle"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
+                                <h3
+                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+                                    Lifestyle</h3>
+                            </div>
                         </div>
+                        <div class="category-triangle hidden"></div>
                     </div>
 
                     <!-- Videos & Reels (New) -->
                     <div id="cat-reels"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square rounded-lg overflow-hidden snap-center cursor-pointer shadow-none transition-all duration-300 relative group bg-black"
+                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
                         onclick="showCategory('reels')">
-                        <video src="assets/Video/video.mp4" muted loop autoplay playsinline
-                            class="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity duration-300"></video>
-                        <div
-                            class="absolute inset-0 flex flex-col items-center justify-center z-10 pointer-events-none">
-                            <i class="fas fa-play text-white text-xl sm:text-2xl mb-1 drop-shadow-md"></i>
-                            <p class="text-white font-bold text-xs sm:text-sm tracking-wider drop-shadow-md px-1">Videos
-                                & Reels</p>
+                        <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
+                            <img src="assets/Category/Videos.png" alt="Videos & Reels"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
+                                <h3
+                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+                                    Videos & Reels</h3>
+                            </div>
                         </div>
+                        <div class="category-triangle hidden"></div>
                     </div>
                 </div>
             </div>
@@ -996,30 +1041,54 @@
                         <i class="fas fa-chevron-right"></i>
                     </button>
                     <div class="brands-grid">
+                        <!-- Bakery / Misc Group -->
                         <div class="brand-image-item" onclick="openLightbox('assets/Packaging/BANANNA-CHIPS.jpg')">
                             <img src="assets/Packaging/BANANNA-CHIPS.jpg" alt="Packaging">
                         </div>
                         <div class="brand-image-item" onclick="openLightbox('assets/Packaging/BENNE-MURUKKU.jpg')">
                             <img src="assets/Packaging/BENNE-MURUKKU.jpg" alt="Packaging">
                         </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Packaging/chocolate-truffle-cake.jpg')">
+                            <img src="assets/Packaging/chocolate-truffle-cake.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/pineapple-cake.jpg')">
+                            <img src="assets/Packaging/pineapple-cake.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Mango-pudding.jpg')">
+                            <img src="assets/Packaging/Mango-pudding.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/mawa-Mango-cake.jpg')">
+                            <img src="assets/Packaging/mawa-Mango-cake.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/PAPER-BAG.jpg')">
+                            <img src="assets/Packaging/PAPER-BAG.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/plum-cake-green.jpg')">
+                            <img src="assets/Packaging/plum-cake-green.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/plum-cake-purple.jpg')">
+                            <img src="assets/Packaging/plum-cake-purple.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Plum-cake-Red.jpg')">
+                            <img src="assets/Packaging/Plum-cake-Red.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/plum-cake-tin-box.jpg')">
+                            <img src="assets/Packaging/plum-cake-tin-box.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/PLUM-CAKE.jpg')">
+                            <img src="assets/Packaging/PLUM-CAKE.jpg" alt="Packaging">
+                        </div>
+
+                        <!-- Edhardly -->
                         <div class="brand-image-item" onclick="openLightbox('assets/Packaging/EDHARDLY-RED.jpg')">
                             <img src="assets/Packaging/EDHARDLY-RED.jpg" alt="Packaging">
                         </div>
                         <div class="brand-image-item" onclick="openLightbox('assets/Packaging/EDHARDLY-YELLOW.jpg')">
                             <img src="assets/Packaging/EDHARDLY-YELLOW.jpg" alt="Packaging">
                         </div>
-                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Mango-pudding.jpg')">
-                            <img src="assets/Packaging/Mango-pudding.jpg" alt="Packaging">
-                        </div>
-                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/PAPER-BAG.jpg')">
-                            <img src="assets/Packaging/PAPER-BAG.jpg" alt="Packaging">
-                        </div>
-                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/PLUM-CAKE.jpg')">
-                            <img src="assets/Packaging/PLUM-CAKE.jpg" alt="Packaging">
-                        </div>
-                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Plum-cake-Red.jpg')">
-                            <img src="assets/Packaging/Plum-cake-Red.jpg" alt="Packaging">
-                        </div>
+
+                        <!-- Taaza Mithai -->
                         <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Taaza-Mithai-1.jpg')">
                             <img src="assets/Packaging/Taaza-Mithai-1.jpg" alt="Packaging">
                         </div>
@@ -1035,28 +1104,9 @@
                         <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Taaza-Mithai-5.jpg')">
                             <img src="assets/Packaging/Taaza-Mithai-5.jpg" alt="Packaging">
                         </div>
-                        <div class="brand-image-item"
-                            onclick="openLightbox('assets/Packaging/chocolate-truffle-cake.jpg')">
-                            <img src="assets/Packaging/chocolate-truffle-cake.jpg" alt="Packaging">
-                        </div>
-                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/mawa-Mango-cake.jpg')">
-                            <img src="assets/Packaging/mawa-Mango-cake.jpg" alt="Packaging">
-                        </div>
-                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/pineapple-cake.jpg')">
-                            <img src="assets/Packaging/pineapple-cake.jpg" alt="Packaging">
-                        </div>
-                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/plum-cake-green.jpg')">
-                            <img src="assets/Packaging/plum-cake-green.jpg" alt="Packaging">
-                        </div>
-                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/plum-cake-purple.jpg')">
-                            <img src="assets/Packaging/plum-cake-purple.jpg" alt="Packaging">
-                        </div>
-                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/plum-cake-tin-box.jpg')">
-                            <img src="assets/Packaging/plum-cake-tin-box.jpg" alt="Packaging">
-                        </div>
-                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/taza-mithai-Ashwa.jpg')">
-                            <img src="assets/Packaging/taza-mithai-Ashwa.jpg" alt="Packaging">
-                        </div>
+
+                        <!-- Taza Mithai Series 2 -->
+
                         <div class="brand-image-item"
                             onclick="openLightbox('assets/Packaging/taza-mithai-Namkeen-1.jpg')">
                             <img src="assets/Packaging/taza-mithai-Namkeen-1.jpg" alt="Packaging">
@@ -1064,6 +1114,9 @@
                         <div class="brand-image-item"
                             onclick="openLightbox('assets/Packaging/taza-mithai-Namkeen-2.jpg')">
                             <img src="assets/Packaging/taza-mithai-Namkeen-2.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/taza-mithai-Ashwa.jpg')">
+                            <img src="assets/Packaging/taza-mithai-Ashwa.jpg" alt="Packaging">
                         </div>
                         <div class="brand-image-item"
                             onclick="openLightbox('assets/Packaging/taza-mithai-Vrishaba.jpg')">
@@ -1085,6 +1138,62 @@
                         <div class="brand-image-item"
                             onclick="openLightbox('assets/Packaging/taza-mithai-paper-bag-2.jpg')">
                             <img src="assets/Packaging/taza-mithai-paper-bag-2.jpg" alt="Packaging">
+                        </div>
+
+                        <!-- Maiyas -->
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-1.jpg')">
+                            <img src="assets/Packaging/Maiyas-1.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-2.jpg')">
+                            <img src="assets/Packaging/Maiyas-2.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-3.jpg')">
+                            <img src="assets/Packaging/Maiyas-3.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-4.jpg')">
+                            <img src="assets/Packaging/Maiyas-4.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-5.jpg')">
+                            <img src="assets/Packaging/Maiyas-5.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-6.jpg')">
+                            <img src="assets/Packaging/Maiyas-6.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-7.jpg')">
+                            <img src="assets/Packaging/Maiyas-7.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/MAiyas-8.jpg')">
+                            <img src="assets/Packaging/MAiyas-8.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-9.jpg')">
+                            <img src="assets/Packaging/Maiyas-9.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-10.jpg')">
+                            <img src="assets/Packaging/Maiyas-10.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-11.jpg')">
+                            <img src="assets/Packaging/Maiyas-11.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-12.jpg')">
+                            <img src="assets/Packaging/Maiyas-12.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-13.jpg')">
+                            <img src="assets/Packaging/Maiyas-13.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-14.jpg')">
+                            <img src="assets/Packaging/Maiyas-14.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-15.jpg')">
+                            <img src="assets/Packaging/Maiyas-15.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-16.jpg')">
+                            <img src="assets/Packaging/Maiyas-16.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-17.jpg')">
+                            <img src="assets/Packaging/Maiyas-17.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-18.jpg')">
+                            <img src="assets/Packaging/Maiyas-18.jpg" alt="Packaging">
                         </div>
                     </div>
                 </div>
@@ -1245,6 +1354,119 @@
                                 class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
                                 <i class="fas fa-play text-white text-3xl opacity-80"></i>
                             </div>
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/10 lines teaser.mp4')">
+                            <video src="assets/Video/10 lines teaser.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Video/Anthill Video_Final Copy Full HD (1920X1080).mp4')">
+                            <video src="assets/Video/Anthill Video_Final Copy Full HD (1920X1080).mp4" muted loop
+                                playsinline class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/Comp 2.mp4')">
+                            <video src="assets/Video/Comp 2.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/Comp 3_5.mp4')">
+                            <video src="assets/Video/Comp 3_5.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/Comp 9.mp4')">
+                            <video src="assets/Video/Comp 9.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/Rouzy Tribe.mp4')">
+                            <video src="assets/Video/Rouzy Tribe.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Video/Signature Projects_Full HD (1920X1080).mp4')">
+                            <video src="assets/Video/Signature Projects_Full HD (1920X1080).mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/Terratones Stance.mp4')">
+                            <video src="assets/Video/Terratones Stance.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/White water video 3.mp4')">
+                            <video src="assets/Video/White water video 3.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Video/chisel BG avanish copy 2.mp4')">
+                            <video src="assets/Video/chisel BG avanish copy 2.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Video/cityville brochure video.mp4')">
+                            <video src="assets/Video/cityville brochure video.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/main_1.m4v')">
+                            <video src="assets/Video/main_1.m4v" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Video/terratones flawless.mp4')">
+                            <video src="assets/Video/terratones flawless.mp4" muted loop playsinline
+                                class="w-full h-full object-cover"></video>
+                            <div
+                                class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-30 hover:bg-opacity-10 transition-all duration-300 pointer-events-none">
+                                <i class="fas fa-play text-white text-3xl opacity-80"></i>
+                            </div>
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Video/moonanimation1copy_2_1-ezgif.com-optimize.gif')">
+                            <img src="assets/Video/moonanimation1copy_2_1-ezgif.com-optimize.gif" alt="Animation"
+                                class="w-full h-full object-cover">
                         </div>
                     </div>
                 </div>
@@ -1497,7 +1719,7 @@
                 wrapper.className = 'lightbox-image-wrapper';
 
                 // Check if it's a video
-                if (src.toLowerCase().endsWith('.mp4') || src.toLowerCase().endsWith('.webm')) {
+                if (src.toLowerCase().endsWith('.mp4') || src.toLowerCase().endsWith('.webm') || src.toLowerCase().endsWith('.m4v')) {
                     wrapper.innerHTML = `
                         <video controls class="max-w-full max-h-full object-contain">
                             <source src="${src}" type="video/mp4">
