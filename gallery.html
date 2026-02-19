@@ -72,19 +72,19 @@
             border-radius: 10px;
         }
 
-        /* Hover Effect: Lift and Expand */
-        .category-card:hover {
-            transform: translateY(-5px) scale(1.05);
-            z-index: 5;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        /* Hover Effect: Lift and Expand - Desktop Only */
+        @media (hover: hover) {
+            .category-card:hover {
+                transform: translateY(-5px) scale(1.05);
+                z-index: 5;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+            }
         }
 
         /* Active State: Enlarge and Highlight */
-        /* Active State: Enlarge and Highlight */
-        /* Active State: Enlarge and Highlight */
         .category-card.category-active {
-            transform: scale(0.95);
-            /* Reduced scale for active state */
+            transform: scale(1.05);
+            /* Enlarge for active state to match hover */
             z-index: 20 !important;
             border: 3px solid #FAFAFA;
             /* White Border for contrast */
@@ -793,14 +793,14 @@
                     class="flex overflow-x-auto gap-4 md:gap-6 snap-x snap-proximity scrollbar-hide pb-10">
                     <!-- Logo & Brand Identity -->
                     <div id="cat-branding"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        class="category-card flex-shrink-0 w-32 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
                         onclick="showCategory('branding')">
                         <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
                             <img src="assets/Category/Branding.png" alt="Logo & Brand Identity"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
                                 <h3
-                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+                                    class="text-white font-montserrat font-medium text-xs sm:text-lg md:text-xl lg:text-2xl tracking-wide">
                                     Branding</h3>
                             </div>
                         </div>
@@ -810,14 +810,14 @@
                     <!-- Packaging -->
                     <!-- Packaging -->
                     <div id="cat-packaging"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        class="category-card flex-shrink-0 w-32 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
                         onclick="showCategory('packaging')">
                         <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
                             <img src="assets/Category/Packaging.png" alt="Packaging"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
                                 <h3
-                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+                                    class="text-white font-montserrat font-medium text-xs sm:text-lg md:text-xl lg:text-2xl tracking-wide">
                                     Packaging</h3>
                             </div>
                         </div>
@@ -827,7 +827,7 @@
                     <!-- Real Estate -->
                     <!-- Real Estate -->
                     <div id="cat-realestate"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        class="category-card flex-shrink-0 w-32 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
                         onclick="showCategory('realestate')">
                         <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
                             <img src="assets/Category/Realestate.png" alt="Real Estate"
@@ -844,14 +844,14 @@
                     <!-- UI/UX -->
                     <!-- UI/UX -->
                     <div id="cat-creative"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        class="category-card flex-shrink-0 w-32 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
                         onclick="showCategory('creative')">
                         <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
                             <img src="assets/Category/UX.png" alt="UI/UX"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
                                 <h3
-                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+                                    class="text-white font-montserrat font-medium text-xs sm:text-lg md:text-xl lg:text-2xl tracking-wide">
                                     UI/UX</h3>
                             </div>
                         </div>
@@ -861,32 +861,32 @@
                     <!-- Lifestyle -->
                     <!-- Lifestyle -->
                     <div id="cat-videos"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        class="category-card flex-shrink-0 w-32 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
                         onclick="showCategory('videos')">
                         <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
                             <img src="assets/Category/Lifestyle.png" alt="Lifestyle"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
                                 <h3
-                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+                                    class="text-white font-montserrat font-medium text-xs sm:text-lg md:text-xl lg:text-2xl tracking-wide">
                                     Lifestyle</h3>
                             </div>
                         </div>
                         <div class="category-triangle hidden"></div>
                     </div>
 
-                    
+
 
                     <!-- Hospitality and Travel (New) -->
                     <div id="cat-hospitality"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        class="category-card flex-shrink-0 w-32 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
                         onclick="showCategory('hospitality')">
                         <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
                             <img src="assets/Category/Hospitalityandtravel.png" alt="Hospitality and Travel"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
                                 <h3
-                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide leading-tight">
+                                    class="text-white font-montserrat font-medium text-xs sm:text-lg md:text-xl lg:text-2xl tracking-wide leading-tight">
                                     Hospitality &<br>Travel</h3>
                             </div>
                         </div>
@@ -895,15 +895,15 @@
 
                     <!-- Videos & Reels (New) -->
                     <div id="cat-reels"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        class="category-card flex-shrink-0 w-32 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
                         onclick="showCategory('reels')">
                         <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
                             <img src="assets/Category/Videos.png" alt="Videos & Reels"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
                                 <h3
-                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
-                                    Videos & Reels</h3>
+                                    class="text-white font-montserrat font-medium text-xs sm:text-lg md:text-xl lg:text-2xl tracking-wide leading-tight">
+                                    Videos &<br>Reels</h3>
                             </div>
                         </div>
                         <div class="category-triangle hidden"></div>
@@ -911,14 +911,14 @@
 
                     <!-- Others (New) -->
                     <div id="cat-others"
-                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        class="category-card flex-shrink-0 w-32 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
                         onclick="showCategory('others')">
                         <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
                             <img src="assets/Category/Others.png" alt="Others"
                                 class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
                             <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
                                 <h3
-                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+                                    class="text-white font-montserrat font-medium text-xs sm:text-lg md:text-xl lg:text-2xl tracking-wide">
                                     Others</h3>
                             </div>
                         </div>
@@ -976,6 +976,9 @@
                         <div class="brand-image-item"
                             onclick="openLightbox('assets/Branding/RESIZE/FOOD/Babak-Logo.jpg')">
                             <img src="assets/Branding/RESIZE/FOOD/Babak-Logo.jpg" alt="Babak Logo">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Babak-2.jpg')">
+                            <img src="assets/Branding/Babak-2.jpg" alt="Babak Branding">
                         </div>
                         <div class="brand-image-item"
                             onclick="openLightbox('assets/Branding/RESIZE/FOOD/Cakewala---Branding.jpg')">
@@ -1060,6 +1063,64 @@
                         </div>
                         <div class="brand-image-item" onclick="openLightbox('assets/Branding/RESIZE/SOUL/Soul-4.jpg')">
                             <img src="assets/Branding/RESIZE/SOUL/Soul-4.jpg" alt="Soul Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/RESIZE/Clado-1.jpg')">
+                            <img src="assets/Branding/RESIZE/Clado-1.jpg" alt="Clado Branding">
+                        </div>
+
+
+
+                        <!-- Bulls -->
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Bulls-1.jpg')">
+                            <img src="assets/Branding/Bulls-1.jpg" alt="Bulls Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Bulls-2.jpg')">
+                            <img src="assets/Branding/Bulls-2.jpg" alt="Bulls Branding">
+                        </div>
+
+                        <!-- Eco -->
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Eco-1.jpg')">
+                            <img src="assets/Branding/Eco-1.jpg" alt="Eco Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Eco-2.jpg')">
+                            <img src="assets/Branding/Eco-2.jpg" alt="Eco Branding">
+                        </div>
+
+                        <!-- Hebuni -->
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Hebuni-1.jpg')">
+                            <img src="assets/Branding/Hebuni-1.jpg" alt="Hebuni Branding">
+                        </div>
+
+                        <!-- Lenceria -->
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Lenceria-1.jpg')">
+                            <img src="assets/Branding/Lenceria-1.jpg" alt="Lenceria Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Lenceria-2.jpg')">
+                            <img src="assets/Branding/Lenceria-2.jpg" alt="Lenceria Branding">
+                        </div>
+
+                        <!-- Saaa -->
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Saaa-1.jpg')">
+                            <img src="assets/Branding/Saaa-1.jpg" alt="Saaa Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Saaa-2.jpg')">
+                            <img src="assets/Branding/Saaa-2.jpg" alt="Saaa Branding">
+                        </div>
+
+                        <!-- Swaccha -->
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Swaccha-1.jpg')">
+                            <img src="assets/Branding/Swaccha-1.jpg" alt="Swaccha Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Swaccha-2.jpg')">
+                            <img src="assets/Branding/Swaccha-2.jpg" alt="Swaccha Branding">
+                        </div>
+
+                        <!-- Tattsow -->
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Tattsow-1.jpg')">
+                            <img src="assets/Branding/Tattsow-1.jpg" alt="Tattsow Branding">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Branding/Tattsow-2.jpg')">
+                            <img src="assets/Branding/Tattsow-2.jpg" alt="Tattsow Branding">
                         </div>
                     </div>
                 </div>
@@ -1229,6 +1290,16 @@
                         <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Maiyas-18.jpg')">
                             <img src="assets/Packaging/Maiyas-18.jpg" alt="Packaging">
                         </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Packaging/Maiyas-Mysore-pak-and-RAVA.jpg')">
+                            <img src="assets/Packaging/Maiyas-Mysore-pak-and-RAVA.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Pomegranate.jpg')">
+                            <img src="assets/Packaging/Pomegranate.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Raw-Coconut-Chunks.jpg')">
+                            <img src="assets/Packaging/Raw-Coconut-Chunks.jpg" alt="Packaging">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -1318,6 +1389,42 @@
                         <div class="brand-image-item"
                             onclick="openLightbox('assets/RealEstateResize/PURAVANKARA-5.jpg')">
                             <img src="assets/RealEstateResize/PURAVANKARA-5.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ABD-2.jpg')">
+                            <img src="assets/RealEstateResize/ABD-2.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ABD-3.jpg')">
+                            <img src="assets/RealEstateResize/ABD-3.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ABD-4.jpg')">
+                            <img src="assets/RealEstateResize/ABD-4.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ABD-5.jpg')">
+                            <img src="assets/RealEstateResize/ABD-5.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ABD-6.jpg')">
+                            <img src="assets/RealEstateResize/ABD-6.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ABD-7.jpg')">
+                            <img src="assets/RealEstateResize/ABD-7.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ABD-8.jpg')">
+                            <img src="assets/RealEstateResize/ABD-8.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ABD-9.jpg')">
+                            <img src="assets/RealEstateResize/ABD-9.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ABD-10.jpg')">
+                            <img src="assets/RealEstateResize/ABD-10.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ABD-11.jpg')">
+                            <img src="assets/RealEstateResize/ABD-11.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ABD-12.jpg')">
+                            <img src="assets/RealEstateResize/ABD-12.jpg" alt="Gallery Image">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/RealEstateResize/ABD-13.jpg')">
+                            <img src="assets/RealEstateResize/ABD-13.jpg" alt="Gallery Image">
                         </div>
                     </div>
                 </div>
@@ -1508,8 +1615,112 @@
                         <i class="fas fa-chevron-right"></i>
                     </button>
                     <div class="brands-grid">
-                        <div class="flex items-center justify-center w-full min-h-[200px] text-gray-500 italic">
-                            Content coming soon
+                        <!-- Indulgence -->
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Indulgence-1.jpg')">
+                            <img src="assets/Hospitalityandtravel/Indulgence-1.jpg" alt="Indulgence">
+                        </div>
+
+                        <!-- Jonahs -->
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Jonahs-1.jpg')">
+                            <img src="assets/Hospitalityandtravel/Jonahs-1.jpg" alt="Jonahs">
+                        </div>
+
+                        <!-- Odisha -->
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Odisha-1.jpg')">
+                            <img src="assets/Hospitalityandtravel/Odisha-1.jpg" alt="Odisha">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Odisha-2.jpg')">
+                            <img src="assets/Hospitalityandtravel/Odisha-2.jpg" alt="Odisha">
+                        </div>
+
+                        <!-- Palm -->
+                        <div class="brand-image-item" onclick="openLightbox('assets/Hospitalityandtravel/Palm-1.jpg')">
+                            <img src="assets/Hospitalityandtravel/Palm-1.jpg" alt="Palm">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Hospitalityandtravel/Palm-2.jpg')">
+                            <img src="assets/Hospitalityandtravel/Palm-2.jpg" alt="Palm">
+                        </div>
+
+                        <!-- Swosti -->
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-1.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-1.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-2.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-2.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-3.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-3.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-4.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-4.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-5.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-5.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-6.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-6.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-7.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-7.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-8.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-8.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-9.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-9.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-10.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-10.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-11.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-11.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-12.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-12.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-13.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-13.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-14.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-14.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-15.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-15.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-16.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-16.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-17.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-17.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-18.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-18.jpg" alt="Swosti">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Hospitalityandtravel/Swosti-19.jpg')">
+                            <img src="assets/Hospitalityandtravel/Swosti-19.jpg" alt="Swosti">
                         </div>
                     </div>
                 </div>
@@ -1525,8 +1736,81 @@
                         <i class="fas fa-chevron-right"></i>
                     </button>
                     <div class="brands-grid">
-                        <div class="flex items-center justify-center w-full min-h-[200px] text-gray-500 italic">
-                            Content coming soon
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-1.jpg')">
+                            <img src="assets/other-works/All-Others-Works-1.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-2.jpg')">
+                            <img src="assets/other-works/All-Others-Works-2.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-3.jpg')">
+                            <img src="assets/other-works/All-Others-Works-3.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-4.jpg')">
+                            <img src="assets/other-works/All-Others-Works-4.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-5.jpg')">
+                            <img src="assets/other-works/All-Others-Works-5.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-6.jpg')">
+                            <img src="assets/other-works/All-Others-Works-6.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-7.jpg')">
+                            <img src="assets/other-works/All-Others-Works-7.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-8.jpg')">
+                            <img src="assets/other-works/All-Others-Works-8.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-9.jpg')">
+                            <img src="assets/other-works/All-Others-Works-9.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-10.jpg')">
+                            <img src="assets/other-works/All-Others-Works-10.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-11.jpg')">
+                            <img src="assets/other-works/All-Others-Works-11.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-12.jpg')">
+                            <img src="assets/other-works/All-Others-Works-12.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-13.jpg')">
+                            <img src="assets/other-works/All-Others-Works-13.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-14.jpg')">
+                            <img src="assets/other-works/All-Others-Works-14.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-15.jpg')">
+                            <img src="assets/other-works/All-Others-Works-15.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-16.jpg')">
+                            <img src="assets/other-works/All-Others-Works-16.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-17.jpg')">
+                            <img src="assets/other-works/All-Others-Works-17.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-18.jpg')">
+                            <img src="assets/other-works/All-Others-Works-18.jpg" alt="Other Works">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/other-works/All-Others-Works-19.jpg')">
+                            <img src="assets/other-works/All-Others-Works-19.jpg" alt="Other Works">
                         </div>
                     </div>
                 </div>
@@ -1610,6 +1894,29 @@
                         <div class="brand-image-item"
                             onclick="openLightbox('assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-7.jpg')">
                             <img src="assets/Lifestyle RESIZE/TABINDIA/TAB-INDIA-7.jpg" alt="TAB INDIA Lifestyle">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Lifestyle RESIZE/Clado-2.jpg')">
+                            <img src="assets/Lifestyle RESIZE/Clado-2.jpg" alt="Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/Little-Strawberry.jpg')">
+                            <img src="assets/Lifestyle RESIZE/Little-Strawberry.jpg" alt="Lifestyle">
+                        </div>
+                        <div class="brand-image-item"
+                            onclick="openLightbox('assets/Lifestyle RESIZE/Strawberry-1.jpg')">
+                            <img src="assets/Lifestyle RESIZE/Strawberry-1.jpg" alt="Lifestyle">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Lifestyle RESIZE/Lovable-2.jpg')">
+                            <img src="assets/Lifestyle RESIZE/Lovable-2.jpg" alt="Lifestyle">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Lifestyle RESIZE/Lovable-3.jpg')">
+                            <img src="assets/Lifestyle RESIZE/Lovable-3.jpg" alt="Lifestyle">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Lifestyle RESIZE/Lovable-4.jpg')">
+                            <img src="assets/Lifestyle RESIZE/Lovable-4.jpg" alt="Lifestyle">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Lifestyle RESIZE/Zivame.jpg')">
+                            <img src="assets/Lifestyle RESIZE/Zivame.jpg" alt="Lifestyle">
                         </div>
                     </div>
                 </div>
@@ -1983,9 +2290,9 @@
             if (categoryContainer) {
                 setTimeout(() => {
                     // Larger scroll for visibility on mobile
-                    categoryContainer.scrollBy({ left: 200, behavior: 'smooth' });
+                    categoryContainer.scrollBy({ left: 400, behavior: 'smooth' });
                     setTimeout(() => {
-                        categoryContainer.scrollBy({ left: -200, behavior: 'smooth' });
+                        categoryContainer.scrollBy({ left: -400, behavior: 'smooth' });
                     }, 1500);
                 }, 1500);
             }
@@ -1994,7 +2301,7 @@
         // Category Scroll function
         function scrollCategories(direction) {
             const container = document.getElementById('categoryScrollContainer');
-            const scrollAmount = 300;
+            const scrollAmount = 400;
             if (container) {
                 container.scrollBy({ left: scrollAmount * direction, behavior: 'smooth' });
             }
