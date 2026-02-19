@@ -875,6 +875,24 @@
                         <div class="category-triangle hidden"></div>
                     </div>
 
+                    
+
+                    <!-- Hospitality and Travel (New) -->
+                    <div id="cat-hospitality"
+                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        onclick="showCategory('hospitality')">
+                        <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
+                            <img src="assets/Category/Hospitalityandtravel.png" alt="Hospitality and Travel"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
+                                <h3
+                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide leading-tight">
+                                    Hospitality &<br>Travel</h3>
+                            </div>
+                        </div>
+                        <div class="category-triangle hidden"></div>
+                    </div>
+
                     <!-- Videos & Reels (New) -->
                     <div id="cat-reels"
                         class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
@@ -886,6 +904,22 @@
                                 <h3
                                     class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
                                     Videos & Reels</h3>
+                            </div>
+                        </div>
+                        <div class="category-triangle hidden"></div>
+                    </div>
+
+                    <!-- Others (New) -->
+                    <div id="cat-others"
+                        class="category-card flex-shrink-0 w-28 sm:w-36 md:w-48 lg:w-56 aspect-square snap-center cursor-pointer shadow-none transition-all duration-300 relative group"
+                        onclick="showCategory('others')">
+                        <div class="category-inner bg-maximus-red" style="background-color: #a70000;">
+                            <img src="assets/Category/Others.png" alt="Others"
+                                class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-500">
+                            <div class="absolute bottom-0 left-0 right-0 py-2 sm:py-3 text-center">
+                                <h3
+                                    class="text-white font-montserrat font-medium text-sm sm:text-lg md:text-xl lg:text-2xl tracking-wide">
+                                    Others</h3>
                             </div>
                         </div>
                         <div class="category-triangle hidden"></div>
@@ -1073,11 +1107,11 @@
                         <div class="brand-image-item" onclick="openLightbox('assets/Packaging/Plum-cake-Red.jpg')">
                             <img src="assets/Packaging/Plum-cake-Red.jpg" alt="Packaging">
                         </div>
-                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/plum-cake-tin-box.jpg')">
-                            <img src="assets/Packaging/plum-cake-tin-box.jpg" alt="Packaging">
-                        </div>
                         <div class="brand-image-item" onclick="openLightbox('assets/Packaging/PLUM-CAKE.jpg')">
                             <img src="assets/Packaging/PLUM-CAKE.jpg" alt="Packaging">
+                        </div>
+                        <div class="brand-image-item" onclick="openLightbox('assets/Packaging/plum-cake-tin-box.jpg')">
+                            <img src="assets/Packaging/plum-cake-tin-box.jpg" alt="Packaging">
                         </div>
 
                         <!-- Edhardly -->
@@ -1459,6 +1493,40 @@
                             onclick="openLightbox('assets/Video/moonanimation1copy_2_1-ezgif.com-optimize.gif')">
                             <img src="assets/Video/moonanimation1copy_2_1-ezgif.com-optimize.gif" alt="Animation"
                                 class="w-full h-full object-cover">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hospitality and Travel Content -->
+            <div id="hospitalityContent" class="section-hidden">
+                <div class="scroll-container">
+                    <button class="scroll-btn scroll-btn-left" onclick="scrollGallery('hospitalityContent', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn scroll-btn-right" onclick="scrollGallery('hospitalityContent', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="brands-grid">
+                        <div class="flex items-center justify-center w-full min-h-[200px] text-gray-500 italic">
+                            Content coming soon
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Others Content -->
+            <div id="othersContent" class="section-hidden">
+                <div class="scroll-container">
+                    <button class="scroll-btn scroll-btn-left" onclick="scrollGallery('othersContent', -1)">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="scroll-btn scroll-btn-right" onclick="scrollGallery('othersContent', 1)">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                    <div class="brands-grid">
+                        <div class="flex items-center justify-center w-full min-h-[200px] text-gray-500 italic">
+                            Content coming soon
                         </div>
                     </div>
                 </div>
@@ -1852,6 +1920,10 @@
             document.getElementById('videosContent').classList.add('section-hidden');
             document.getElementById('reelsContent').classList.remove('section-visible');
             document.getElementById('reelsContent').classList.add('section-hidden');
+            document.getElementById('hospitalityContent').classList.remove('section-visible');
+            document.getElementById('hospitalityContent').classList.add('section-hidden');
+            document.getElementById('othersContent').classList.remove('section-visible');
+            document.getElementById('othersContent').classList.add('section-hidden');
 
             // Hide indicator
             document.getElementById('categoryIndicator').classList.remove('active');
