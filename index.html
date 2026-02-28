@@ -363,10 +363,14 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero-section relative h-screen flex items-center justify-start overflow-hidden mt-20">
-        <!-- Background Image -->
+        <!-- Background Video -->
         <div class="absolute inset-0 z-0">
-            <div class="hero-image absolute inset-0 bg-cover bg-center"
-                style="background-image: url('assets/Hero-section.png');"></div>
+            <video class="absolute inset-0 w-full h-full object-cover" autoplay muted loop playsinline
+                poster="assets/Hero-section.png">
+                <source src="assets/Video/Hero-section-vid.mp4" type="video/mp4">
+                <!-- Fallback to image if video not supported -->
+                <img src="assets/Hero-section.png" alt="Maximus Hero" class="w-full h-full object-cover">
+            </video>
         </div>
 
         <!-- Floating Particles -->
