@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 
 <head>
@@ -1446,6 +1446,179 @@
                 closeBlogModal();
             }
         });
+    </script>
+
+    <!-- Right Side Panel Banners -->
+    <style>
+        /* Right Side Panel Banners */
+        #side-banners {
+            position: fixed;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 9990;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            gap: 0;
+            pointer-events: none;
+        }
+        .side-banner-item {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            pointer-events: all;
+            cursor: pointer;
+            transform: translateX(calc(100% - 30px));
+            transition: transform 0.4s cubic-bezier(0.22, 1, 0.36, 1), filter 0.4s ease;
+            filter: drop-shadow(-4px 0 14px rgba(0,0,0,0.3));
+        }
+        .side-banner-item.expanded {
+            transform: translateX(0);
+            filter: drop-shadow(-6px 0 22px rgba(0,0,0,0.45));
+        }
+        .side-banner-label {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            white-space: nowrap;
+            padding: 0 18px 0 20px;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.25s ease 0.1s;
+        }
+        .side-banner-item.expanded .side-banner-label { opacity: 1; }
+        #banner-portfolio { height: 110px; }
+        #banner-portfolio .side-banner-inner {
+            background: #0A0A0A;
+            border-radius: 22px 0 0 0;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            overflow: hidden;
+            position: relative;
+        }
+        #banner-portfolio .side-banner-label { color: #ffffff; }
+        #banner-contact { height: 110px; }
+        #banner-contact .side-banner-inner {
+            background: #a70000;
+            border-radius: 0 0 0 22px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-direction: row-reverse;
+            overflow: hidden;
+            position: relative;
+        }
+        #banner-contact .side-banner-label { color: #ffbe42; }
+        .side-banner-svg-wrap {
+            flex-shrink: 0;
+            width: 30px;
+            height: 110px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .side-banner-svg-wrap img {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: fill;
+        }
+        .side-banner-tab-text {
+            position: absolute;
+            inset: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 8px;
+            font-weight: 800;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            writing-mode: vertical-rl;
+            transform: rotate(180deg);
+            z-index: 2;
+            pointer-events: none;
+            transition: opacity 0.2s ease;
+        }
+        #banner-portfolio .side-banner-tab-text { color: #ffffff; }
+        #banner-contact .side-banner-tab-text { color: #ffbe42; }
+        .side-banner-item.expanded .side-banner-tab-text { opacity: 0; }
+    </style>
+
+    <div id="side-banners">
+        <a id="banner-portfolio" class="side-banner-item" href="gallery.html" title="Portfolio">
+            <div class="side-banner-inner">
+                <span class="side-banner-label">PORTFOLIO</span>
+                <div class="side-banner-svg-wrap">
+                    <img src="assets/Banner Portfolio.svg" alt="Portfolio">
+                    <span class="side-banner-tab-text">PORTFOLIO</span>
+                </div>
+            </div>
+        </a>
+        <a id="banner-contact" class="side-banner-item" href="index.html#contact" title="Contact">
+            <div class="side-banner-inner">
+                <span class="side-banner-label">GET IN TOUCH</span>
+                <div class="side-banner-svg-wrap">
+                    <img src="assets/Banner Contact.svg" alt="Contact">
+                    <span class="side-banner-tab-text">CONTACT</span>
+                </div>
+            </div>
+        </a>
+    </div>
+
+    <script>
+        (function () {
+            const banners = document.querySelectorAll('.side-banner-item');
+            const PROXIMITY_PX = 80;
+            function checkProximity(e) {
+                const fromRight = window.innerWidth - e.clientX;
+                if (fromRight <= PROXIMITY_PX) {
+                    banners.forEach(b => b.classList.add('expanded'));
+                } else {
+                    banners.forEach(b => b.classList.remove('expanded'));
+                }
+            }
+            document.addEventListener('mousemove', checkProximity);
+            banners.forEach(banner => {
+                banner.addEventListener('mouseenter', () => {
+                    banners.forEach(b => b.classList.add('expanded'));
+                });
+                banner.addEventListener('mouseleave', (e) => {
+                    const fromRight = window.innerWidth - e.clientX;
+                    if (fromRight > PROXIMITY_PX) {
+                        banners.forEach(b => b.classList.remove('expanded'));
+                    }
+                });
+            });            // Hide side banners when mobile menu is open
+            (function() {
+                var mobileMenu = document.getElementById('mobile-menu');
+                var sideBanners = document.getElementById('side-banners');
+                if (mobileMenu && sideBanners) {
+                    var observer = new MutationObserver(function() {
+                        if (!mobileMenu.classList.contains('hidden')) {
+                            sideBanners.style.visibility = 'hidden';
+                            sideBanners.style.pointerEvents = 'none';
+                        } else {
+                            sideBanners.style.visibility = '';
+                            sideBanners.style.pointerEvents = '';
+                        }
+                    });
+                    observer.observe(mobileMenu, { attributes: true, attributeFilter: ['class'] });
+                }
+            })();
+        })();
     </script>
 </body>
 
